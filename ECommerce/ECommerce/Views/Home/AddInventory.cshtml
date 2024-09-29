@@ -1,0 +1,180 @@
+﻿@model E_Commerce.Models.AddInventory
+@{
+    ViewBag.Title = "AddInventory";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+@section Page_Level_Css{
+    <style>
+
+
+        h1 {
+            font-weight: 400;
+            padding-top: 0;
+            margin-top: 0;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        #svg_form_time {
+            height: 15px;
+            max-width: 80%;
+            margin: 20px auto 20px;
+            display: block;
+        }
+
+            #svg_form_time circle,
+            #svg_form_time rect {
+                fill: white;
+            }
+        .dropform-control {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>") no-repeat right 10px center;
+            background-size: 25px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+}
+
+<div class="side-app">
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+
+        <!-- PAGE-HEADER -->
+        @*<div class="page-header">
+            <div>
+                <h1 class="page-title">Add Inventory</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">E-Commerce</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Inventory</li>
+                </ol>
+            </div>
+
+        </div>*@
+        <!-- PAGE-HEADER END -->
+        <!-- ROW-1 OPEN -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Add Product Information</div>
+                    </div>
+                    @using (Html.BeginForm("AddInventory", "Home", FormMethod.Post))
+                    {
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Product Model Name :</label>
+                                <div class="col-md-9">
+                                    @*<input type="text" class="form-control" placeholder="Product Name">*@
+                                    @Html.TextBoxFor(model => model.ModelName, null, new { @class = "form-control", @PlaceHolder = "Product Model", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.ModelName, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <!-- Row -->
+                            <div class="row">
+                                <label class="col-md-3 form-label mb-4">Product Dimension :</label>
+                                <div class="col-md-9 mb-4">
+                                    @Html.TextBoxFor(model => model.Dimension, null, new { @class = "form-control", @PlaceHolder = "Product Dimension", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Dimension, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Product Quantity :</label>
+                                <div class="col-md-9">
+                                    @*<input type="text" class="form-control" placeholder="Product Name">*@
+                                    @Html.TextBoxFor(model => model.Quantity, null, new { @class = "form-control", @PlaceHolder = "Product Quantity", Type = "number", min = "0", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Quantity, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <!-- Row -->
+                            <div class="row">
+                                <label class="col-md-3 form-label mb-4">Product Stock Unit :</label>
+                                <div class="col-md-9 mb-4">
+                                    @Html.DropDownListFor(model => model.StockUnit, ViewBag.DropdownItems as List<SelectListItem>, "Select Stock Unit", new { @class = "form-control dropform-control", @id = "dropdown" })
+                                    @Html.ValidationMessageFor(model => model.StockUnit, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+                            <!-- Row -->
+                            <div class="row">
+                                <label class="col-md-3 form-label mb-4">Contain Liquid Content :</label>
+                                <div class="col-md-9 mb-4" style=" margin-top: 9px">
+                                    @Html.RadioButtonFor(model => model.LiquidContent, "Y", new { @class = "radio-control", id = "Yes" })
+                                    <label for="Yes" style="margin-right:20px;">Yes</label>
+                                    @Html.RadioButtonFor(model => model.LiquidContent, "N", new { @class = "radio-control", id = "No" })
+                                    <label for="No">No</label>
+                                    @Html.ValidationMessageFor(model => model.LiquidContent, null, new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+                            <!-- Row -->
+                            <div class="row">
+                                <label class="col-md-3 form-label mb-4">Is Assembly Required :</label>
+                                <div class="col-md-9 mb-4" style=" margin-top: 9px;">
+                                    @Html.RadioButtonFor(model => model.AssemblyRequired, "Y", new { @class = "radio-control", id = "Yes" })
+                                    <label for="Yes" style="margin-right:20px;">Yes</label>
+                                    @Html.RadioButtonFor(model => model.AssemblyRequired, "N", new { @class = "radio-control", id = "No" })
+                                    <label for="No">No</label>
+                                    @Html.ValidationMessageFor(model => model.AssemblyRequired, null, new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+                            <!-- Row -->
+                            <div class="row">
+                                <label class="col-md-3 form-label mb-4">Product Material :</label>
+                                <div class="col-md-9 mb-4">
+                                    @Html.TextBoxFor(model => model.ManufacturedMaterial, null, new { @class = "form-control", @PlaceHolder = "Product Material (Like: Made of Glass, Steel, Plastic etc...)", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.ManufacturedMaterial, null, new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Number of Set:</label>
+                                <div class="col-md-9">
+                                    @*<input type="text" class="form-control" placeholder="Product Name">*@
+                                    @Html.TextBoxFor(model => model.NumberofSetPerItem, null, new { @class = "form-control", @PlaceHolder = "Number of Set per Item", Type = "number", min = "0", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.NumberofSetPerItem, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <!--Row-->
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-9">
+                                    <button class="btn btn-primary">Add Information</button>
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- ROW-1 CLOSED -->
+
+    </div>
+    <!-- CONTAINER CLOSED -->
+</div>

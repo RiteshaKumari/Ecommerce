@@ -1,0 +1,117 @@
+﻿@model E_Commerce.Models.AddProduct
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+@section Page_Level_Css{
+    <style>
+
+
+        h1 {
+            font-weight: 400;
+            padding-top: 0;
+            margin-top: 0;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        #svg_form_time {
+            height: 15px;
+            max-width: 80%;
+            margin: 20px auto 20px;
+            display: block;
+        }
+
+            #svg_form_time circle,
+            #svg_form_time rect {
+                fill: white;
+            }
+    </style>
+
+}
+
+<div class="side-app" >
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+
+        <!-- PAGE-HEADER -->
+        @*<div class="page-header">
+            <div>
+                <h1 class="page-title">Add Product</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">E-Commerce</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+                </ol>
+            </div>
+            <div class="ms-auto pageheader-btn">
+                <a href="javascript:void(0);" class="btn btn-primary btn-icon text-white me-2">
+                    <span>
+                        <i class="fe fe-shopping-cart"></i>
+                    </span> Add Order
+                </a>
+                <a href="javascript:void(0);" class="btn btn-secondary btn-icon text-white">
+                    <span>
+                        <i class="fe fe-plus"></i>
+                    </span> Add User
+                </a>
+            </div>
+        </div>*@
+        <!-- PAGE-HEADER END -->
+        <!-- ROW-1 OPEN -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Add New Product</div>
+                    </div>
+                    @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
+                    {
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Product Name :</label>
+                                <div class="col-md-9">
+                                    @*<input type="text" class="form-control" placeholder="Product Name">*@
+                                    @Html.TextBoxFor(model => model.ProductName, null, new { @class = "form-control", @PlaceHolder = "Product Name", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.ProductName, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            
+                            <!-- Row -->
+                            <div class="row">
+                                <label class="col-md-3 form-label mb-4">Product Description :<br />(Include All features,<br /> Warranty & so on...)</label>
+                                <div class="col-md-9 mb-4">
+                                    @*<textarea class="content" name="example"></textarea>*@
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "content", @PlaceHolder = "Price", name = "example", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Description, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!--End Row-->
+                            
+                        </div>
+
+                        <div class="card-footer">
+                        <!--Row-->
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-9">
+                                <button class="btn btn-primary">Add Product</button>
+
+
+                            </div>
+                        </div>
+                        <!--End Row-->
+                        </div>
+                     }
+                </div>
+            </div>
+        </div>
+        <!-- ROW-1 CLOSED -->
+
+    </div>
+    <!-- CONTAINER CLOSED -->
+</div>

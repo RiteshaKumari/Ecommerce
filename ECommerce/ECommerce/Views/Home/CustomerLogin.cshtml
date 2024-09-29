@@ -1,0 +1,116 @@
+﻿@model E_Commerce.Models.Sellerlogin
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Page_Level_Css{
+    <link href="~/Content/assets/CustomCss/newstyle.css?1.1" rel="stylesheet" />
+    <style>
+        .t-banner1 .home-offer-banner .o-t-banner .o-t-content {
+            width: 50%;
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(50%);
+            left: 280px;
+            top: -90px;
+        }
+
+
+        .login-area .login-box {
+            /* width: 50%; */
+            width: 100%;
+            padding: 30px;
+            border: 3px solid #eee;
+            background: #FFF1EE;
+        }
+
+        .login-area .login-box {
+            /* width: 50%; */
+            width: 100%;
+            padding: 30px;
+            border: none;
+        }
+
+        .o-t-content {
+            position: relative;
+            top: -323px;
+            left: 221px;
+        }
+
+        .login-area {
+            max-width: 80%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logimg {
+            height: 378px;
+        }
+
+        .tbcolor {
+            background: #FFF1EE;
+        }
+    </style>
+}
+
+<section class="t-banner1 section-tb-padding tbcolor">
+
+    <div class="container">
+        @*@<div class="home-offer-banner">
+            @*@
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="o-t-banner">
+
+                    <a href="#" class="image-b">
+                        <img class="img-fluid logimg" src="~/Content/assets/Custom_Image/login.jpg" alt="image">
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="o-t-banner">
+                    <div class="login-area">
+                        <div class="login-box">
+                            <h1>Login</h1>
+                            <p class="color:red;">@TempData["fail"]</p>
+                            <p class="color:green;">@TempData["Success"]</p>
+                            @using (Html.BeginForm("CustomerLogin", "Home", FormMethod.Post))
+                            {
+                              
+                                @Html.ValidationSummary(false, "", new { @class = "validation-summary-errors" })
+
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control", @PlaceHolder = "Email" })
+                                        @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
+
+                                        @*@<i class="fal fa-user" style="color: #C28565;"></i>*@
+                                    </div>
+                                    <div class="form-group col-12">
+                                        @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", @PlaceHolder = "Password", Type = "Password" })
+                                        @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger" })
+
+                                        @*<i class="fa-solid fa-lock" style="color: #C28565;"></i>*@
+
+                                    </div>
+                                    @Html.Hidden("returnUrl", (string)ViewBag.ReturnUrl)
+                                    <div class="form-group form-btn col-12 mt-10 text-center">
+                                        <button class="btn-style1" style="margin: 20px 0 0px 0; border-radius: 20px; width: 100%; ">Login</button>
+                                    </div>
+
+                                </div>
+                            }
+                            <a href="/EmailVerify" class="re-password">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

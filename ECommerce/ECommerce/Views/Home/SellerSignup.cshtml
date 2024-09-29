@@ -1,0 +1,374 @@
+﻿@model E_Commerce.Models.SellerSignup
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@{
+    ViewBag.Title = "SellerSignup";
+}
+@section Page_Level_Css{
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@400;700&display=swap" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+
+        .body {
+            background: url('https://i.pinimg.com/originals/48/79/86/487986c17560a8ed1afdc55e480e5be2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            font-family: 'Noto Sans', sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            padding: 50px 0;
+        }
+
+        h1 {
+            font-weight: 400;
+            padding-top: 0;
+            margin-top: 0;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        #svg_form_time {
+            height: 15px;
+            max-width: 80%;
+            margin: 20px auto 20px;
+            display: block;
+        }
+
+            #svg_form_time circle,
+            #svg_form_time rect {
+                fill: white;
+            }
+
+        .button {
+            background: #ee6c4d;
+            border-radius: 5px;
+            padding: 15px 25px;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px rgb(0,0,0,0.5);
+        }
+
+        .disabled {
+            display: none;
+        }
+
+        .section {
+            padding: 30px 50px;
+            max-width: 400px;
+            margin: 30px auto 10px;
+            background: white;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+            border-radius: 5px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        @@media(min-width:800px) {
+            .section {
+                max-width: 500px;
+            }
+        }
+
+        .input {
+            width: 100%;
+            margin: 7px 0px;
+            display: inline-block;
+            padding: 12px 25px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            font-size: 1em;
+            font-family: inherit;
+            background: white;
+        }
+
+        p {
+            text-align: justify;
+            margin-top: 0;
+        }
+
+        .actionlink {
+            color: white !important;
+        }
+
+        .dropform-control {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>") no-repeat right 10px center;
+            background-size: 25px;
+            margin-bottom: 20px;
+        }
+        .radiotype {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    </style>
+}
+<div class="body">
+    <div id="svg_wrap"></div>
+    <p style="color:red; text-align:center;">@TempData["alert"]</p>
+    <p style="color:red; text-align:center;">@TempData["fail"]</p>
+    @using (Html.BeginForm("SellerSignup", "Home", FormMethod.Post))
+    {
+        <section class="section">
+            <h5>Personal Details</h5>
+            <br />
+            <div class="row">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.Name, null, new { @class = "form-control", @PlaceHolder = "FullName" })
+                    @Html.ValidationMessageFor(model => model.Name, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.MobileNumber, null, new { @class = "form-control", @PlaceHolder = "MobileNumber" })
+                    @Html.ValidationMessageFor(model => model.MobileNumber, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control", @PlaceHolder = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", @PlaceHolder = "Password" })
+                    @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12 radiotype">
+                    <label>Gender:</label>
+                    @Html.RadioButtonFor(model => model.Gender, "M", new { @class = "radio-control", id = "Male" })
+                    <label for="Male">Male</label>
+                    @Html.RadioButtonFor(model => model.Gender, "F", new { @class = "radio-control", id = "Female" })
+                    <label for="Female">Female</label>
+                    @Html.RadioButtonFor(model => model.Gender, "O", new { @class = "radio-control", id = "Other" })
+                    <label for="Other">Other</label>
+                    @Html.ValidationMessageFor(model => model.Gender, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="button" id="next">Next &rarr;</div>
+        </section>
+        <section class="section">
+            <h5>Credentials Details</h5>
+            <br />
+            <div class="row">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.DropDownListFor(model => model.IDProofType, (List<SelectListItem>)ViewBag.DropdownItems, "Select Type of your Credentials", new { @class = "form-control dropform-control", @id = "dropdown" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.IDProof, null, new { @class = "form-control", @PlaceHolder = "Credential ID" })
+                    @Html.ValidationMessageFor(model => model.IDProof, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.DropDownListFor(model => model.SellerCountry, ViewBag.SelectCountry as SelectList, "Select Country", new { @class = "form-control dropform-control", @id = "countryDropdown" })
+                    @Html.ValidationMessageFor(model => model.SellerCountry, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.DropDownListFor(model => model.SellerState, new SelectList(Enumerable.Empty<SelectListItem>()), "Select State", new { @class = "form-control dropform-control state", id = "stateDropdown" })
+                    @Html.ValidationMessageFor(model => model.SellerState, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.SellerAddress, null, new { @class = "form-control", @PlaceHolder = "Address" })
+                    @Html.ValidationMessageFor(model => model.SellerAddress, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.SellerPincode, null, new { @class = "form-control", @PlaceHolder = "PinCode" })
+                    @Html.ValidationMessageFor(model => model.SellerPincode, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="button" id="prev">&larr; Previous</div>
+            <div class="button" id="next">Next &rarr;</div>
+        </section>
+        <section class="section">
+            <h5>Business Details</h5>
+            <br />
+            <div class="row">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.CompanyName, null, new { @class = "form-control", @PlaceHolder = "Company Name" })
+                    @Html.ValidationMessageFor(model => model.CompanyName, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.CompanyAddress, null, new { @class = "form-control", @PlaceHolder = "Company Address" })
+                    @Html.ValidationMessageFor(model => model.CompanyAddress, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.CompanyGST, null, new { @class = "form-control", @PlaceHolder = "Company GST" })
+                    @Html.ValidationMessageFor(model => model.CompanyGST, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.CompanyEmail, null, new { @class = "form-control", @PlaceHolder = "Company Email" })
+                    @Html.ValidationMessageFor(model => model.CompanyEmail, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.CompanyPhone, null, new { @class = "form-control", @PlaceHolder = "Company Phone" })
+                    @Html.ValidationMessageFor(model => model.CompanyPhone, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="button" id="prev">&larr; Previous</div>
+            <div style="display:inline;" class="button" id="next">Next &rarr;</div>
+        </section>
+        <section class="section">
+            <h5>Bank Details</h5>
+            <br />
+            <div class="row">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.BankName, null, new { @class = "form-control", @PlaceHolder = "Bank Name" })
+                    @Html.ValidationMessageFor(model => model.BankName, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.IFSECode, null, new { @class = "form-control", @PlaceHolder = "IFSECode" })
+                    @Html.ValidationMessageFor(model => model.IFSECode, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    @Html.TextBoxFor(model => model.AccountNo, null, new { @class = "form-control", @PlaceHolder = "AccountNo" })
+                    @Html.ValidationMessageFor(model => model.AccountNo, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="button" id="prev">&larr; Previous</div>
+        </section>
+        <input type="submit" class="button" id="submit" value="Submit" />
+    }
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var base_color = "rgb(230,230,230)";
+        var active_color = "#ee6c4d";
+
+
+
+        var child = 1;
+        var length = $(".section").length - 1;
+        $("#prev").addClass("disabled");
+        $("#submit").addClass("disabled");
+
+        $(".section").not(".section:nth-of-type(1)").hide();
+        $(".section").not(".section:nth-of-type(1)").css('transform', 'translateX(100px)');
+
+        var svgWidth = length * 200 + 24;
+        $("#svg_wrap").html(
+            '<svg version="1.1" id="svg_form_time" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 ' +
+            svgWidth +
+            ' 24" xml:space="preserve"></svg>'
+        );
+
+        function makeSVG(tag, attrs) {
+            var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+            for (var k in attrs) el.setAttribute(k, attrs[k]);
+            return el;
+        }
+
+        for (i = 0; i < length; i++) {
+            var positionX = 12 + i * 200;
+            var rect = makeSVG("rect", { x: positionX, y: 9, width: 200, height: 6 });
+            document.getElementById("svg_form_time").appendChild(rect);
+            // <g><rect x="12" y="9" width="200" height="6"></rect></g>'
+            var circle = makeSVG("circle", {
+                cx: positionX,
+                cy: 12,
+                r: 12,
+                width: positionX,
+                height: 6
+            });
+            document.getElementById("svg_form_time").appendChild(circle);
+        }
+
+        var circle = makeSVG("circle", {
+            cx: positionX + 200,
+            cy: 12,
+            r: 12,
+            width: positionX,
+            height: 6
+        });
+        document.getElementById("svg_form_time").appendChild(circle);
+
+        $('#svg_form_time rect').css('fill', base_color);
+        $('#svg_form_time circle').css('fill', base_color);
+        $("circle:nth-of-type(1)").css("fill", active_color);
+
+
+        $(".button").click(function () {
+            $("#svg_form_time rect").css("fill", active_color);
+            $("#svg_form_time circle").css("fill", active_color);
+            var id = $(this).attr("id");
+            if (id == "next") {
+                $("#prev").removeClass("disabled");
+                if (child >= length) {
+                    $(this).addClass("disabled");
+                    $('#submit').removeClass("disabled");
+                }
+                if (child <= length) {
+                    child++;
+                }
+            } else if (id == "prev") {
+                $("#next").removeClass("disabled");
+                $('#submit').addClass("disabled");
+                if (child <= 2) {
+                    $(this).addClass("disabled");
+                }
+                if (child > 1) {
+                    child--;
+                }
+            }
+            var circle_child = child + 1;
+            $("#svg_form_time rect:nth-of-type(n + " + child + ")").css(
+                "fill",
+                base_color
+            );
+            $("#svg_form_time circle:nth-of-type(n + " + circle_child + ")").css(
+                "fill",
+                base_color
+            );
+            var currentSection = $(".section:nth-of-type(" + child + ")");
+            currentSection.fadeIn();
+            currentSection.css('transform', 'translateX(0)');
+            currentSection.prevAll('.section').css('transform', 'translateX(-100px)');
+            currentSection.nextAll('.section').css('transform', 'translateX(100px)');
+            $('.section').not(currentSection).hide();
+        });
+
+    });
+</script>
+
+<script>
+  $(document).ready(function() {
+            $('#countryDropdown').change(function() {
+                var countryId = $(this).val();
+
+                if (countryId) {
+                    $.ajax({
+                        url: '@Url.Action("GetStates", "Home")',
+                        type: 'GET',
+                        data: { countryId: countryId },
+                        success: function (data) {
+                        var stateDropdown = $('#stateDropdown');
+                        stateDropdown.empty(); // Clear existing options
+                        stateDropdown.append('<option value="">Select state</option>'); // Add default option
+
+                        $.each(data, function (index, item) {
+                        stateDropdown.append('<option value="' + item.State_name + '">' + item.State_name + '</option>');
+                        });
+                        },
+                        error: function (xhr, status, error) {
+                        console.error('Error fetching states:', error);
+                        }
+                    });
+                }
+                else {
+                  $('#stateDropdown').empty().append('<option value="">Select state</option>');
+                     }
+             });
+  });
+</script>
+

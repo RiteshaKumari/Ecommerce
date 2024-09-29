@@ -1,0 +1,110 @@
+﻿@model E_Commerce.Models.CustomerSignup
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Page_Level_Css{
+    <style>
+        .form-control {
+            margin-top: 5px !important;
+        }
+
+        .section-tb-padding {
+            padding-top: 30px;
+            padding-bottom: 80px;
+        }
+
+        .register-area .register-box {
+            width: 50%;
+            padding: 10px 30px;
+            border: 1px solid #eee;
+        }
+
+        .password-field {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-controls {
+            padding-right: 40px; /* Make space for the eye icon */
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+
+            .toggle-password i {
+                font-size: 20px;
+                color: #333;
+            }
+    </style>
+}
+<section class="section-tb-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="register-area">
+                    <div class="register-box">
+                        <h1>Create account</h1>
+                        <p style="color:red;">@TempData["fail"]</p>
+                        <p style="color:green;">@TempData["success"]</p>
+                        <p>Please register below account detail</p>
+
+                        @using (Html.BeginForm("CustomerSignup", "Home", FormMethod.Post))
+                        {
+                            @Html.ValidationSummary(false, "", new { @class = "validation-summary-errors" })
+
+                            @Html.TextBoxFor(model => model.FullName, null, new { @class = "form-control", @PlaceHolder = "FullName" })
+                            @Html.ValidationMessageFor(model => model.FullName, null, new { @class = "text-danger" })
+
+                            @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control", @PlaceHolder = "Email" })
+                            @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
+
+                            <div class="password-field">
+                                @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", @Placeholder = "Password", type = "password", id = "passwordField" })
+                                @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger" })
+                                <span class="toggle-password" id="togglePassword">
+                                    <i class="fa fa-eye-slash" id="eyeIcon"></i>
+                                </span>
+                            </div>
+
+                            <button class="btn-style1" style="margin: 20px 0 0px 0; border-radius: 20px; width: 100%; ">SignUp</button>
+
+                        }
+                    </div>
+                    <div class="register-account">
+                        <h4>Already an account holder?</h4>
+                        <a href="/CustomerLogin" class="ceate-a">Log in</a>
+                        <div class="register-info">
+                            <a href="terms-conditions.html" class="terms-link"><span>*</span> Terms & conditions.</a>
+                            <p>Your privacy and security are important to us. For more information on how we use your data read our <a href="privacy-policy.html">privacy policy</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordField = document.querySelector('#passwordField');
+        const eyeIcon = document.querySelector('#eyeIcon');
+
+        togglePassword.addEventListener('click', function () {
+
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+
+            eyeIcon.classList.toggle('fa-eye');
+            eyeIcon.classList.toggle('fa-eye-slash');
+        });
+    });
+
+
+
+
+
+</script>

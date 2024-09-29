@@ -1,0 +1,94 @@
+/*Color variables*/
+$primary:var(--primary-bg-color);
+$primary-hover:var(--primary-bg-hover);
+$primary-border:var(--primary-bg-border);
+$primary-transparent:var(--primary-transparentcolor);
+$primary-01:var(--primary01);
+$primary-02:var(--primary02);
+$primary-03:var(--primary03);
+$primary-05:var(--primary05);
+$primary-06:var(--primary06);
+$primary-07:var(--primary07);
+$primary-08:var(--primary08);
+$primary-09:var(--primary09);
+$primary-005:var(--primary005);
+$primary-025:var(--primary025);
+$primary-094:var(--primary094);
+$secondary:#9c52fd;
+$pink:#ec407a;
+$teal:#2bcbba;
+$cyan:#17a2b8;
+$purple:#661fd6;
+$success:#56d094;
+$warning:#ffa70b;
+$danger:#fb5454;
+$info:#2f89f5;
+$orange:#f86300;
+$dark:#101215;
+$indigo:#6574cd;
+$gray:#868e96;
+$lightblue: #1cc5ef;
+$white:#fff;
+$black:#000;
+$yellow:#ecb403;
+$lime:#63ad27;
+$green:#4ecc48;
+$azure:#1594ef;
+
+
+/*gradient variables*/
+$primary-gradient:linear-gradient(to right, $primary 0%, $primary-06 100%);
+$secondary-gradient:linear-gradient(to right, $secondary 0%, rgba($secondary,0.6) 100%);
+$success-gradient:linear-gradient(to right,$success 0%, rgba($success,0.6) 100%);
+$warning-gradient:linear-gradient(to right, $warning 0%, rgba($warning,0.6) 100%);
+$pink-gradient:linear-gradient(to right, $pink 0%, rgba($pink,0.6) 100%);
+$teal-gradient:linear-gradient(to right, $teal 0%, rgba($teal,0.6) 100%);
+$danger-gradient:linear-gradient(to right,$danger 0%, rgba($danger,0.6) 100%);
+$info-gradient:linear-gradient(to right, $info 0%, rgba($info,0.6) 100%);
+$orange-gradient:linear-gradient(to right,$orange 0%,rgba($orange,0.6) 100%);
+$purple-gradient:linear-gradient(to right, $purple 0%, rgba($purple,0.6) 100%);
+
+
+/*white variables*/
+$white-1  :rgba(255, 255, 255, 0.1);
+$white-2  :rgba(255, 255, 255, 0.2);
+$white-3  :rgba(255, 255, 255, 0.3);
+$white-4  :rgba(255, 255, 255, 0.4);
+$white-5  :rgba(255, 255, 255, 0.5);
+$white-6  :rgba(255, 255, 255, 0.6); 
+$white-7  :rgba(255, 255, 255, 0.7);
+$white-8  :rgba(255, 255, 255, 0.8);
+$white-9  :rgba(255, 255, 255, 0.9);
+$white-04 :rgba(255, 255, 255, 0.04);
+$white-05 :rgba(255, 255, 255, 0.05);
+
+/*black variables*/
+$black-1:rgba(0, 0, 0, 0.1);
+$black-2:rgba(0, 0, 0, 0.2);
+$black-3:rgba(0, 0, 0, 0.3);
+$black-4:rgba(0, 0, 0, 0.4);
+$black-5:rgba(0, 0, 0, 0.5);
+$black-6:rgba(0, 0, 0, 0.6);
+$black-7:rgba(0, 0, 0, 0.7);
+$black-8:rgba(0, 0, 0, 0.8);
+$black-9:rgba(0, 0, 0, 0.9);
+$black-08:rgba(0, 0, 0, 0.08);
+
+$background:#f0f0f8;
+$color:#242e4c;
+$default-color:#282f53;
+$border:rgba(227, 231, 241, 0.8);
+
+/*shadow variables*/
+$shadow:-8px 12px 18px 0 rgba(14, 17, 28, 0.01);
+
+
+/*Dark Theme Variables*/
+$dark-theme:var(--dark-theme);
+$dark-theme1: rgba(0, 0, 0, 0.2);
+$dark-body:var(--dark-body);
+$border-dark:rgba(255, 255, 255, 0.1);
+$text-color: var(--text-color);
+$dark-color: var(--dark-color);
+$dark-card-shadow: 0 10px 15px rgba(15, 17, 29, 0.9);
+$dark-shadow: rgba(0, 0, 0, 0.15)

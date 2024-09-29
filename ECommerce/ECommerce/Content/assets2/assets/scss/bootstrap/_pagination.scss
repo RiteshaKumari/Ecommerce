@@ -1,0 +1,71 @@
+.pagination {
+	display: -ms-flexbox;
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+	border-radius: 3px;
+  }
+
+  
+  .pagination-lg {
+	.page-link {
+	  padding: 0.75rem 1.5rem;
+	  font-size: 1.125rem;
+	  line-height: 1.5;
+	}
+  
+	.page-item {
+	  &:first-child .page-link {
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+	  }
+  
+	  &:last-child .page-link {
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+	  }
+	}
+  }
+  
+  .pagination-sm {
+	.page-link {
+	  padding: 0.25rem 0.5rem;
+	  font-size: 0.875rem;
+	  line-height: 1.5;
+	}
+  
+	.page-item {
+	  &:first-child .page-link {
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+	  }
+  
+	  &:last-child .page-link {
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+	  }
+	}
+  }
+  .example {
+	  .pagination { 
+	margin-bottom: 0;
+  }
+}
+@media (max-width:575.98px) {
+	.pagination {
+		.page-item {
+			.page-link {
+				padding: 0.3rem 0.45rem;
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+	ul.inbox-pagination li span {
+		display: none;
+	}
+	
+	div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+		justify-content: center !important;
+	}
+}

@@ -1,0 +1,365 @@
+/*---- Tags-----*/
+
+.tag {
+	font-size: 0.75rem;
+	color:$color;
+	background-color: #ebedfc;
+	border-radius: 3px;
+	padding: 0 .5rem;
+	line-height: 2em;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	cursor: default;
+	font-weight: 400;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+  
+  a.tag {
+	text-decoration: none;
+	cursor: pointer;
+	transition: .3s color, .3s background;
+  
+	&:hover {
+	  background-color: #e4e7f1;
+	  color: inherit;
+	}
+  }
+  .tag-addon-close {
+	display: inline-block;
+	padding: 0 .5rem;
+	color: inherit;
+	text-decoration: none;
+	margin: 0 -.3rem 0 .5rem;
+	text-align: center;
+	min-width: 1.5rem;
+	border-left: 1px solid rgba(255,255,255,0.2);
+  
+	&:last-child {
+	  border-top-right-radius: 50px;
+	  border-bottom-right-radius: 50px;
+	}
+	&:hover {
+		background: rgba(0, 0, 0, 0.05);
+	}
+  
+	i {
+	  vertical-align: middle;
+	  margin: 0 -.25rem;
+	  line-height: 0.3;
+	}
+  }
+  
+  .tag-addon {
+	display: inline-block;
+	padding: 0 .5rem;
+	color: inherit;
+	text-decoration: none;
+	margin: 0 -.5rem 0 .5rem;
+	text-align: center;
+	min-width: 1.5rem;
+	border-left: 1px solid rgba(227, 231, 241, 0.8);
+  
+	&:last-child {
+	  border-top-right-radius: 3px;
+	  border-bottom-right-radius: 3px;
+	}
+  
+	i {
+	  vertical-align: middle;
+	  margin: 0 -.25rem;
+	  line-height: 2;
+	}
+  }
+  
+  a.tag-addon {
+	text-decoration: none;
+	cursor: pointer;
+	transition: .3s color, .3s background;
+  
+	&:hover {
+	  background: #d0d5e5;
+	  color: inherit;
+	}
+  }
+  
+  .tag-avatar {
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 3px 0 0 3px;
+	margin: 0 .5rem 0 -.5rem;
+  }
+  
+  .tag-blue {
+	background-color: #467fcf;
+	color: $white;
+
+	&:hover {
+		background-color: #467fcfba !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-indigo {
+	background-color: $indigo;
+	color: $white;
+
+	&:hover {
+		background-color: #6575cdb6 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-purple {
+	background-color: #867efc;
+	color: $white;
+
+	&:hover {
+		background-color: #867efcc9 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-pink {
+	background-color: $pink;
+	color: $white;
+
+	&:hover {
+		background-color: #ec4079b8 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-red {
+	background-color: $danger;
+	color: $white;
+
+	&:hover {
+		background-color: #fb5454b3 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-orange {
+	background-color: #ec5444;
+	color: $white;
+
+	&:hover {
+		background-color: #ec5544b5 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-yellow {
+	background-color: #ecb403;
+	color: $white;
+
+	&:hover {
+		background-color: #ecb603a8 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-green {
+	background-color: $success;
+	color: $white;
+
+	&:hover {
+		background-color: #56d093af !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-teal {
+	background-color: $teal;
+	color: $white;
+
+	&:hover {
+		background-color: #2bcbbbb5 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-cyan {
+	background-color: $cyan !important;
+	color: $white !important;
+
+	&:hover {
+		background-color: #17a3b8bb !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-white {
+	background-color: $white;
+	color: $white;
+  }
+  
+  .tag-gray {
+	background-color: #8499c4;
+	color: $white;
+
+	&:hover {
+		background-color: #8499c4b8 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-gray-dark {
+	background-color: #425e8d;
+	color: $white;
+
+	&:hover {
+		background-color: #425e8db1 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-azure {
+	background-color: #45aaf2;
+	color: $white;
+
+	&:hover {
+		background-color: #45aaf2b6 !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-lime {
+	background-color: #7bd235;
+	color: $white;
+
+	&:hover {
+		background-color: #7cd235ba !important;
+		color: $white !important;
+	}
+  }
+  
+  .tag-primary {
+	background-color: #467fcf;
+	color: $white;
+  }
+  
+  .tag-secondary {
+	background-color: $secondary;
+	color: $white;
+  }
+  
+  .tag-success {
+	background-color: $success;
+	color: $white;
+  }
+  
+  .tag-info {
+	background-color: #45aaf2;
+	color: $white;
+  }
+  
+  .tag-warning {
+	background-color: #ecb403;
+	color: $white;
+  }
+  
+  .tag-danger {
+	background-color: $danger;
+	color: $white;
+  }
+  
+  .tag-light {
+	background-color: #e5e9f5;
+	color: $white;
+  }
+  
+  .tag-dark {
+	background-color: #425e8d;
+	color: $white;
+  }
+  
+  .tag-rounded {
+	border-radius: 50px;
+  
+	.tag-avatar {
+	  border-radius: 50px;
+	}
+  }
+  
+  .tags {
+	margin-bottom: -.5rem;
+	font-size: 0;
+  
+	> .tag {
+	  margin-bottom: .5rem;
+  
+	  &:not(:last-child) {
+		margin-right: .5rem;
+	  }
+	}
+  }
+
+  .tag-rounded{
+		.tag-icon i {
+			margin: 6px;
+		}
+	}
+
+	.tag-outline {
+		border: 1px solid #e8e8f7;
+		color: #1d212f !important;
+		background-color: transparent !important;
+	}
+
+	.tag-outline-primary {
+		background-color: rgba(108, 95, 252, 0.1) !important;
+		color: $primary !important;
+		border: 1px solid $primary;
+	}
+
+	.tag-outline-secondary {
+		background-color: rgba(194, 135, 253, 0.1) !important;
+		color: $secondary !important;
+		border: 1px solid $secondary;
+	}
+
+	.tag-outline-success {
+		background-color: rgba(91, 209, 176, 0.1) !important;
+		color: $success !important;
+		border: 1px solid $success;
+	}
+
+	.tag-outline-warning {
+		background-color: rgba(255, 170, 39, 0.1) !important;
+		color: $warning !important;
+		border: 1px solid $warning;
+	}
+
+	.tag-outline-danger {
+		background-color: rgba(251, 91, 89, 0.1) !important;
+		color: $danger !important;
+		border: 1px solid $danger;
+	}
+
+	.tag-outline-pink {
+		background-color: rgba(237, 143, 208, 0.1) !important;
+		color: $pink !important;
+		border: 1px solid $pink;
+	}
+
+	.tag-outline-info {
+		background-color: rgba(80, 139, 245, 0.1) !important;
+		color: $info !important;
+		border: 1px solid $info;
+	}
+	a.tag-addon:hover {
+		background: #d0d5e5 !important;
+		color: inherit;
+	}
+	
+	.tags {
+		.tag-icon {
+			i {
+				margin: 5px;
+			}
+		}
+	}

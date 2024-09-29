@@ -1,0 +1,304 @@
+﻿@model E_Commerce.Models.CustomerSignup
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Page_Level_Css{
+    <style>
+        .pro-submit {
+            justify-content: space-evenly !important;
+            border-top: none !important;
+        }
+
+        .pro-input-label {
+            justify-content: space-around !important;
+        }
+
+        .profile-form {
+            margin-top: 25px !important;
+        }
+
+        .select::selection {
+            color: white;
+            background-color: hotpink;
+        }
+
+        #emailVerifyBtn, #emailbtn, #namebtn {
+            display: none;
+        }
+
+        .edit {
+            color: royalblue;
+            margin: 0px 15px;
+            cursor: pointer;
+        }
+
+        .btn {
+            float: right;
+        }
+
+        .btn-style2 {
+            color: #fff;
+            font-size: 14px;
+            background-color: #f67981;
+            font-weight: 600;
+            border: 2px solid #f67981;
+            border-radius: 25px;
+            padding: 5px 20px;
+        }
+
+            .btn-style2:hover {
+                color: black;
+                background-color: white;
+            }
+
+        #nameCancel, #emailCancel {
+            display: none;
+        }
+
+        .order-histry-area .order-history .profile .order-his-page ul.profile-ul li.profile-li a {
+            justify-content: flex-start !important;
+        }
+
+        .icon {
+            color: #F67981;
+        }
+
+        .order-histry-area .order-history .profile .order-his-page ul.profile-ul li.profile-li:hover > icon {
+            color: white;
+        }
+    </style>
+}
+<section class="order-histry-area section-tb-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="order-history">
+                    <div class="profile">
+                        <div class="order-pro">
+                            @*<div class="pro-img">
+                                    <a href="javascript:void(0)"><img src="image/user-ava.jpg" alt="img" class="img-fluid"></a>
+                                </div>*@
+                            <div class="order-name">
+                                <h4>Welcome</h4>
+                                <span>Joined at :@ViewBag.EditCustomer.CreatedDate</span>
+                            </div>
+                        </div>
+                        <div class="order-his-page">
+                            <ul class="profile-ul">
+                                <li class="profile-li"><a href="/EditCustomerProfile" class="active"><i class="fa-solid fa-user"></i>&nbsp;My Profile</a></li>
+                                <li class="profile-li"><a href="/CustomerSecurity"><i class="fa-solid fa-shield-halved icon"></i>&nbsp;My Privacy</a></li>
+                                <li class="profile-li"><a href="/CustomerOrder"><span><i class="fa-solid fa-bag-shopping icon"></i>&nbsp;My Orders</span> &nbsp;&nbsp; <span class="pro-count">5</span></a></li>
+                                <li class="profile-li"><a href="/"><i class="fa-solid fa-face-smile icon"></i>&nbsp;My Reviews & Ratings </a></li>
+                                <li class="profile-li"><a onclick="logout()"><i class="fa-solid fa-right-from-bracket icon"></i> &nbsp; Logout</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="profile-form">
+                        <p style="color:red;">  </p>
+                        <p style="color:red;">@TempData["name"]</p>
+
+                        @using (Html.BeginForm("EditCustomerProfile", "Home", FormMethod.Post, new { id = "nameForm" }))
+                        {
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <ul class="pro-input-label">
+                                <li>
+                                    <label>Full Name</label> <bold class="edit" id="nameEdit">Edit</bold><bold class="edit" id="nameCancel">Cancel</bold>
+                                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control select", @readonly = "readonly", id = "FullNameInput" })
+                                    @Html.ValidationMessageFor(model => model.FullName, null, new { @class = "text-danger" })
+                                </li>
+                                <button type="submit" id="namebtn" class="btn btn-style1 btn-style2">Save</button>
+                            </ul>
+
+                        }
+                        @using (Html.BeginForm("EditCustomerProfileEmail", "Home", FormMethod.Post, new { id = "emailForm" }))
+                        {
+                            <ul class="pro-input-label">
+                                <li>
+                                    <label>Email address</label> <bold class="edit" id="emailEdit">Edit</bold><bold class="edit" id="emailCancel">Cancel</bold>
+                                    @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control select", @id = "EmailInput", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
+                                    @*<p id="emailverified">@ViewBag.SuccessMessage</p>*@
+                                </li>
+                                <button type="submit" id="emailbtn" class="btn btn-style1 btn-style2">Verify & Save</button>
+                            </ul>
+
+                        }
+                        <ul class="pro-submit">
+                            <li>
+                                @*<a href="#" class="btn btn-style1" id="emailVerifyBtn">Verify Email</a>*@
+                                @* <a href="@Url.Action("CustomerDetailEmailVerify", new { email = Model.Email })" class="btn btn-style1" id="emailVerifyBtn">Verify Email</a>*@
+                                @*<p id="error-message"></p>*@
+                            </li>
+                            <li>
+                                @* <button type="button" class="btn btn-style1" onclick="SaveChange()">Save profile</button>*@
+                                @*@Html.ActionLink("Update profile", "CustomerDetailEmailVerify", "Home", new { Email = ViewBag.CustomerDetail.Email }, new { @class = "btn btn-style1" })*@
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.querySelector('#emailEdit').addEventListener('click', () => {
+        document.querySelector('#emailbtn').style.display = 'block';
+        document.querySelector('#emailCancel').style.display = 'inline';
+        document.querySelector('#emailEdit').style.display = 'none';
+        const nameInput = document.querySelector('[name="Email"]');
+        nameInput.removeAttribute('readonly');
+    })
+    document.querySelector('#nameEdit').addEventListener('click', () => {
+        document.querySelector('#namebtn').style.display = 'block';
+        document.querySelector('#nameCancel').style.display = 'inline';
+        document.querySelector('#nameEdit').style.display = 'none';
+        const nameInput = document.querySelector('[name="FullName"]');
+        nameInput.removeAttribute('readonly');
+    })
+
+    $('#nameForm').on('submit', function (e) {
+        e.preventDefault();
+        var name = document.querySelector('#FullNameInput').value;
+        if (name.trim() !== name) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Error',
+                text: 'Please enter a name without leading or trailing spaces.',
+                showConfirmButton: true
+
+            });
+
+            return;
+        }
+
+        $.ajax({
+            url: 'EditCustomerProfile',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function (response) {
+
+                if (response.success) {
+                    /* alert("Name updated successfully!");*/
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Name updated successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    document.querySelector('#namebtn').style.display = 'none';
+                    document.querySelector('#nameCancel').style.display = 'none';
+                    document.querySelector('#nameEdit').style.display = 'inline';
+                    const emailInput = document.querySelector('[name="FullName"]');
+                    emailInput.setAttribute('readonly', 'readonly');
+                } else {
+                    alert(response.message || "Failed to update name.");
+                }
+            },
+            error: function () {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    });
+window.onload = function() {
+    if ('@TempData["failureMessage"]' === "EmailNotUpdated") {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Email Not Updated as Unauthorized User!',
+            showConfirmButton: true
+        });
+    }
+    if ('@TempData["successMessage"]' === "EmailUpdated") {
+        document.querySelector('#emailbtn').style.display = 'none';
+        document.querySelector('#emailCancel').style.display = 'none';
+        document.querySelector('#emailEdit').style.display = 'block';
+        const nameInput = document.querySelector('[name="FullName"]');
+        nameInput.setAttribute('readonly', 'readonly');
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Email Updated!',
+            showConfirmButton: false,
+            timer: 2500
+        });
+    }
+};
+    $('#emailForm').on('submit', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Message is going to your email',
+            showConfirmButton: false,
+            timer: 2510
+        });
+        $.ajax({
+            url: 'SaveAuthorizeEmail',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function (response) {
+                // Simple handling of success or failure
+                if (response.success) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Check your email for confirmation ',
+                        showConfirmButton: false,
+                        timer: 2510
+                    });
+
+                } else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message || "Not able to send email",
+                        showConfirmButton: true
+
+                    });
+                }
+            },
+            error: function () {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.',
+                    showConfirmButton: true
+
+                });
+            }
+        });
+    });
+
+    var FullNameInput = document.querySelector('#FullNameInput');
+    var intialName = FullNameInput.value;
+    document.querySelector('#nameCancel').addEventListener('click', () => {
+        document.querySelector('#namebtn').style.display = 'none';
+        document.querySelector('#nameCancel').style.display = 'none';
+        document.querySelector('#nameEdit').style.display = 'inline';
+        const nameInput = document.querySelector('[name="FullName"]');
+        nameInput.setAttribute('readonly', 'readonly');
+        FullNameInput.value = intialName;
+    })
+
+    var EmailInput = document.querySelector('#EmailInput');
+    var intialEmail = EmailInput.value;
+    document.querySelector('#emailCancel').addEventListener('click', () => {
+        document.querySelector('#emailbtn').style.display = 'none';
+        document.querySelector('#emailCancel').style.display = 'none';
+        document.querySelector('#emailEdit').style.display = 'inline';
+        const nameInput = document.querySelector('[name="Email"]');
+        nameInput.setAttribute('readonly', 'readonly');
+        EmailInput.value = intialEmail;
+    })
+
+</script>

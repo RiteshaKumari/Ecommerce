@@ -1,0 +1,987 @@
+/*!
+* jQuery SmartWizard v6.x
+* The awesome step wizard plugin for jQuery
+* http://www.techlaboratory.net/jquery-smartwizard
+*
+* Created by Dipu Raj (http://dipu.me)
+*
+* Licensed under the terms of the MIT License
+* https://github.com/techlab/jquery-smartwizard/blob/master/LICENSE
+*/
+ .sw {
+    position: relative;
+  
+    *, ::after, ::before {
+      box-sizing: border-box;
+    }
+  
+    > .tab-content {
+      position: relative;
+      overflow: hidden;
+  
+      > .tab-pane {
+        padding: 0.8rem;
+      }
+    }
+  
+    .toolbar {
+      padding: .8rem;
+      text-align: right;
+  
+      > .sw-btn {
+        display: inline-block;
+        text-decoration: none;
+        text-align: center;
+        text-transform: none;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        margin-left: .2rem;
+        margin-right: .2rem;
+        cursor: pointer;
+        padding: .375rem .75rem;
+        border-radius: .25rem;
+        font-weight: 400;
+        color: $white;
+        background-color: $primary;
+        border: 1px solid $primary;
+  
+        &.disabled, &:disabled {
+          opacity: 0.65;
+        }
+      }
+    }
+  
+    &[dir=rtl] {
+      > .toolbar {
+        text-align: left;
+      }
+  
+      > .nav .nav-link > .num {
+        float: right;
+      }
+    }
+  
+    > .nav {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+  
+      .nav-link {
+        display: block;
+        padding: .5rem 1rem;
+        text-decoration: none;
+  
+        &:active, &:focus, &:hover {
+          text-decoration: none;
+        }
+  
+        &::-moz-focus-inner {
+          border: 0;
+        }
+  
+        &.disabled {
+          pointer-events: none;
+          cursor: not-allowed;
+        }
+  
+        &.hidden {
+          display: none;
+          visibility: none;
+        }
+  
+        > .num {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          float: left;
+          pointer-events: none;
+          height: 100%;
+          padding-left: .5rem;
+          padding-right: .5rem;
+          border-radius: 10em;
+          text-align: center;
+          font-size: 2em;
+          font-weight: 400;
+          clear: both;
+          line-height: 1;
+          text-decoration: none;
+        }
+      }
+    }
+  
+    > .progress {
+      padding: 0;
+      margin: 0;
+      border: 0;
+      width: 100%;
+      height: 5px;
+      background: #f8f9fa;
+      overflow: hidden;
+  
+      > .progress-bar {
+        height: 5px;
+        width: 0%;
+        background-color: $primary;
+        transition: width 0.5s ease-in-out;
+      }
+    }
+  
+    &.sw-justified > .nav {
+      .nav-link, > li {
+        flex-basis: 0;
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+  
+    &.sw-loading {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+  
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: $white-7;
+        z-index: 2;
+      }
+  
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        width: 2rem;
+        height: 2rem;
+        border: 10px solid $primary;
+        border-top: 10px solid #f8f9fa;
+        border-radius: 50%;
+        z-index: 10;
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw > .nav {
+      flex-direction: column !important;
+      flex: 1 auto;
+    }
+  }
+  
+  @-webkit-keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .sw-theme-basic {
+    border: 1px solid var( );
+  
+    > .nav {
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1) !important;
+  
+      .nav-link {
+        position: relative;
+        height: 100%;
+        min-height: 100%;
+        margin-right: 5px;
+  
+        &::after {
+          content: "";
+          position: absolute;
+          pointer-events: none;
+          height: 2px;
+          width: 0;
+          left: 0;
+          bottom: -1px;
+          transition: all .35s ease .15s;
+          width: 100%;
+        }
+  
+        &.default {
+          color: #828caa;
+          cursor: not-allowed;
+  
+          &::after {
+            background-color: #828caa;
+          }
+        }
+  
+        &.active {
+          color: $primary !important;
+          cursor: pointer;
+  
+          &::after {
+            background: $primary !important;
+          }
+        }
+  
+        &.done {
+          color: $primary-06;
+          cursor: pointer;
+  
+          &::after {
+            background: $primary-06;
+          }
+        }
+  
+        &.disabled {
+          color: #f8f9fa !important;
+  
+          &::after {
+            background: #f8f9fa;
+          }
+        }
+  
+        &.error {
+          color: $danger !important;
+          cursor: pointer;
+  
+          &::after {
+            background: $danger !important;
+          }
+        }
+  
+        &.warning {
+          color: $warning !important;
+          cursor: pointer;
+  
+          &::after {
+            background: $warning !important;
+          }
+        }
+      }
+    }
+  }
+  
+  .sw-theme-arrows {
+    border: 1px solid  rgba(215, 227, 243, 0.5);
+  
+    > .nav {
+      overflow: hidden;
+  
+      .nav-item:last-child .nav-link {
+        margin-right: 0;
+      }
+  
+      .nav-link {
+        position: relative;
+        height: 100%;
+        padding: 10px;
+        margin-right: 30px;
+        margin-left: -30px;
+        padding-left: 50px;
+        transition: all 0.5s ease-in-out;
+  
+        &::after, &::before {
+          content: "";
+          pointer-events: none;
+          position: absolute;
+          display: block;
+          left: 100%;
+          top: 50%;
+          height: 0;
+          width: 0;
+          margin-top: -50px;
+          border: 50px solid transparent;
+          border-left-width: 40px;
+          transition: all 0.5s ease-in-out;
+        }
+  
+        &::after {
+          z-index: 2;
+        }
+  
+        &::before {
+          z-index: 1;
+        }
+  
+        &.default {
+          color: #828caa;
+          background-color: #f8f9fa;
+          cursor: not-allowed;
+  
+          &::after {
+            border-left-color: #f8f9fa;
+          }
+  
+          &::before {
+            border-left-color: #828caa;
+          }
+        }
+  
+        &.active {
+          color: $white !important;
+          border-color: $primary;
+          background-color: $primary;
+          cursor: pointer;
+  
+          &::after {
+            border-left-color: $primary;
+          }
+  
+          &::before {
+            border-left-color: $white;
+          }
+        }
+  
+        &.done {
+          color: #fefefe;
+          border-color: $primary-06;
+          background-color: $primary-06;
+          cursor: pointer;
+  
+          &::after {
+            border-left-color: $primary-06;
+          }
+  
+          &::before {
+            border-left-color: #fefefe;
+          }
+        }
+  
+        &.disabled {
+          color: #dbe0e5;
+          border-color: #f8f9fa;
+          background-color: #f8f9fa;
+  
+          &::after {
+            border-left-color: #f8f9fa;
+          }
+  
+          &::before {
+            border-left-color: #dbe0e5;
+          }
+        }
+  
+        &.error {
+          color: $white;
+          border-color: $danger;
+          background-color: $danger;
+          cursor: pointer;
+  
+          &::after {
+            border-left-color: $danger;
+          }
+  
+          &::before {
+            border-left-color: $white;
+          }
+        }
+  
+        &.warning {
+          color: $white;
+          border-color: $warning;
+          background-color: $warning;
+          cursor: pointer;
+  
+          &::after {
+            border-left-color: $warning;
+          }
+  
+          &::before {
+            border-left-color: $white;
+          }
+        }
+      }
+    }
+  
+    &[dir=rtl] > .nav {
+      padding-right: 0;
+  
+      .nav-item {
+        &:first-child .nav-link {
+          padding-left: unset;
+          margin-left: unset;
+          padding-right: 10px;
+          margin-right: 0;
+        }
+  
+        &:last-child .nav-link {
+          margin-right: unset;
+          margin-left: 0;
+        }
+      }
+  
+      .nav-link {
+        margin-right: unset;
+        margin-left: unset;
+        padding-left: unset;
+        padding-right: 50px;
+  
+        &::after, &::before {
+          left: unset;
+          right: 100%;
+          border-left-width: 0;
+          border-right-width: 40px;
+        }
+  
+        &.default {
+          &::after {
+            border-right-color: #f8f9fa;
+          }
+  
+          &::before {
+            border-right-color: #828caa;
+          }
+        }
+  
+        &.active {
+          &::after {
+            border-right-color: $primary;
+          }
+  
+          &::before {
+            border-right-color: $white;
+          }
+        }
+  
+        &.done {
+          &::after {
+            border-right-color: $primary-06;
+          }
+  
+          &::before {
+            border-right-color: #fefefe;
+          }
+        }
+  
+        &.disabled {
+          &::after {
+            border-left-color: unset;
+            border-right-color: #f8f9fa;
+          }
+  
+          &::before {
+            border-left-color: unset;
+            border-right-color: #dbe0e5;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 640px) {
+    .sw-theme-arrows > .nav .nav-item:first-child .nav-link {
+      padding-left: 10px;
+      margin-left: 0;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows > .nav .nav-link {
+      overflow: hidden;
+      margin-right: unset;
+      text-align: left !important;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows > .nav .nav-link.default {
+      border-bottom: 1px solid #f8f9fa;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows > .nav .nav-link.active {
+      border-bottom: 1px solid $white;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows > .nav .nav-link.done {
+      border-bottom: 1px solid #fefefe;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows > .nav .nav-link.disabled {
+      border-bottom: 1px solid #dbe0e5;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows > .nav .nav-link.error {
+      border-bottom: 1px solid $white;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows > .nav .nav-link.warning {
+      border-bottom: 1px solid $white;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-arrows[dir=rtl] > .nav .nav-link {
+      margin-left: unset;
+    }
+  }
+  
+  .sw-theme-dots {
+    > {
+      .nav {
+        position: relative;
+        margin-bottom: 10px;
+  
+        &::before {
+          content: " ";
+          position: absolute;
+          top: 18px;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background-color: #f0f0f8;
+          border-radius: 3px;
+          z-index: 1;
+        }
+  
+        .nav-link {
+          position: relative;
+          margin-top: 40px;
+  
+          &::after {
+            content: " ";
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
+            top: -39px;
+            width: 40px;
+            height: 40px;
+            z-index: 7;
+            border: 1px solid  rgba(215, 227, 243, 0.5);
+            transition: all 0.5s ease-in-out;
+          }
+  
+          > .num {
+            font-size: 15px;
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            top: -27px;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 8;
+            transition: all 0.5s ease-in-out;
+          }
+  
+          &.default {
+            color: #828caa;
+            cursor: not-allowed;
+  
+            > .num {
+              color: #f8f9fa !important;
+            }
+  
+            &::after {
+              background-color: #a6afc9;
+            }
+          }
+  
+          &.active {
+            color: $primary !important;
+            cursor: pointer;
+  
+            > .num {
+              color: $white !important;
+            }
+  
+            &::after {
+              background-color: $primary !important;
+              box-shadow: none;
+            }
+          }
+  
+          &.done {
+            color: $primary-hover;
+            cursor: pointer;
+  
+            > .num {
+              color: #fefefe !important;
+            }
+  
+            &::after {
+              background-color: $primary-06;
+            }
+          }
+  
+          &.disabled {
+            color: #f8f9fa;
+  
+            > .num {
+              color: #dbe0e5 !important;
+            }
+  
+            &::after {
+              background-color: #f8f9fa;
+            }
+          }
+  
+          &.error {
+            color: $danger !important;
+            cursor: pointer;
+  
+            > .num {
+              color: $white !important;
+            }
+  
+            &::after {
+              background-color: $danger !important;
+            }
+          }
+  
+          &.warning {
+            color: $warning !important;
+            cursor: pointer;
+  
+            > .num {
+              color: $white !important;
+            }
+  
+            &::after {
+              background-color: $warning !important;
+            }
+          }
+        }
+      }
+  
+      .nav-progress::after {
+        content: " ";
+        position: absolute;
+        top: 18px;
+        left: 0;
+        width: var(--sw-progress-width);
+        height: 5px;
+        background-color: $primary;
+        border-radius: 3px;
+        z-index: 2;
+        transition: width 0.5s ease-in-out;
+      }
+    }
+  
+    &[dir=rtl] > .nav-progress::after {
+      left: unset;
+      right: 0;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-dots > .nav::before {
+      top: 0;
+      left: 19px;
+      width: 3px;
+      height: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-dots > .nav .nav-item:last-child .nav-link {
+      margin-bottom: 0;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-dots > .nav .nav-link {
+      margin-top: unset;
+      margin-bottom: 20px;
+      padding-left: 55px;
+      text-align: left !important;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-dots > .nav .nav-link::after {
+      top: 0;
+      right: unset;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-dots > .nav .nav-link > .num {
+      top: 0;
+      right: unset;
+      width: 40px;
+      line-height: 1.3;
+      padding-top: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-dots > .nav-progress::after {
+      top: 0;
+      left: 20.5px;
+      width: 5px;
+      height: var(--sw-progress-width);
+    }
+  }
+  
+  .sw-theme-round {
+    > .nav .nav-link {
+      position: relative;
+      height: 100%;
+      min-height: 100%;
+      border-radius: 10em;
+      margin-right: 4px;
+      transition: all 0.5s ease-in-out;
+  
+      &.default {
+        background-color: #f8f9fa;
+        color: #828caa;
+        cursor: not-allowed;
+      }
+  
+      &.active {
+        background-color: $primary;
+        color: $white !important;
+        box-shadow: 0 1px 7px 1px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+      }
+  
+      &.done {
+        background-color: $primary-06;
+        color: #fefefe;
+        cursor: pointer;
+      }
+  
+      &.disabled {
+        background-color: #f8f9fa;
+        color: #dbe0e5 !important;
+      }
+  
+      &.error {
+        background-color: $danger;
+        color: $white !important;
+        cursor: pointer;
+      }
+  
+      &.warning {
+        background-color: $warning;
+        color: $white !important;
+        cursor: pointer;
+      }
+    }
+  
+    &[dir=rtl] > .nav .nav-link > .num {
+      float: right;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-round > .nav .nav-link {
+      margin-right: unset;
+      text-align: left !important;
+    }
+  }
+  
+  .sw-theme-square {
+    > {
+      .nav {
+        position: relative;
+        margin-bottom: 10px;
+  
+        &::before {
+          content: " ";
+          position: absolute;
+          top: 18px;
+          left: 0;
+          width: 100%;
+          border-radius: 8px;
+          z-index: 1;
+          border: 3px dashed  rgba(215, 227, 243, 0.5);
+        }
+  
+        .nav-link {
+          position: relative;
+          margin-top: 40px;
+  
+          &::before {
+            content: " ";
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: .475rem;
+            top: -40px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background:  rgba(215, 227, 243, 0.5);
+            text-decoration: none;
+            z-index: 98;
+            transition: all 0.5s ease-in-out;
+          }
+  
+          > .num {
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            top: -38px;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 100;
+            transition: all 0.5s ease-in-out;
+          }
+  
+          &.default {
+            color: #828caa;
+            cursor: not-allowed;
+  
+            &::after {
+              background-color: #828caa;
+            }
+          }
+  
+          &.active {
+            color: $primary !important;
+            cursor: pointer;
+  
+            > .num {
+              color: $white !important;
+            }
+  
+            &::before {
+              background-color: $primary !important;
+              box-shadow: 0 1px 7px 1px rgba(0, 0, 0, 0.3);
+            }
+          }
+  
+          &.done {
+            color: $primary-06;
+            cursor: pointer;
+  
+            > .num {
+              color: #fefefe !important;
+            }
+  
+            &::before {
+              background-color: $primary-06 !important;
+            }
+          }
+  
+          &.disabled {
+            color: #f8f9fa;
+  
+            &::after {
+              background-color: #f8f9fa;
+            }
+          }
+  
+          &.error {
+            color: $danger !important;
+            cursor: pointer;
+  
+            &::after {
+              background-color: $danger !important;
+            }
+          }
+  
+          &.warning {
+            color: $warning !important;
+            cursor: pointer;
+  
+            &::after {
+              background-color: $warning !important;
+            }
+          }
+        }
+      }
+  
+      .nav-progress::after {
+        content: " ";
+        position: absolute;
+        top: 18px;
+        left: 0;
+        width: var(--sw-progress-width);
+        border-radius: 8px;
+        z-index: 1;
+        height: 6px;
+        background-color: $primary;
+        z-index: 2;
+        transition: width 0.5s ease-in-out;
+      }
+    }
+  
+    &[dir=rtl] > .nav-progress::after {
+      left: unset;
+      right: 0;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-square > .nav::before {
+      top: 0;
+      left: 17px;
+      width: 6px;
+      height: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-square > .nav .nav-link {
+      margin-top: unset;
+      margin-bottom: 20px;
+      padding-left: 55px;
+      text-align: left !important;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-square > .nav .nav-link::before {
+      top: 0;
+      right: unset;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-square > .nav .nav-link > .num {
+      top: 0;
+      right: unset;
+      width: 40px;
+      padding-top: 3px;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .sw-theme-square > .nav-progress::after {
+      top: 0;
+      left: 17px;
+      width: 6px;
+      height: var(--sw-progress-width);
+    }
+  }

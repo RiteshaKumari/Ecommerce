@@ -1,0 +1,427 @@
+.table thead th, .text-wrap table thead th {
+	border-bottom-width: 1px;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+  }
+  
+  .table th, .text-wrap table th {
+	color:$color;
+	text-transform: uppercase;
+	font-size: 0.875rem;
+	font-weight: 400;
+  }
+  
+  .table-md {
+	th, td {
+	  padding: .5rem;
+	}
+  }
+  
+  .table-vcenter {
+	td, th {
+	  vertical-align: middle;
+	  border-top: 0px solid rgba(215, 227, 243, 0.5);
+	}
+  }
+  
+  .table-striped tbody tr {
+	&:nth-of-type(odd) {
+	  background: none;
+	  --bs-table-accent-bg: none;
+	}
+  
+	&:nth-of-type(even) {
+	  background-color: #f4f6fd;
+	}
+  }
+  
+  /*------ Tables -----*/
+  
+  .table {
+	color:$color;
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+  }
+  
+  .text-wrap table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+  }
+  
+  .table th {
+	padding: 0.75rem;
+	vertical-align: top;
+  }
+  
+  .text-wrap table {
+	th, td {
+	  padding: 0.75rem;
+	  vertical-align: top;
+	}
+  }
+  
+  .table td {
+	padding: 0.74rem;
+	vertical-align: top;
+	border-top: 0px solid rgba(215, 227, 243, 0.5);
+  }
+  
+  .border {
+	vertical-align: top;
+	border: 1px solid rgba(227, 231, 241, 0.8);
+  }
+  
+  .table thead th, .text-wrap table thead th {
+	vertical-align: bottom;
+	border-bottom: 1px solid rgba(227, 231, 241, 0.8);
+  }
+  
+  .table tbody + tbody, .text-wrap table tbody + tbody {
+	border-top: 0px solid rgba(215, 227, 243, 0.5);
+  }
+  
+  .table .table, .text-wrap table .table, .table .text-wrap table {
+	background-color: #f4f6fd;
+  }
+  
+  .text-wrap {
+	.table table, table table {
+	  background-color: #f4f6fd;
+	}
+  }
+  
+  .table-sm {
+	th, td {
+	  padding: 0.3rem;
+	}
+  }
+  
+  .table-bordered, .text-wrap table, .table-bordered th, .text-wrap table th, .table-bordered td, .text-wrap table td {
+	border: 1px solid rgba(227, 231, 241, 0.8);
+  }
+  
+  .table-bordered thead th, .text-wrap table thead th, .table-bordered thead td, .text-wrap table thead td {
+	border-bottom-width: 1px;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+	background-color: transparent;
+  }
+  
+  .table-hover tbody {
+	tr:hover {
+		--bs-table-hover-bg: #f4f6fd;
+	  color:$color;
+	}
+  
+  }
+  
+  .table .thead-dark th, .text-wrap table .thead-dark th {
+	color: #f4f6fd;
+	background-color:$color;
+	border-color: #32383e;
+  }
+  
+  .table .thead-light th, .text-wrap table .thead-light th {
+	color:$color;
+	background-color: #f4f6fd;
+	border-color: rgba(215, 227, 243, 0.5);
+  }
+  
+  .text-wrap table.table-dark {
+	border: 0;
+  }
+  
+  .table.dataTable thead th {
+	border-bottom: 0 !important;
+  }
+  
+  @media (max-width: 575.98px) {
+	.table-responsive-sm {
+	  display: block;
+	  width: 100%;
+	  overflow-x: auto;
+	  -webkit-overflow-scrolling: touch;
+	  -ms-overflow-style: -ms-autohiding-scrollbar;
+  
+	  > .table-bordered {
+		border: 0;
+	  }
+	}
+  
+	.text-wrap .table-responsive-sm > table {
+	  border: 0;
+	}
+  
+	.construction .display-2 {
+	  font-size: 2.3rem !important;
+	}
+  }
+  
+  @media (max-width: 767.98px) {
+	.table-responsive-md {
+	  display: block;
+	  width: 100%;
+	  overflow-x: auto;
+	  -webkit-overflow-scrolling: touch;
+	  -ms-overflow-style: -ms-autohiding-scrollbar;
+  
+	  > .table-bordered {
+		border: 0;
+	  }
+	}
+  
+	.text-wrap .table-responsive-md > table {
+	  border: 0;
+	}
+  }
+  
+  @media (max-width: 991.98px) {
+	.table-responsive-lg {
+	  display: block;
+	  width: 100%;
+	  overflow-x: auto;
+	  -webkit-overflow-scrolling: touch;
+	  -ms-overflow-style: -ms-autohiding-scrollbar;
+  
+	  > .table-bordered {
+		border: 0;
+	  }
+	}
+  
+	.text-wrap .table-responsive-lg > table {
+	  border: 0;
+	}
+  }
+  
+  @media (max-width: 1279.98px) {
+	.table-responsive-xl {
+	  display: block;
+	  width: 100%;
+	  overflow-x: auto;
+	  -webkit-overflow-scrolling: touch;
+	  -ms-overflow-style: -ms-autohiding-scrollbar;
+  
+	  > .table-bordered {
+		border: 0;
+	  }
+	}
+  
+	.text-wrap .table-responsive-xl > table {
+	  border: 0;
+	}
+  }
+  
+  .table-responsive {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+  
+	> .table-bordered {
+	  border: 0;
+	}
+  }
+  
+  .text-wrap .table-responsive > table {
+	border: 0;
+  }
+  
+  .table-inbox {
+	border: 1px solid rgba(227, 231, 241, 0.8);
+	margin-bottom: 0;
+  
+	tr {
+	  border-bottom: 1px solid rgba(238, 238, 238, 0.7) !important;
+  
+	  &:last-child {
+		border-bottom: 0;
+	  }
+  
+	  td {
+		padding: 12px !important;
+  
+		&:hover {
+		  cursor: pointer;
+		}
+  
+		.fa-star {
+		  &.inbox-started, &:hover {
+			color: #f78a09;
+		  }
+  
+		  color: rgb(222, 226, 237);
+		}
+	  }
+  
+	  &.unread td {
+		background: #f4f6fd;
+		font-weight: 500;
+	  }
+	}
+  }
+  
+  .table.table-bordered.text-nowrap thead th{
+	 border-bottom:0;
+  }
+  .table>:not(:first-child) {
+    border-top: 0px solid currentColor;
+  }
+
+  .table {
+	--bs-table-striped-bg: none;
+  }
+
+  table.dataTable {
+    width: 100% !important;
+  }
+
+ table {
+	 border-color: $border !important;
+ }
+ 
+ .dt-buttons.btn-group {
+    position: absolute;
+    top: 0;
+    left: 156px;
+}
+
+#file-datatable_wrapper .dropdown-menu {
+    padding: 0 !important;
+}
+
+
+
+.table> :not(caption)>*>* {
+	background-color: transparent;
+}
+
+.table-secondary thead th {
+	color: $white;
+}
+
+.table-secondary {
+  background-color: rgba($secondary, 0.5);
+
+  > {
+    th, td {
+      background-color: rgba($secondary, 0.5) !important;
+    }
+  }
+  
+  th, td, thead th, tbody+tbody {
+    border-color:  rgba($secondary, 0.3) !important;
+  }
+
+  thead th {
+    color: $white;
+    background: $secondary;
+  }
+}
+.table-warning {
+  background-color: rgba($warning, 0.5);
+
+  > {
+    th, td {
+      background-color: rgba($warning, 0.5) !important;
+    }
+  }
+  
+  th, td, thead th, tbody+tbody {
+    border-color: rgba($warning, 0.3) !important;
+  }
+
+  thead th {
+    color: $white;
+    background: $warning;
+  }
+}
+.table-danger {
+  background-color: rgba($danger, 0.5);
+
+  > {
+    th, td {
+      background-color: rgba($danger, 0.5) !important;
+    }
+  }
+  
+  th, td, thead th, tbody+tbody {
+    border-color: rgba($danger, 0.3) !important;
+  }
+
+  thead th {
+    color: $white;
+    background: $danger;
+
+  }
+}
+.table-success {
+  background-color: rgba($success, 0.5);
+
+  > {
+    th, td {
+      background-color: rgba($success, 0.5) !important;
+    }
+  }
+  
+  th, td, thead th, tbody+tbody {
+    border-color: rgba($success, 0.3) !important;
+  }
+
+  thead th {
+    color: $white;
+    background: $success;
+  }
+}
+
+.table-info {
+  background-color: rgba($info, 0.5);
+
+  > {
+    th, td {
+      background-color: rgba($info, 0.5) !important;
+    }
+  }
+  
+  th, td, thead th, tbody+tbody {
+    border-color: rgba($info, 0.3) !important;
+  }
+
+  thead th {
+    color: $white;
+    background: $info;
+  }
+}
+
+.table-primary {	
+  background-color: $primary-06;
+
+  > {
+    th, td {
+      background-color: $primary-06 !important;
+    }
+  }
+
+  thead th {
+    color: $white;
+    background: $primary;
+  }
+}
+
+.table-primary {
+  &.table-bordered th,
+  &.table-bordered td 
+  {
+    border-color: $primary-03 !important;
+  }
+}
+
+.table-primary, .table-secondary, .table-success, .table-info, .table-warning, .table-danger {
+&.table-bordered thead tr th
+  {
+	border-color: $white-1 !important;
+  }
+}

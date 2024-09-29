@@ -1,0 +1,27 @@
+﻿.header-main-area .header-main .header-element.logo {
+    width: 25%;
+}
+
+.header-main-area .header-main {
+    justify-content: space-around;
+}
+
+@media(max-width:1100px) {
+    .header-main-area .header-main .header-element.logo {
+        width: 15%;
+    }
+}
+
+
+.quick-view .modal .modal-dialog .modal-content .quick-veiw-area .quick-image {
+    width: 40%;
+}
+
+.long-img {
+    width: 100%;
+}
+
+.imgshown {
+    height: 224px;
+    width: 100%;
+}

@@ -1,0 +1,173 @@
+﻿@model E_Commerce.Models.AddSubInventory
+@{
+    ViewBag.Title = "Offer";
+}
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+@{
+    int serialNumber = 1;
+}
+@section Page_Level_Css{
+    <style>
+        .dt-buttons.btn-group {
+            margin-left: 20px;
+        }
+
+        table {
+            margin: 11px 0;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 0px 38px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+}
+
+<div class="side-app">
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+        <div class="row row-sm" style="margin-top:20px;">
+            <div class="col-lg-12">
+                <div class="card  overflow-hidden">
+                    <div class="card-header">
+                        <h3 class="card-title">Run Offer</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul style="margin-bottom:20px;">
+                            <li><strong>Seller</strong>, There are two Types of Offer That you can run</li>
+                            <li type="square"><span style="font-weight:500">Lightening Type offer:</span>- This Offer is Valid For 24 Hours(<sup>**</sup>Redemption fee is available)</li>
+                            <li type="square"><span style="font-weight:500">Weekly Type offer:</span>- This Offer is Valid For 7 Days(<sup>**</sup>Redemption fee is available)</li>
+                        </ul>
+                        <table>
+                            <thead>
+                                <tr class="header">
+                                    <th>S.No</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
+                                    <th>Price</th>
+                                    <th>Capacity</th>
+                                    <th>Number of Pieces</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.SubInventory != null)
+                                {
+                                    foreach (var items in ViewBag.SubInventory)
+                                    {
+                                        <tr>
+                                            <td>@serialNumber</td>
+                                            <td>@items.size</td>
+                                            <td><div class="pcolor" style="background-color: @items.color; height: 25px; border-radius: 50%; width: 25px;"></div></td>
+                                            <td>@items.price</td>
+                                            <td>@items.capacity</td>
+                                            <td>@items.piece</td>
+                                            <td><button class="btn btn-primary" style="margin: 3px; padding: 2px 9px;" data-bs-toggle="modal" data-bs-target="#exampleModal3">Run Offer</button></td>
+                                            @*<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal3"
+                                                        onclick="Product('@(items.PName.Length > 80 ? items.PName.Substring(0, 80) : items.PName)','@items.PID')">
+                                                    Apply Offer
+                                                </button>*@
+                                        </tr>
+
+                                        serialNumber++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- CONTAINER CLOSED -->
+    </div>
+</div>
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="example-Modal3">Apply Offer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="PDetail">Offer Type</label>
+
+                        <select id="PDetail" class="form-control PDetail" required>
+                            <option value="">Select Offer Type</option>
+                            <option value="Weekly">Weekly Offer</option>
+                            <option value="Lightly">Lightly Offer</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group" id="StartDate">
+                        <label for="message-text">Start Date</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="message-text">Selling Price:</label>
+                        <input type="number" class="form-control" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text">Discount (%):</label>
+                        <input type="text" class="form-control" required min="10" max="80">
+                        <span style="color:red;">Discount must be in range 10 to 80.</span>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Apply Offer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Product(productName,pid) {
+
+            document.getElementById('product-name').value = productName;
+        if (pid) {
+        $.ajax({
+            url: '@Url.Action("GetPDetails", "Home")',
+            type: 'GET',
+            data: { pid: pid },
+            success: function (data) {
+                var PDetail = $('#PDetail');
+                PDetail.empty(); // Clear existing options
+                PDetail.append('<option value="">Select product details</option>'); // Add default option
+
+                // Iterate through the data and append each option
+                $.each(data, function (index, item) {
+                    PDetail.append('<option value="' + item.PDetails + '">' + item.PDetails + '</option>');
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching product details:', error);
+            }
+        });
+          }
+          else {
+                $('#PDetail').empty().append('<option value="">Select product details</option>');
+          }
+
+
+    }
+</script>
+

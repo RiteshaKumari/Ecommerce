@@ -1,0 +1,301 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Page_Level_Css{
+           
+    <link href="~/Content/assets2/assets/Cust_CSS/Newstyle.css" rel="stylesheet" />
+    <link href="~/Content/assets2/assets/css/icons.css" rel="stylesheet" />
+    <style>
+        .page-header {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            margin: 1.5rem 0rem;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            position: relative;
+            z-index:2;
+            min-height: 50px;
+        }
+        .about-back .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(0 0 0 / 61%);
+            z-index: 1;
+        }
+    </style>
+}
+
+<section class="about-breadcrumb">
+    <div class="about-back section-tb-padding" style="background-image: url(/Content/assets/Custom_Image/breadcrumb4.jpg)">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title" style="color:#fff;">Shopping Cart</h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);" style="color:#fff;">E-Commerce</a></li>
+                        <li class="breadcrumb-item active" aria-current="page" style="color:#fff;">Shopping Cart</li>
+                    </ol>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="margin-top: 20px;">
+<div class="side-app">
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+
+        <!-- ROW-1 OPEN -->
+        <div class="row">
+            <div class="col-md-12 col-xl-8">
+                <div class="card cart">
+                    <div class="card-header">
+                        <h3 class="card-title">Shopping Cart</h3>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-vcenter text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Title</th>
+                                        <th>Price</th>
+                                        <th class="w-15">Quantity</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="~/Content/assets2/assets/images/media/products/1.jpg" alt="" class="h-8 br-5 align-center">
+                                        </td>
+                                        <td>Wooden Chair</td>
+                                        <td class="number-font1">$568</td>
+                                        <td>
+                                            <div class="input-group" style="width: 125px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-ts-3 br-bs-3 btn btn-light br-0 remove">
+                                                        <i class="fe fe-minus"></i>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quantity" class="form-control text-center qty" value="1">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-te-3 br-be-3 btn btn-light br-0 add">
+                                                        <i class="fe fe-plus"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" class="btn btn-danger btn me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Save for Washlist" aria-label="Save for Washlist"><i class="icon icon-heart"></i></a>
+                                            <a href="javascript:void(0)" class="btn btn-info btn" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Remove" aria-label="Remove"><i class="icon icon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/Content/assets2/assets/images/media/products/4.jpg" alt="" class="h-8 br-5 text-center">
+                                        </td>
+                                        <td>Hand Bag</td>
+                                        <td class="number-font1">$1,027</td>
+                                        <td>
+                                            <div class="input-group" style="width: 125px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-ts-3 br-bs-3 btn btn-light br-0 remove">
+                                                        <i class="fe fe-minus"></i>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quantity" class="form-control text-center qty" value="1">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-te-3 br-be-3 btn btn-light br-0 add">
+                                                        <i class="fe fe-plus"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" class="btn btn-danger btn me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Save for Washlist" aria-label="Save for Washlist"><i class="icon icon-heart"></i></a>
+                                            <a href="javascript:void(0)" class="btn btn-info btn" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Remove" aria-label="Remove"><i class="icon icon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/Content/assets2/assets/images/media/products/2.jpg" alt="" class="h-8 br-5 text-center">
+                                        </td>
+                                        <td>T-Shirt</td>
+                                        <td class="number-font1">$359</td>
+                                        <td>
+                                            <div class="input-group" style="width: 125px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-ts-3 br-bs-3 btn btn-light br-0 remove">
+                                                        <i class="fe fe-minus"></i>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quantity" class="form-control text-center qty" value="1">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-te-3 br-be-3 btn btn-light br-0 add">
+                                                        <i class="fe fe-plus"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" class="btn btn-danger btn me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Save for Washlist" aria-label="Save for Washlist"><i class="icon icon-heart"></i></a>
+                                            <a href="javascript:void(0)" class="btn btn-info btn" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Remove" aria-label="Remove"><i class="icon icon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/Content/assets2/assets/images/media/products/3.jpg" alt="" class="h-8 br-5 text-center">
+                                        </td>
+                                        <td>Leather Watch</td>
+                                        <td class="number-font1">$499</td>
+                                        <td>
+                                            <div class="input-group" style="width: 125px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-ts-3 br-bs-3 btn btn-light br-0 remove">
+                                                        <i class="fe fe-minus"></i>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quantity" class="form-control text-center qty" value="1">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-te-3 br-be-3 btn btn-light br-0 add">
+                                                        <i class="fe fe-plus"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" class="btn btn-danger btn me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Save for Washlist" aria-label="Save for Washlist"><i class="icon icon-heart"></i></a>
+                                            <a href="javascript:void(0)" class="btn btn-info btn" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Remove" aria-label="Remove"><i class="icon icon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/Content/assets2/assets/images/media/products/5.jpg" alt="" class="h-8 br-5 text-center">
+                                        </td>
+                                        <td>Kids Wear</td>
+                                        <td class="number-font1">$1,049</td>
+                                        <td>
+                                            <div class="input-group" style="width: 125px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-ts-3 br-bs-3 btn btn-light br-0 remove">
+                                                        <i class="fe fe-minus"></i>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quantity" class="form-control text-center qty" value="1">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-te-3 br-be-3 btn btn-light br-0 add">
+                                                        <i class="fe fe-plus"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" class="btn btn-danger btn me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Save for Washlist" aria-label="Save for Washlist"><i class="icon icon-heart"></i></a>
+                                            <a href="javascript:void(0)" class="btn btn-info btn" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Remove" aria-label="Remove"><i class="icon icon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/Content/assets2/assets/images/media/products/8.jpg" alt="" class="h-8 br-5 text-center">
+                                        </td>
+                                        <td>Sports Shoes</td>
+                                        <td class="number-font1">$1,589</td>
+                                        <td>
+                                            <div class="input-group" style="width: 125px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-ts-3 br-bs-3 btn btn-light br-0 remove">
+                                                        <i class="fe fe-minus"></i>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quantity" class="form-control  text-center qty" value="1">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="br-te-3 br-be-3  btn btn-light br-0 add">
+                                                        <i class="fe fe-plus"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" class="btn btn-danger btn  me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Save for Washlist" aria-label="Save for Washlist"><i class="fe fe-heart"></i></a>
+                                            <a href="javascript:void(0)" class="btn btn-info btn" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Remove" aria-label="Remove"><i class="icon icon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <div class="card custom-card">
+                    <div class="card-header">
+                        <div class="card-title">Have coupon ?</div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group mb-0">
+                                <div class="input-group">
+                                    <input type="text" class="form-control coupon" placeholder="Coupon code">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-apply coupon br-bs-0 br-ts-0">Apply</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card cart">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                Sub Total
+                                <span class="badgetext h4  mb-0 number-font1">$4,360</span>
+                            </li>
+                            <li class="list-group-item">
+                                Discount
+                                <span class="badgetext h4  mb-0 number-font1">5%</span>
+                            </li>
+                            <li class="list-group-item">
+                                Shipping
+                                <span class="badgetext h4  mb-0">Free</span>
+                            </li>
+                            <li class="list-group-item h4 fw-600">
+                                Total
+                                <span class="badgetext h4 fw-600 mb-0 number-font1">$3,976</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="shop.html" class="btn btn-warning mb-1"><i class="mdi mdi-arrow-left me-1"></i>Continue Shopping</a>
+                        <a href="checkout.html" class="btn btn-secondary mb-1">Check out<i class="mdi mdi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ROW-1 CLOSED -->
+
+    </div>
+    <!-- CONTAINER CLOSED -->
+
+</div>
+
+</div>

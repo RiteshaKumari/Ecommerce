@@ -1,0 +1,1062 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+   @*<meta http-equiv="refresh" content="10">*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title -->
+    <title>E-Commerce</title>
+    <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries." />
+    <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories" />
+    <meta name="author" content="spacingtech_webify">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/favicon" href="~/Content/assets/Custom_Image/logo.png">
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
+    <!-- simple-line icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/simple-line-icons.css">
+    <!-- font-awesome icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/font-awesome.min.css?1.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- themify icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/themify-icons.css">
+    <!-- ion icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/ionicons.min.css">
+    <!-- owl slider -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/owl.theme.default.min.css">
+    <!-- swiper -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/swiper.min.css">
+    <!-- animation -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/animate.css">
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css?1.7">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/responsive.css">
+    <link href="~/Content/assets/CustomCss/StyleSheet1.css?1.2" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @RenderSection("Page_Level_Css", required: false)
+    <style>
+        :root {
+            --primary-bg-color: #f67981;
+            --primary-bg-hover: #f67981;
+        }
+
+        .top1 {
+            background-color: #fff;
+            display: none;
+        }
+
+        @@media(max-width:767px) {
+            .top1 {
+                display: block;
+            }
+        }
+
+        @@media(min-width:1199px) {
+            .bhbutton {
+                padding: 10px 20px !important;
+            }
+        }
+
+        @@media(max-width:1199px) {
+            .bhbutton {
+                display: none !important;
+            }
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 12px 0;
+            z-index: 1000;
+            min-width: 120px;
+        }
+
+            .dropdown-menu li {
+                list-style: none;
+                padding: 8px 16px;
+            }
+
+                .dropdown-menu li:hover {
+                    color: #F67981;
+                }
+
+                .dropdown-menu li a {
+                    text-decoration: none;
+                    color: #333;
+                    display: block;
+                }
+
+                    .dropdown-menu li a:hover {
+                        /*background-color: #f1f1f1;*/
+                        color: #F67981;
+                    }
+
+        .shopping-cart:hover .dropdown-menu {
+            display: block; /* Show dropdown when hovering over profile link */
+        }
+
+        .profiledrop {
+            display: flex;
+            flex-wrap: nowrap;
+            cursor: pointer;
+        }
+
+        .one-line-clamp {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 241px;
+        }
+    </style>
+
+</head>
+<body class="home-1">
+    @*#8c52ff*@
+    @{
+        string fullName = ViewBag.CustomerName as string ?? string.Empty;
+        string firstWord = fullName.Split(' ')[0];
+        string displayName = firstWord.Length > 10 ? firstWord.Substring(0, 10) + ".." : firstWord;
+    }
+
+    <!-- header start -->
+    <header class="header-area">
+        <div class="header-main-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header-main">
+                            <!-- logo start -->
+                            <div class="header-element logo">
+                                <a href="/">
+                                    <img src="~/Content/assets/Custom_Image/logo.png" alt="logo-image" class="img-fluid" style="height: 51px; width: 251px;">
+                                </a>
+                            </div>
+                            <!-- logo end -->
+                            <!-- search start -->
+                            <div class="header-element search-wrap">
+                                <input type="text" name="search" placeholder="Search product.">
+                                <a class="search-btn"><i class="fa fa-search"></i></a>
+                            </div>
+
+                            <!-- search end -->
+                            <!-- header-icon start -->
+
+                            <div class="header-element right-block-box">
+
+                                <ul class="shop-element">
+
+                                    <li>
+                                        <a href="/BecomeSeller" class="btn btn-style1 bhbutton">Become Seller</a>
+                                    </li>
+                                    <li class="side-wrap nav-toggler">
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                                            <span class="line"></span>
+                                        </button>
+                                    </li>
+                                    @*<li class="side-wrap user-wrap">
+                                            <div class="acc-desk">
+                                                <div class="user-icon">
+                                                    <a href="account.html" class="user-icon-desk">
+                                                        <span><i class="icon-user"></i></span>
+                                                    </a>
+                                                </div>
+                                                <div class="user-info">
+                                                    <span class="acc-title">Account</span>
+                                                    <div class="account-login">
+                                                        <a href="/CustomerSignup">Register</a>
+                                                        <a href="/Login">Log in</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="acc-mob">
+                                                <a href="/Login" class="user-icon">
+                                                    <span><i class="icon-user"></i></span>
+                                                </a>
+                                            </div>
+                                        </li>*@
+                                    @if (ViewBag.DecodedTokenID != null)
+                                    {
+                                        <li class="side-wrap cart-wrap">
+                                            <div class="shopping-widget">
+                                                <div class="shopping-cart">
+                                                    <a href="#" class="cart-count" style="font-size: 16px; font-weight: 600;">
+                                                        @displayName <span class="icon">
+                                                            <i class="fa-solid fa-caret-down"></i>
+                                                        </span>
+
+                                                    </a>
+
+
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="profiledrop">
+                                                            <a href="@Url.Action("EditCustomerProfile", "Home")">
+                                                                <span class="icon">
+                                                                    <i class="fa-solid fa-user"></i>
+                                                                </span>
+                                                                &nbsp;Profile
+                                                            </a>
+                                                        <li class="profiledrop"><a href="@Url.Action("CustomerSecurity", "Home")"><span class="icon"><i class="fa-solid fa-shield-halved"></i></span>&nbsp;Privacy</a></li>
+                                                        <li class="profiledrop"><a href="@Url.Action("CustomerOrder", "Home")"><span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>&nbsp;Orders</a></li>
+
+
+                                                        <li class="profile-li profiledrop"><a onclick="logout()"><span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>&nbsp;Logout</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    }
+                                    else
+                                    {
+                                        <li class="side-wrap user-wrap">
+                                            <div class="acc-desk">
+                                                <div class="user-icon">
+                                                    <a href="account.html" class="user-icon-desk">
+                                                        <span><i class="icon-user"></i></span>
+                                                    </a>
+                                                </div>
+                                                <div class="user-info">
+                                                    <span class="acc-title">Account</span>
+                                                    <div class="account-login">
+                                                        <a href="/CustomerSignup">Register</a>
+                                                        <a href="/CustomerLogin">Log in</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="acc-mob">
+                                                <a href="account.html" class="user-icon">
+                                                    <span><i class="icon-user"></i></span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    }
+
+                                    <li class="side-wrap cart-wrap">
+                                        <div class="shopping-widget">
+                                            <div class="shopping-cart">
+                                                <a href="/Cart" class="cart-count">
+                                                    <span class="cart-icon-wrap">
+                                                        <span class="cart-icon"><i class="icon-handbag"></i></span>
+                                                        <span id="cart-total" class="bigcounter">5</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <section class="top1">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <ul class="top-home">
+                                                    <li class="top-home-li">
+                                                        <div class="r-search">
+                                                            <a href="#r-search-modal" class="search-popuup" data-bs-toggle="modal"><i class="fa fa-search" style="color:#000;"></i></a>
+                                                            <div class="modal fade" id="r-search-modal">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-body">
+                                                                            <div class="m-drop-search">
+                                                                                <input type="text" name="search" placeholder="Search products, brands or advice">
+                                                                                <a href="search.html" class="search-btn"><i class="fa fa-search"></i></a>
+                                                                            </div>
+                                                                            <button type="button" class="close" data-bs-dismiss="modal"><i class="ion-close-round"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!-- header-icon end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </header>
+    <!-- header end -->
+    <!-- mobile menu start -->
+    <div class="header-bottom-area mobile">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="main-menu-area">
+                        <div class="main-navigation navbar-expand-xl">
+                            <div class="box-header menu-close">
+                                <button class="close-box" type="button"><i class="ion-close-round"></i></button>
+                            </div>
+                            <!-- menu start -->
+                            <div class="navbar-collapse" id="navbarContent01">
+                                <div class="megamenu-content">
+                                    <div class="mainwrap">
+                                        <ul class="main-menu">
+                                            <li class="menu-link parent">
+                                                <a href="/" class="link-title">
+                                                    <span class="sp-link-title">Home</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="#collapse-home1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Home</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Shop</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="#collapse-mega-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Shop</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-submenu mega-menu collapse" id="collapse-mega-menu1">
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Fresh food</h2>
+                                                        <a href="#collapse-sub-mega-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Fresh food</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-menu1">
+                                                            <li class="supmenu-li"><a href="product.html">Fruit & nut</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Snack food</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Organics nut gifts</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Non dairy</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Mayonnaise</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Milk almond</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Mixedfruits</h2>
+                                                        <a href="#collapse-fruits-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Mixedfruits</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-fruits-menu1">
+                                                            <li class="supmenu-li"><a href="product.html">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Coffee creamers</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Ghee beverages</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Ranch salad</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Hemp milk</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Nuts & seeds</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Bananas & plantains</h2>
+                                                        <a href="#collapse-banana-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Bananas & plantains</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-banana-menu1">
+                                                            <li class="supmenu-li"><a href="product.html">Fresh gala</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fresh berries</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fruit & nut</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fifts mixed fruits</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Oranges</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Apples berries</h2>
+                                                        <a href="#collapse-apple-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Apples berries</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-apple-menu1">
+                                                            <li class="supmenu-li"><a href="product.html">Pears produce</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Bananas</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Natural grassbeab</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fresh green orange</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fresh organic reachter</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Balckberry 100%organic</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="grid-list.html" class="link-title">
+                                                    <span class="sp-link-title">Collection</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="#collapse-banner-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Collection</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu1">
+                                                    <li class="menu-banner">
+                                                        <a href="grid-list.html" class="menu-banner-img"><img src="~/Content/assets/image/menu-banner01.jpg" alt="menu-image" class="img-fluid"></a>
+                                                        <a href="grid-list.html" class="menu-banner-title"><span>Bestseller</span></a>
+                                                    </li>
+                                                    <li class="menu-banner">
+                                                        <a href="grid-list.html" class="menu-banner-img"><img src="~/Content/assets/image/menu-banner02.jpg" alt="menu-image" class="img-fluid"></a>
+                                                        <a href="grid-list.html" class="menu-banner-title"><span>Special product</span></a>
+                                                    </li>
+                                                    <li class="menu-banner">
+                                                        <a href="grid-list.html" class="menu-banner-img"><img src="~/Content/assets/image/menu-banner03.jpg" alt="mneu image" class="img-fluid"></a>
+                                                        <a href="grid-list.html" class="menu-banner-title"><span>Featured product</span></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Pages</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="#collapse-page-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Pages</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu1">
+                                                    <li class="submenu-li">
+                                                        <a href="about-us.html" class="submenu-link">About us</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Account</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="#account-menu1" data-bs-toggle="collapse" class="sub-link"><span>Account</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1" id="account-menu1">
+                                                            <li>
+                                                                <a href="order-history.html" class="sub-style"><span>Order</span></a>
+                                                                <a href="order-history.html" class="blog-sub-style"><span>Order</span></a>
+                                                                <a href="profile.html" class="sub-style"><span>Profile</span></a>
+                                                                <a href="profile.html" class="blog-sub-style"><span>Profile</span></a>
+                                                                <a href="pro-addresses.html" class="sub-style"><span>Address</span></a>
+                                                                <a href="pro-addresses.html" class="blog-sub-style"><span>Address</span></a>
+                                                                <a href="pro-wishlist.html" class="sub-style"><span>Wishlist</span></a>
+                                                                <a href="pro-wishlist.html" class="blog-sub-style"><span>Wishlist</span></a>
+                                                                <a href="pro-tickets.html" class="sub-style"><span>My tickets</span></a>
+                                                                <a href="pro-tickets.html" class="blog-sub-style"><span>My tickets</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="billing-info.html" class="submenu-link">Billing info</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="cancellation.html" class="submenu-link">Cancellation</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="cart.html" class="submenu-link">Cart page</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="coming-soon.html" class="submenu-link">Coming soon</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="faq%27s.html" class="submenu-link">Faq's</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="forgot-password.html" class="submenu-link">Forgot passowrd</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="order-complete.html" class="submenu-link">Order complete</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="tracking.html" class="submenu-link">Track page</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="contact.html" class="submenu-link">Contact us</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="payment-policy.html" class="submenu-link">Payment policy</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="privacy-policy.html" class="submenu-link">privacy policy</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="return-policy.html" class="submenu-link">Return policy</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="terms-conditions.html" class="submenu-link">Terms & conditions</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="wishlist.html" class="submenu-link">Wishlist</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="sitemap.html" class="submenu-link">Sitemap</a>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="fnf-page.html" class="submenu-link">4 not 4</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Blogs</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="#blog-style1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Blogs</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-submenu sub-menu collapse" id="blog-style1">
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Blog grid</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="#blog-style031" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1" id="blog-style031">
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#grid-1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid-1">
+                                                                    <li><a href="blog-style-1-3-grid.html">Blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-1-left-3-grid.html">Left blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-1-right-3-grid.html">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#grid-2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid-2">
+                                                                    <li><a href="blog-style-2-3-grid.html">Blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-2-left-3-grid.html">Left blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-2-right-3-grid.html">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#grid-3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid-3">
+                                                                    <li><a href="blog-style-3-grid.html">Blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-3-left-grid-blog.html">Left blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-3-right-grid-blog.html">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#grid-4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid-4">
+                                                                    <li><a href="blog-style-5-3-grid.html">Blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-5-left-3-grid.html">Left blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-5-right-3-grid.html">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#grid-5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid-5">
+                                                                    <li><a href="blog-style-6-3-grid.html">Blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-6-left-3-grid.html">Left blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-6-right-3-grid.html">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#grid-6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid-6">
+                                                                    <li><a href="blog-style-7-3-grid.html">Blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-7-left-grid-blog.html">Left blog 3 grid</a></li>
+                                                                    <li><a href="blog-style-7-right-grid-blog.html">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Blog list</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="#blog-style-01" data-bs-toggle="collapse" class="sub-link"><span>Blog list</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1" id="blog-style-01">
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list-1a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-1a">
+                                                                    <li><a href="blog-style-1-list.html">Blog list</a></li>
+                                                                    <li><a href="blog-style-1-left-list.html">Left blog list</a></li>
+                                                                    <li><a href="blog-style-1-right-list.html">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list-22a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-22a">
+                                                                    <li><a href="blog-style-2-list.html">Blog list</a></li>
+                                                                    <li><a href="blog-style-2-left-list.html">Left blog list</a></li>
+                                                                    <li><a href="blog-style-2-right-list.html">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list-33a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-33a">
+                                                                    <li><a href="blog-style-3-list.html">Blog list</a></li>
+                                                                    <li><a href="blog-style-3-left-list-blog.html">Left blog list</a></li>
+                                                                    <li><a href="blog-style-3-right-list-blog.html">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list-44a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-44a">
+                                                                    <li><a href="blog-style-5-list-blog.html">Blog list</a></li>
+                                                                    <li><a href="blog-style-5-left-list.html">Left blog list</a></li>
+                                                                    <li><a href="blog-style-5-right-list.html">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list-55a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-55a">
+                                                                    <li><a href="blog-style-6-list-blog.html">Blog list</a></li>
+                                                                    <li><a href="blog-style-6-left-list-blog.html">Left blog list</a></li>
+                                                                    <li><a href="blog-style-6-right-list-blog.html">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list-66a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-66a">
+                                                                    <li><a href="blog-style-7-list-blog.html">Blog list</a></li><!--list-->
+                                                                    <li><a href="blog-style-7-left-list-blog.html">Left blog list</a></li><!--list-->
+                                                                    <li><a href="blog-style-7-right-list-blog.html">Right blog list</a></li><!--list-->
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Blog details</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="#blog-style-02" data-bs-toggle="collapse" class="sub-link"><span>Blog Details</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1 ex-width" id="blog-style-02">
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list-11a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-11a">
+                                                                    <li><a href="blog-style-1-details.html">Blog details</a></li>
+                                                                    <li><a href="blog-style-1-left-details.html">Left blog details</a></li>
+                                                                    <li><a href="blog-style-1-right-details.html">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list2a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list2a">
+                                                                    <li><a href="blog-style-2-details.html">Blog details</a></li>
+                                                                    <li><a href="blog-style-2-left-details.html">Left blog details</a></li>
+                                                                    <li><a href="blog-style-2-right-details.html">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list3a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list3a">
+                                                                    <li><a href="blog-style-3-details.html">Blog details</a></li>
+                                                                    <li><a href="blog-style-3-left-blog-details.html">Left blog details</a></li>
+                                                                    <li><a href="blog-style-3-right-blog-details.html">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list4a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list4a">
+                                                                    <li><a href="blog-style-5-details.html">Blog details</a></li>
+                                                                    <li><a href="blog-style-5-left-details.html">Left blog details</a></li>
+                                                                    <li><a href="blog-style-5-right-details.html">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list5a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list5a">
+                                                                    <li><a href="blog-style-6-details.html">Blog details</a></li>
+                                                                    <li><a href="blog-style-6-left-details-blog.html">Left blog details</a></li>
+                                                                    <li><a href="blog-style-6-right-details-blog.html">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#list6a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list6a">
+                                                                    <li><a href="blog-style-7-details.html">Blog details</a></li>
+                                                                    <li><a href="blog-style-7-left-details.html">Left blog details</a></li>
+                                                                    <li><a href="blog-style-7-right-details.html">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Center blog</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="#center-blog-1" data-bs-toggle="collapse" class="sub-link"><span>Center blog</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1" id="center-blog-1">
+                                                            <li>
+                                                                <a href="blog-style-1-center-blog.html" class="sub-style"><span>Blog style 1</span></a>
+                                                                <a href="blog-style-1-center-blog.html" class="blog-sub-style"><span>Blog style 1</span></a>
+                                                                <a href="blog-style-2-center-blog.html" class="sub-style"><span>Blog style 2</span></a>
+                                                                <a href="blog-style-2-center-blog.html" class="blog-sub-style"><span>Blog style 2</span></a>
+                                                                <a href="blog-style-3-center-blog.html" class="sub-style"><span>Blog style 3</span></a>
+                                                                <a href="blog-style-3-center-blog.html" class="blog-sub-style"><span>Blog style 3</span></a>
+                                                                <a href="blog-style-5-center-blog.html" class="sub-style"><span>Blog style 4</span></a>
+                                                                <a href="blog-style-5-center-blog.html" class="blog-sub-style"><span>Blog style 4</span></a>
+                                                                <a href="blog-style-6-center-blog.html" class="sub-style"><span>Blog style 5</span></a>
+                                                                <a href="blog-style-6-center-blog.html" class="blog-sub-style"><span>Blog style 5</span></a>
+                                                                <a href="blog-style-7-center-blog.html" class="sub-style"><span>Blog style 6</span></a>
+                                                                <a href="blog-style-7-center-blog.html" class="blog-sub-style"><span>Blog style 6</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Feature</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="#feature-1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Feature</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-submenu mega-menu collapse" id="feature-1">
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Header style</h2>
+                                                        <a href="#feature-01" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Header style</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="feature-01">
+                                                            <li class="supmenu-li"><a href="header-style-1.html">Header style 1</a></li>
+                                                            <li class="supmenu-li"><a href="header-style-2.html">Header style 2</a></li>
+                                                            <li class="supmenu-li"><a href="header-style-3.html">Header style 3</a></li>
+                                                            <li class="supmenu-li"><a href="header-style-4.html">Header style 4</a></li>
+                                                            <li class="supmenu-li"><a href="header-style-5.html">Header style 5</a></li>
+                                                            <li class="supmenu-li"><a href="header-style-6.html">Header style 6</a></li>
+                                                            <li class="supmenu-li"><a href="header-style-7.html">Header style 7</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Footer style</h2>
+                                                        <a href="#feature-02" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Footer style</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="feature-02">
+                                                            <li class="supmenu-li"><a href="footer-style-1.html">Footer style 1</a></li>
+                                                            <li class="supmenu-li"><a href="footer-style-2.html">Footer style 2</a></li>
+                                                            <li class="supmenu-li"><a href="footer-style-3.html">Footer style 3</a></li>
+                                                            <li class="supmenu-li"><a href="footer-style-4.html">Footer style 4</a></li>
+                                                            <li class="supmenu-li"><a href="footer-style-5.html">Footer style 5</a></li>
+                                                            <li class="supmenu-li"><a href="footer-style-6.html">Footer style 6</a></li>
+                                                            <li class="supmenu-li"><a href="footer-style-7.html">Footer style 7</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Product details</h2>
+                                                        <a href="#feature-03" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Product details</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="feature-03">
+                                                            <li class="supmenu-li"><a href="product.html">Product details style 1</a></li>
+                                                            <li class="supmenu-li"><a href="product-style-2.html">Product details style 2</a></li>
+                                                            <li class="supmenu-li"><a href="product-style-3.html">Product details style 3</a></li>
+                                                            <li class="supmenu-li"><a href="product-style-4.html">Product details style 4</a></li>
+                                                            <li class="supmenu-li"><a href="product-style-5.html">Product details style 5</a></li>
+                                                            <li class="supmenu-li"><a href="product-style-6.html">Product details style 6</a></li>
+                                                            <li class="supmenu-li"><a href="product-style-7.html">Product details style 7</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Other style</h2>
+                                                        <a href="#feature-04" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Other style</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="feature-04">
+                                                            <li class="supmenu-li"><a href="checkout-1.html">Checkout style 1</a></li>
+                                                            <li class="supmenu-li"><a href="checkout-2.html">Checkout style 2</a></li>
+                                                            <li class="supmenu-li"><a href="checkout-3.html">Checkout style 3</a></li>
+                                                            <li class="supmenu-li"><a href="cart.html">Cart style 1</a></li>
+                                                            <li class="supmenu-li"><a href="cart-2.html">Cart style 2</a></li>
+                                                            <li class="supmenu-li"><a href="cart-3.html">Cart style 3</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-link">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Buy vegist <span class="hot">Hot</span></span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-link">
+                                                <a href="/BecomeSeller" class="link-title">
+                                                    <span class="sp-link-title btn btn-style1">Become Seller</span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    <!-- footer start -->
+    <section class="footer-one section-tb-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="footer-service section-b-padding">
+                        <ul class="service-ul">
+                            <li class="service-li">
+                                <a href="javascript:void(0)"><i class="fa fa-truck"></i></a>
+                                <span>Free delivery</span>
+                            </li>
+                            <li class="service-li">
+                                <a href="javascript:void(0)"><i class="fa fa-rupee"></i></a>
+                                <span>Cash on delivery</span>
+                            </li>
+                            <li class="service-li">
+                                <a href="javascript:void(0)"><i class="fa fa-refresh"></i></a>
+                                <span>30 Days returns</span>
+                            </li>
+                            <li class="service-li">
+                                <a href="javascript:void(0)"><i class="fa fa-headphones"></i></a>
+                                <span>Online support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="f-logo">
+                        <ul class="footer-ul">
+                            <li class="footer-li footer-logo">
+                                <a href="/">
+                                    <img class="img-fluid" src="~/Content/assets/Custom_Image/logo.png" alt="logo" style="height: 51px; width: 251px;">
+                                </a>
+                            </li>
+                            <li class="footer-li footer-address">
+                                <ul class="f-ul-li-ul">
+                                    <li class="footer-icon">
+                                        <i class="ion-ios-location"></i>
+                                    </li>
+                                    <li class="footer-info">
+                                        <h6>Address</h6>
+                                        <span>401 Broadway 24th floor</span>
+                                        <span>Near ant mall cross road</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer-li footer-contact">
+                                <ul class="f-ul-li-ul">
+                                    <li class="footer-icon">
+                                        <i class="ion-ios-telephone"></i>
+                                    </li>
+                                    <li class="footer-info">
+                                        <h6>Contact</h6>
+                                        <a href="tel:1-800-222-000">Phone: 1-800-222-000</a>
+                                        <a href="mailto:demo@demo.com">Email: demo@demo.com</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer-li footer-address">
+                                <ul class="f-ul-li-ul">
+                                    <li class="footer-icon">
+                                        <i class="ion-ios-help"></i>
+                                    </li>
+                                    <li class="footer-info">
+                                        <h6>Help</h6>
+                                        <span>Lorem ipsum is simply</span>
+                                        <span>Dummy the printing</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-bottom section-t-padding">
+                        <div class="footer-link" id="footer-accordian">
+                            <div class="f-link">
+                                <h2 class="h-footer">Top categories</h2>
+                                <a href="#t-cate" data-bs-toggle="collapse" class="h-footer">
+                                    <span>Top categories</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="f-link-ul collapse" id="t-cate" data-bs-parent="#footer-accordian">
+                                    <li class="f-link-ul-li"><a href="grid-list.html">Art & Craft</a></li>
+                                    <li class="f-link-ul-li"><a href="grid-list.html">Drawing Essentials</a></li>
+                                    <li class="f-link-ul-li"><a href="grid-list.html">Writing Instruments</a></li>
+                                    <li class="f-link-ul-li"><a href="grid-list.html">Paper Products</a></li>
+                                    <li class="f-link-ul-li"><a href="grid-list.html">Gifts</a></li>
+                                </ul>
+                            </div>
+                            <div class="f-link">
+                                <h2 class="h-footer">Services</h2>
+                                <a href="#services" data-bs-toggle="collapse" class="h-footer">
+                                    <span>Services</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="f-link-ul collapse" id="services" data-bs-parent="#footer-accordian">
+                                    <li class="f-link-ul-li"><a href="about-us.html">About vegist</a></li>
+                                    <li class="f-link-ul-li"><a href="faq%27s.html">Faq's</a></li>
+                                    <li class="f-link-ul-li"><a href="contact.html">Contact us</a></li>
+                                    <li class="f-link-ul-li"><a href="blog-style-1-3-grid.html">News</a></li>
+                                    <li class="f-link-ul-li"><a href="sitemap.html">Sitemap</a></li>
+                                </ul>
+                            </div>
+                            <div class="f-link">
+                                <h2 class="h-footer">Privacy & terms</h2>
+                                <a href="#privacy" data-bs-toggle="collapse" class="h-footer">
+                                    <span>Privacy & terms</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="f-link-ul collapse" id="privacy" data-bs-parent="#footer-accordian">
+                                    <li class="f-link-ul-li"><a href="payment-policy.html">Payment policy</a></li>
+                                    <li class="f-link-ul-li"><a href="privacy-policy.html">Privacy policy</a></li>
+                                    <li class="f-link-ul-li"><a href="return-policy.html">Return policy</a></li>
+                                    <li class="f-link-ul-li"><a href="shipping-policy.html">Shipping policy</a></li>
+                                    <li class="f-link-ul-li"><a href="terms-conditions.html">Terms & conditions</a></li>
+                                </ul>
+                            </div>
+                            <div class="f-link">
+                                <h2 class="h-footer">My account</h2>
+                                <a href="#account" data-bs-toggle="collapse" class="h-footer">
+                                    <span>My account</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="f-link-ul collapse" id="account" data-bs-parent="#footer-accordian">
+                                    <li class="f-link-ul-li"><a href="account.html">My account</a></li>
+                                    <li class="f-link-ul-li"><a href="cart.html">My cart</a></li>
+                                    <li class="f-link-ul-li"><a href="tracking.html">Order history</a></li>
+                                    <li class="f-link-ul-li"><a href="wishlist.html">My wishlist</a></li>
+                                    <li class="f-link-ul-li"><a href="addresses.html">My address</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer end -->
+    <!-- footer copyright start -->
+    <section class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="f-bottom">
+                        <li class="f-c f-copyright">
+                            <p>Copyright <i class="fa fa-copyright"></i> 2023 spacingtech</p>
+                        </li>
+                        <li class="f-c f-social">
+                            <a href="https://www.whatsapp.com/" class="f-icn-link"><i class="fa fa-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/" class="f-icn-link"><i class="fa fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/" class="f-icn-link"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/" class="f-icn-link"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.pinterest.com/" class="f-icn-link"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="https://www.youtube.com/" class="f-icn-link"><i class="fa fa-youtube"></i></a>
+                        </li>
+                        <li class="f-c f-payment">
+                            <a href="checkout-1.html"><img src="~/Content/assets/image/payment.png" class="img-fluid" alt="payment image"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer copyright end -->
+    <!-- newsletter pop-up start -->
+    <!--<div class="vegist-popup animated modal fadeIn" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="popup-content">-->
+    <!-- popup close button start -->
+    <!--<a href="javascript:void(0)" data-bs-dismiss="modal" aria-label="Close" class="close-btn"><i class="ion-close-round"></i></a>-->
+    <!-- popup close button end -->
+    <!-- popup content area start -->
+    <!--<div class="pop-up-newsletter" style="background-image: url(~/Content/assets/image/news-popup.jpg);">
+        <div class="logo-content">
+            <a href="index1.html"><img src="~/Content/assets/image/logo2.png" alt="image" class="img-fluid"></a>
+            <h4>Become a subscriber</h4>
+            <span>Subscribe to get the notification of latest posts</span>
+        </div>
+        <div class="subscribe-area">
+            <input type="text" name="comment" placeholder="Your email address">
+            <a href="index1.html" class="btn btn-style1">Subscribe</a>
+        </div>
+    </div>-->
+    <!-- popup content area end -->
+    <!--</div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!-- newsletter pop-up end -->
+    <!-- back to top start -->
+    <a href="javascript:void(0)" class="scroll" id="top">
+        <span><i class="fa fa-angle-double-up"></i></span>
+    </a>
+    <!-- back to top end -->
+    <div class="mm-fullscreen-bg"></div>
+    <!-- jquery -->
+    <script src="~/Content/assets/js/modernizr-2.8.3.min.js"></script>
+    <script src="~/Content/assets/js/jquery-3.6.0.min.js"></script>
+    <!-- bootstrap -->
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <!-- popper -->
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <!-- fontawesome -->
+    <script src="~/Content/assets/js/fontawesome.min.js"></script>
+    <!-- owl carousal -->
+    <script src="~/Content/assets/js/owl.carousel.min.js"></script>
+    <!-- swiper -->
+    <script src="~/Content/assets/js/swiper.min.js"></script>
+    <!-- custom -->
+    <script src="~/Content/assets/js/custom.js?0.1"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+function logout() {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You want to Logout!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Logout"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '@Url.Action("CustomerLogout")',
+                type: 'POST',
+                success: function() {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "You have been logged out",
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(() => {
+                        // Optionally, you can refresh the page or perform any other actions
+                        location.reload();
+                    });
+                },
+                error: function() {
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Something went wrong!",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+            });
+        }
+    });
+}
+    </script>
+</body>
+
+</html>

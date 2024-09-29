@@ -1,0 +1,173 @@
+/*------ Charts styles ------*/
+
+  .chartsh {
+	height: 16rem;
+	overflow: hidden;
+  }
+  
+  .chartwidget {
+	height: 16.3rem;
+	overflow: hidden;
+  }
+  
+  /*----chart-drop-shadow----*/
+  
+  .chart-dropshadow {
+	-webkit-filter: drop-shadow((6px) -3px 4px rgb(227, 228, 237));
+	filter: drop-shadow((6px) -3px 4px rgb(227, 228, 237));
+  }
+  
+  .chart-dropshadow-secondary {
+	-webkit-filter: drop-shadow((6px) -3px 4px rgba(156, 82, 253 ,0.3));
+	filter: drop-shadow((6px) -3px 4px rgba(156, 82, 253, 0.3));
+  }
+  
+//   .chart-dropshadow-danger {
+// 	-webkit-filter: drop-shadow((6px) -3px 4px rgba(248, 38, 73, 0.2));
+// 	filter: drop-shadow((6px) -3px 4px rgba(248, 38, 73, 0.2));
+//   }
+  
+//   .chart-dropshadow-success {
+// 	-webkit-filter: drop-shadow((6px) -3px 4px rgba(19, 191, 166, 0.2));
+// 	filter: drop-shadow((6px) -3px 4px rgba(19, 191, 166, 0.2));
+//   }
+  
+//   .chart-dropshadow-warning {
+// 	-webkit-filter: drop-shadow((6px) -3px 4px rgba(251, 141, 52, 0.2));
+// 	filter: drop-shadow((6px) -3px 4px rgba(251, 141, 52, 0.2));
+//   }
+  
+  .chart-dropshadow-info {
+	-webkit-filter: drop-shadow((6px) -3px 4px rgba(7, 116, 248 ,0.2));
+	filter: drop-shadow((6px) -3px 4px rgba(7, 116, 248, 0.2));
+  }
+  
+  .map, .chart {
+	position: relative;
+	padding-top: 56.25%;
+  }
+  
+  .map-square, .chart-square {
+	padding-top: 100%;
+  }
+  
+  @-webkit-keyframes status-pulse {
+	0%, 100% {
+	  opacity: 1;
+	}
+  
+	50% {
+	  opacity: .32;
+	}
+  }
+  
+  @keyframes status-pulse {
+	0%, 100% {
+	  opacity: 1;
+	}
+  
+	50% {
+	  opacity: .32;
+	}
+  }
+  
+  .chart-circle {
+	height: 7rem;
+	width: 7rem;
+	position: relative;
+  }
+  
+  .chart-circle canvas {
+	margin: 0 auto;
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+  }
+  
+  .chart-circle-xs {
+	height: 2.5rem;
+	width: 2.5rem;
+	font-size: .8rem;
+  }
+  
+  .chart-circle-sm {
+	height: 3rem !important;
+	width: 3rem !important;
+	font-size: .5rem;
+  }
+  
+  .chart-circle-lg {
+	height: 10rem;
+	width: 10rem;
+	font-size: .8rem;
+  }
+  
+  .chart-circle-value {
+	position: absolute;
+	top: 0px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	line-height: 1;
+  
+	small {
+	  display: block;
+	  color: #8499c4;
+	  font-size: 0.9375rem;
+	}
+  }
+  
+  .chart-circle-value-3 {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	line-height: 1;
+  }
+  
+  /*----chart-drop-shadow----*/
+ 
+  .chart-dropshadow-primary {
+	-webkit-filter: drop-shadow((6px) -3px 4px rgba(133, 67, 246, 0.5));
+	filter: drop-shadow((6px) -3px 4px rgba(133, 67, 246, 0.5));
+  }
+  
+  .chart-dropshadow-danger {
+	-webkit-filter: drop-shadow((6px) -3px 4px rgba(244, 88, 91, 0.5));
+	filter: drop-shadow((6px) -3px 4px rgba(244, 88, 91, 0.5));
+  }
+  
+  .chart-dropshadow-success {
+	-webkit-filter: drop-shadow((6px) -3px 4px rgba(69, 213, 85, 0.5));
+	filter: drop-shadow((6px) -3px 4px rgba(69, 213, 85, 0.5));
+  }
+  
+  .chart-dropshadow-warning {
+	-webkit-filter: drop-shadow((6px) -3px 4px rgba(251, 141, 52, 0.3));
+	filter: drop-shadow((6px) -3px 4px rgba(251, 141, 52, 0.3));
+  }
+  
+  #areaChart1, #areaChart2, #areaChart3, #areaChart4 {
+	height: 7rem !important;
+  }

@@ -1,0 +1,527 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="E-Commerce">
+    <meta name="author" content="Spruko Technologies Private Limited">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/assets/Custom_Image/logo.png" />
+
+    <!-- TITLE -->
+    <title>E-Commerce</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="~/Content/assets2/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- STYLE CSS -->
+    <link href="~/Content/assets2/assets/css/style.css" rel="stylesheet" />
+    <link href="~/Content/assets2/assets/css/plugins.css" rel="stylesheet" />
+
+    <!--- FONT-ICONS CSS -->
+    <link href="~/Content/assets2/assets/css/icons.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .chat {
+ 
+            min-height: 0% !important;
+        }
+    </style>
+    @RenderSection("Page_Level_Css", required: false)
+</head>
+
+<body class="app sidebar-mini ltr light-mode">
+    <div class="page">
+        <div class="page-main">
+
+            <!-- App-Header -->
+            <div class="app-header header sticky">
+                <div class="container-fluid main-container">
+                    <div class="d-flex">
+                        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+                        </a>
+                        <a class="logo-horizontal " href="index.html">
+                            <img src="~/Content/assets/Custom_Image/logo.png" class="header-brand-img desktop-logo" alt="logo" style="height: 51px; width: 251px;">
+                            <img src="~/Content/assets/Custom_Image/logo.png" class="header-brand-img light-logo1" alt="logo" style="height: 51px; width: 251px;">
+                        </a>
+                        <!-- sidebar-toggle-->
+                        <div class="header-search d-none d-lg-flex">
+                            <div class="form-inline">
+                                <div class="search-element">
+                                    <input type="search" class="form-control header-search" placeholder="Search…"
+                                           aria-label="Search" tabindex="1">
+                                    <button class="btn btn-primary-color">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                                             width="24">
+                                            <path d="M0 0h24v24H0V0z" fill="none" />
+                                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex order-lg-2 ms-auto header-right-icons header-search-icon">
+                            <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4"
+                                    aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
+                                     class="navbar-toggler-icon">
+                                    <path d="M0 0h24v24H0V0z" fill="none" />
+                                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                                </svg>
+                            </button>
+                            <div class="navbar navbar-collapse responsive-navbar p-0">
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                                    <div class="d-flex">
+                                        <div class="dropdown d-lg-none d-flex">
+                                            <a href="javascript:void(0);" class="nav-link icon" data-bs-toggle="dropdown">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                                                     width="24">
+                                                    <path d="M0 0h24v24H0V0z" fill="none" />
+                                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                                </svg>
+                                            </a>
+                                            <div class="dropdown-menu header-search dropdown-menu-start">
+                                                <div class="input-group w-100 p-2">
+                                                    <input type="text" class="form-control " placeholder="Search....">
+                                                    <button type="button" class="btn btn-primary position-relative">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="24"
+                                                             viewBox="0 0 24 24" width="24" fill="#fff">
+                                                            <path d="M0 0h24v24H0V0z" fill="none" />
+                                                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div><!-- SEARCH -->
+                                        <div class="dropdown d-flex main-header-theme">
+                                            <a class="nav-link icon layout-setting">
+                                                <span class="dark-layout fs-0">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z" /></svg>
+
+                                                </span>
+                                                <span class="light-layout fs-0">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M3.55 19.09L4.96 20.5L6.76 18.71L5.34 17.29M12 6C8.69 6 6 8.69 6 12S8.69 18 12 18 18 15.31 18 12C18 8.68 15.31 6 12 6M20 13H23V11H20M17.24 18.71L19.04 20.5L20.45 19.09L18.66 17.29M20.45 5L19.04 3.6L17.24 5.39L18.66 6.81M13 1H11V4H13M6.76 5.39L4.96 3.6L3.55 5L5.34 6.81L6.76 5.39M1 13H4V11H1M13 20H11V23H13" /></svg>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="dropdown  d-flex">
+                                            <a class="nav-link icon full-screen-link nav-link-bg">
+                                                <svg class="fullscreen-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M9.5,13.09L10.91,14.5L6.41,19H10V21H3V14H5V17.59L9.5,13.09M10.91,9.5L9.5,10.91L5,6.41V10H3V3H10V5H6.41L10.91,9.5M14.5,13.09L19,17.59V14H21V21H14V19H17.59L13.09,14.5L14.5,13.09M13.09,9.5L17.59,5H14V3H21V10H19V6.41L14.5,10.91L13.09,9.5Z" /></svg>
+                                            </a>
+                                        </div>
+                                    <!-- FULL-SCREEN -->
+                                        <!--<div class="dropdown  d-flex notifications">
+                                            <a class="nav-link icon" data-bs-toggle="dropdown">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2S14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19M17 11C17 8.2 14.8 6 12 6S7 8.2 7 11V18H17V11Z" /></svg>
+                                                <span class="pulse1 bg-success"></span>
+                                            </a>-->
+                                        @*<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <div class="p-4 border-bottom">
+                                                    <h5 class="border-bottom-0 mb-0 fs-16 font-weight-semibold ">Notifications</h5>
+                                                </div>
+                                                <div class="notifications-menu">
+                                                    <a class="dropdown-item d-flex" href="email-inbox.html">
+                                                        <div class="me-3 notifyimg  bg-primary brround box-shadow-primary">
+                                                            <i class="fe fe-mail"></i>
+                                                        </div>
+                                                        <div class="w-80">
+                                                            <h6 class="notification-label mb-0 text-wrap">Commented on your post </h6>
+                                                            <span class="notification-subtext text-muted fs-12">3 days ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="email-inbox.html">
+                                                        <div class="me-3 notifyimg  bg-secondary brround box-shadow-secondary">
+                                                            <i class="fe fe-download"></i>
+                                                        </div>
+                                                        <div class="w-80">
+                                                            <h6 class="notification-label mb-0 text-wrap">New file has been Uploaded </h6>
+                                                            <span class="notification-subtext text-muted fs-12">3 days ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="email-inbox.html">
+                                                        <div class="me-3 notifyimg  bg-warning brround box-shadow-warning">
+                                                            <i class="fe fe-user"></i>
+                                                        </div>
+                                                        <div class="w-80">
+                                                            <h6 class="notification-label mb-0 text-wrap">
+                                                                User account has
+                                                                Updated
+                                                            </h6>
+                                                            <span class="notification-subtext text-muted fs-12">2 days ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="email-inbox.html">
+                                                        <div class="me-3 notifyimg  bg-danger brround box-shadow-danger">
+                                                            <i class="fe fe-shopping-cart"></i>
+                                                        </div>
+                                                        <div class="w-80">
+                                                            <h6 class="notification-label mb-0 text-wrap">New Order Recevied </h6>
+                                                            <span class="notification-subtext text-muted fs-12">1 hour ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="email-inbox.html">
+                                                        <div class="me-3 notifyimg  bg-info brround box-shadow-info">
+                                                            <i class="fe fe-server"></i>
+                                                        </div>
+                                                        <div class="w-80">
+                                                            <h6 class="notification-label mb-0 text-wrap">Server Rebooted </h6>
+                                                            <span class="notification-subtext text-muted fs-12">2 hour ago</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="dropdown-divider m-0"></div>
+                                                <a href="email-inbox.html" class="dropdown-item text-center">View all Notification</a>
+                                            </div>*@
+                                        <!--</div>--><!-- NOTIFICATIONS -->
+
+
+                                        <div class="dropdown profile-1 d-flex">
+                                            @if (ViewBag.sellerInfo != null)
+                                            {
+                                                <a href="javascript:void(0);" data-bs-toggle="dropdown"
+                                                   class="nav-link icon leading-none d-flex">
+                                                    @*<div class="avatar profile-user brround cover-image" style="dis play:none;">@ViewBag.SellerInfo.Name</div>*@
+                                                    <div class="avatar profile-user brround cover-image" id="firstLetter" style="color:#fff;"></div>
+                                                </a>
+                                                <script>
+                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                        // Get the name from the data attribute
+                                                        let name = '@ViewBag.sellerInfo';
+
+                                                        if (name) {
+                                                            // Get the first letter and convert to uppercase
+                                                            var firstLetter = name.charAt(0).toUpperCase();
+                                                            // Set the first letter in the div
+                                                            document.getElementById('firstLetter').innerText = firstLetter;
+                                                        }
+                                                    });
+                                                </script>
+                                            }
+                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <a class="dropdown-item" href="/SellerProfile/@ViewBag.sellername">
+                                                    <i class="dropdown-icon mdi mdi-account-outline"></i> My Profile
+                                                </a>
+                                                <a class="dropdown-item" href="/SellerEditProfile/@ViewBag.sellername">
+                                                    <i class="dropdown-icon zmdi zmdi-edit"></i> Edit Profile
+                                                </a>
+                                                <!--<a class="dropdown-item" href="settings.html">
+                                                    <i class="dropdown-icon  mdi mdi-settings"></i> Settings
+                                                </a>-->
+                                                @*<a class="dropdown-item" href="email-inbox.html">
+                                                        <span class="float-end"></span>
+                                                        <i class="dropdown-icon mdi  mdi-message-outline"></i> Inbox
+                                                    </a>*@
+                                                @*<a class="dropdown-item" href="email-compose.html">
+                                                        <i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message
+                                                    </a>*@
+                                                <a class="dropdown-item" href="/SellerFaq">
+                                                    <i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?
+                                                </a>
+                                                <a class="dropdown-item" href="/SignOut">
+                                                    <i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- App-Header -->
+            <!--APP-SIDEBAR-->
+            <div class="sticky">
+                <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+                <div class="app-sidebar">
+                    <div class="side-header">
+                        <a class="header-brand1" href="#">
+                            <img src="~/Content/assets/Custom_Image/logo.png" class="header-brand-img desktop-logo" alt="logo" style="height: 51px; width: 251px;">
+                            <img src="~/Content/assets/Custom_Image/logo.png" class="header-brand-img toggle-logo" style="height: 51px; width: 251px;"
+                                 alt="logo">
+                            <img src="~/Content/assets/Custom_Image/logo.png" class="header-brand-img light-logo" alt="logo" style="height: 51px; width: 251px;">
+                            <img src="~/Content/assets/Custom_Image/logo.png" class="header-brand-img light-logo1" style="height: 51px; width: 251px;"
+                                 alt="logo">
+                        </a>
+                        <!-- LOGO -->
+                    </div>
+                    <div class="main-sidemenu">
+                        <div class="slide-left disabled" id="slide-left">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
+                            </svg>
+                        </div>
+                        <ul class="side-menu">
+                            <li>
+                                <h3 class="sub-category">E-Commerce</h3>
+                            </li>
+                          
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);">
+                                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,18A2,2 0 0,1 19,20A2,2 0 0,1 17,22C15.89,22 15,21.1 15,20C15,18.89 15.89,18 17,18M1,2H4.27L5.21,4H20A1,1 0 0,1 21,5C21,5.17 20.95,5.34 20.88,5.5L17.3,11.97C16.96,12.58 16.3,13 15.55,13H8.1L7.2,14.63L7.17,14.75A0.25,0.25 0 0,0 7.42,15H19V17H7C5.89,17 5,16.1 5,15C5,14.65 5.09,14.32 5.24,14.04L6.6,11.59L3,4H1V2M7,18A2,2 0 0,1 9,20A2,2 0 0,1 7,22C5.89,22 5,21.1 5,20C5,18.89 5.89,18 7,18M16,11L18.78,6H6.14L8.5,11H16Z" /></svg>
+                                    <span class="side-menu__label">E-Commerce</span><i class="angle fe fe-chevron-right"></i>
+                                </a>
+                                <ul class="slide-menu" style="display:block;">
+                                    <li class="side-menu-label1"><a href="javascript:void(0);">E-Commerce</a></li>
+                                    <li>@*<a href="/DashBoard/@ViewBag.sellername" class="slide-item active">DashBoard</a>*@</li>
+                                    <li><a href="/AddProduct/@ViewBag.sellername" class="slide-item">Add Product</a></li>
+                                    <li><a href="/ProductInventory/@ViewBag.sellername" class="slide-item">Products & Apply Offers</a></li>
+                                    <li><a href="/Order/@ViewBag.sellername" class="slide-item">Orders</a></li>
+                                    @*<li><a href="/Offer/@ViewBag.sellername" class="slide-item">Run Offer</a></li>*@
+                                    <li><a href="/ProductDocuments/@ViewBag.sellername" class="slide-item">Manage Product Documents</a></li>
+                                    <li><a href="/PaymentDetails/@ViewBag.sellername" class="slide-item">Payments</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        @*<div class="slide-right" id="slide-right">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                                     width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z" />
+                                </svg>
+                            </div>*@
+                    </div>
+                </div>
+                <!--/APP-SIDEBAR-->
+            </div>
+            <!--/APP-SIDEBAR-->
+            <!--app-content open-->
+            <div class="main-content app-content mt-0" >
+                @RenderBody()
+            </div>
+            <!--app-content closed-->
+
+        </div>
+
+        <!-- SIDE-BAR -->
+        @*<div class="sidebar sidebar-right sidebar-animate">
+                <div class="">
+                    <a href="javascript:void(0);" class="sidebar-icon text-end float-end" data-bs-toggle="sidebar-right"
+                       data-bs-target=".sidebar-right"><i class="fe fe-x"></i></a>
+                </div>
+                <div class="p-3 border-bottom">
+                    <h5 class="border-bottom-0 mb-0">General Settings</h5>
+                </div>
+                <div class="p-4">
+                    <div class="switch-settings">
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">Notifications</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">Show your emails</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">Show Task statistics</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">Show recent activity</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">System Logs</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">Error Reporting</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">Show your status to all</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <span class="me-auto">Keep up to date</span>
+                            <label class="custom-switch">
+                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 border-bottom">
+                    <h5 class="border-bottom-0 mb-0">Overview</h5>
+                </div>
+                <div class="p-4">
+                    <div class="progress-wrapper">
+                        <div class="mb-3">
+                            <p class="mb-2">Achieves<span class="float-end text-muted font-weight-normal">80%</span></p>
+                            <div class="progress h-1">
+                                <div class="progress-bar bg-primary w-80 " role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper pt-2">
+                        <div class="mb-3">
+                            <p class="mb-2">Projects<span class="float-end text-muted font-weight-normal">60%</span></p>
+                            <div class="progress h-1">
+                                <div class="progress-bar bg-secondary w-60 " role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper pt-2">
+                        <div class="mb-3">
+                            <p class="mb-2">Earnings<span class="float-end text-muted font-weight-normal">50%</span></p>
+                            <div class="progress h-1">
+                                <div class="progress-bar bg-success w-50" role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper pt-2">
+                        <div class="mb-3">
+                            <p class="mb-2">Balance<span class="float-end text-muted font-weight-normal">45%</span></p>
+                            <div class="progress h-1">
+                                <div class="progress-bar bg-warning w-45 " role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper pt-2">
+                        <div class="mb-3">
+                            <p class="mb-2">
+                                Toatal Profits<span class="float-end text-muted font-weight-normal">75%</span>
+                            </p>
+                            <div class="progress h-1">
+                                <div class="progress-bar bg-danger w-75" role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper pt-2">
+                        <div class="mb-3">
+                            <p class="mb-2">Total Likes<span class="float-end text-muted font-weight-normal">70%</span></p>
+                            <div class="progress h-1">
+                                <div class="progress-bar bg-teal w-70" role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        <!-- SIDE-BAR CLOSED -->
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        Copyright © 2024 <a href="javascript:void(0);">E-COMMERCE</a>. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+    </div>
+
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JQUERY JS -->
+    <script src="~/Content/assets2/assets/js/jquery.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="~/Content/assets2/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Sticky js -->
+    <script src="~/Content/assets2/assets/js/sticky.js"></script>
+
+    <!-- INTERNAL CHARTJS CHART JS -->
+    <script src="~/Content/assets2/assets/plugins/chart/Chart.bundle.js"></script>
+    <script src="~/Content/assets2/assets/plugins/chart/utils.js"></script>
+
+    <!-- PERFECT SCROLL BAR js-->
+    <script src="~/Content/assets2/assets/plugins/p-scroll/perfect-scrollbar.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/sidemenu/sidemenu-scroll.js"></script>
+
+    <!-- SIDE-MENU JS-->
+    <script src="~/Content/assets2/assets/plugins/sidemenu/sidemenu.js"></script>
+
+    <!-- SIDEBAR JS -->
+    <script src="~/Content/assets2/assets/plugins/sidebar/sidebar.js"></script>
+
+    <!--INTERNAL  INDEX JS -->
+    <script src="~/Content/assets2/assets/js/index1.js"></script>
+
+    <!-- THEMECOLORS JS -->
+    <script src="~/Content/assets2/assets/js/themeColors.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="~/Content/assets2/assets/js/custom.js"></script>
+
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="~/Content/assets2/assets/plugins/select2/select2.full.min.js"></script>
+    <script src="~/Content/assets2/assets/js/select2.js"></script>
+
+    <!-- INTERNAL  WYSIWYG Editor JS -->
+    <script src="~/Content/assets2/assets/plugins/wysiwyag/jquery.richtext.js"></script>
+    <script src="~/Content/assets2/assets/plugins/wysiwyag/wysiwyag.js"></script>
+
+    <!-- INTERNAL fancy-Upload Js-->
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fileuploads/js/fileupload.js"></script>
+    <script src="~/Content/assets2/assets/plugins/fileuploads/js/file-upload.js"></script>
+
+    <script src="~/Content/assets2/assets/js/form-elements.js"></script>
+    <script src="~/Content/assets2/assets/js/select2.js"></script>
+    <script src="~/Content/assets2/assets/plugins/select2/select2.full.min.js"></script>
+
+    <script src="~/Content/assets2/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/js/jszip.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/js/buttons.html5.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/js/buttons.print.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="~/Content/assets2/assets/plugins/datatable/datatable.js"></script>
+</body>
+</html>

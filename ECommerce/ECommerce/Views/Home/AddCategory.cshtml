@@ -1,0 +1,210 @@
+﻿@model E_Commerce.Models.AddCategory
+@{
+    ViewBag.Title = "AddCategory";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+@section Page_Level_Css{
+    <style>
+
+
+        h1 {
+            font-weight: 400;
+            padding-top: 0;
+            margin-top: 0;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        #svg_form_time {
+            height: 15px;
+            max-width: 80%;
+            margin: 20px auto 20px;
+            display: block;
+        }
+
+            #svg_form_time circle,
+            #svg_form_time rect {
+                fill: white;
+            }
+
+        .dropform-control {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>") no-repeat right 10px center;
+            background-size: 25px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+}
+
+<div class="side-app">
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+        <!-- PAGE-HEADER -->
+        <!--<div class="page-header">
+            <div>
+                <h1 class="page-title">Add Category</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">E-Commerce</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+                </ol>
+            </div>
+
+        </div>-->
+        <!-- PAGE-HEADER END -->
+        <!-- ROW-1 OPEN -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Add New Product</div>
+                    </div>
+                    @using (Html.BeginForm("AddCategory", "Home", FormMethod.Post))
+                    {
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Product Type :</label>
+                                <div class="col-md-9">
+
+                                    @Html.DropDownListFor(model => model.BusinessCategory, ViewBag.SelectBussinessCategory as SelectList, "Product Type", new { @class = "form-control dropform-control", @id = "SelectBussinessCategory", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.BusinessCategory, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Selling Category :</label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(model => model.SellingCategory, new SelectList(Enumerable.Empty<SelectListItem>()), "Select Selling Category", new { @class = "form-control dropform-control state", id = "SellingCategory", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.SellingCategory, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <!-- Row -->
+                            <div class="row">
+                                <label class="col-md-3 form-label mb-4">Product Category :</label>
+                                <div class="col-md-9 mb-4">
+
+                                    @Html.DropDownListFor(model => model.SubCategory, new SelectList(Enumerable.Empty<SelectListItem>()), "Select Product Category", new { @class = "form-control dropform-control state", id = "ProductCategory", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.SubCategory, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!--End Row-->
+                        </div>
+
+                        <div class="card-footer">
+                            <!--Row-->
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-9">
+                                    <button class="btn btn-primary">Add Product</button>
+
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- ROW-1 CLOSED -->
+
+    </div>
+    <!-- CONTAINER CLOSED -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#SelectBussinessCategory').change(function() {
+              var BusinessId = $(this).val();
+
+            if (BusinessId) {
+                  $.ajax({
+                      url: '@Url.Action("GetSellingCategory", "Home")',
+                      type: 'GET',
+                      data: { BusinessId: BusinessId },
+                      success: function (data) {
+                          var SellingCategory = $('#SellingCategory');
+                          SellingCategory.empty(); // Clear existing options
+                          SellingCategory.append('<option value="">Select Selling Category</option>'); // Add default option
+
+                      $.each(data, function (index, item) {
+                          SellingCategory.append('<option value="' + item.SellingCategory + '">' + item.SellingCategory + '</option>');
+                      });
+                      },
+                      error: function (xhr, status, error) {
+                      console.error('Error fetching states:', error);
+                      }
+                  });
+              }
+              else {
+                $('#SellingCategory').empty().append('<option value="">Select selling category</option>');
+                   }
+        });
+
+   $('#SellingCategory').change(function() {
+    var SellingId = $(this).val();
+
+    if (SellingId) {
+        $.ajax({
+            url: '@Url.Action("GetProductCategory", "Home")',
+            type: 'GET',
+            data: { SellingId: SellingId },
+            success: function (data) {
+                var SubCategory = $('#ProductCategory');
+                SubCategory.empty(); // Clear existing options
+                SubCategory.append('<option value="">Select Product Category</option>'); // Add default option
+
+                $.each(data, function (index, item) {
+                    // Assuming 'item.ProductCategory' is the correct property name
+                    SubCategory.append('<option value="' + item.SubCategory + '">' + item.SubCategory + '</option>');
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching product categories:', error);
+            }
+        });
+    } else {
+        $('#ProductCategory').empty().append('<option value="">Select Product Category</option>');
+    }
+});
+
+});
+</script>
+@*<script>
+    $(document).ready(function() {
+        $('#SellingCategory').change(function() {
+            var SellingId = $(this).val();
+
+            if (SellingId) {
+                  $.ajax({
+                      url: '@Url.Action("GetProductCategory", "Home")',
+                      type: 'GET',
+                      data: { SellingId: SellingId },
+                      success: function (data) {
+                          var ProductCategory = $('#ProductCategory');
+                          ProductCategory.empty(); // Clear existing options
+                          ProductCategory.append('<option value="">Select Product Category</option>'); // Add default option
+
+                      $.each(data, function (index, item) {
+                          ProductCategory.append('<option value="' + item.ProductCategory + '">' + item.ProductCategory + '</option>');
+                      });
+                      },
+                      error: function (xhr, status, error) {
+                      console.error('Error fetching states:', error);
+                      }
+                  });
+              }
+              else {
+                $('#SellingCategory').empty().append('<option value="">Select Product Category</option>');
+                   }
+           });
+});
+</script>*@

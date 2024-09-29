@@ -1,0 +1,175 @@
+/*-----Badges-----*/
+
+.btn .badge {
+	position: relative;
+	top: -1px;
+  }
+  
+  .bg-secondary {
+	color: $white;
+	background: $secondary  !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background: $secondary;
+	  }
+	}
+  }
+  
+  .bg-success {
+	color: $white;
+	background: $success !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background-color: #448700;
+	  }
+	}
+  }
+  
+  .bg-info {
+	color: $white;
+	background: $info !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background-color: #1db7ec;
+	  }
+	}
+  }
+  
+  .bg-warning {
+	color: $white;
+	background: $warning  !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background-color: #fab525;
+	  }
+	}
+  }
+  
+  .bg-danger {
+	color: $white;
+	background: $danger !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background-color: #f42341;
+	  }
+	}
+  }
+  
+  /*-----Badges-----*/
+  
+  .bg-secondary-gradient {
+	color: $white;
+	background: linear-gradient(to bottom right, #fbc434 0%, #f66b4e 100%) !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background: #f66b4e;
+	  }
+	}
+  }
+  
+  .bg-success-gradient {
+	color: $white;
+	background: linear-gradient(to bottom right, $success 0%, #8ff7b3 100%) !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background: $success !important;
+	  }
+	}
+  }
+  
+  .bg-info-gradient {
+	color: $white;
+	background: linear-gradient(to bottom right, $info 0%, #79b3f9 100%) !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background: $info  !important;
+	  }
+	}
+  }
+  
+  .bg-warning-gradient {
+	color: $white;
+	background: linear-gradient(to bottom right, $warning 0%, #f7ba91 100%) !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background-color: $warning;
+	  }
+	}
+  }
+  
+  .bg-danger-gradient {
+	color: $white;
+	background-image: linear-gradient(to bottom right, $danger 0%, #f98194 100%) !important;
+  
+	&[href] {
+	  &:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+		background-color: $danger;
+	  }
+	}
+  }
+  
+  .badge-dark-transparent {
+	color: $white;
+	background: $black-2;
+  }
+  
+  .badge {
+	display: inline-block;
+	padding: 0.95em 0.6em;
+	font-weight: 500;
+	line-height: 0;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 3px;
+	font-size: 70% !important;
+  }
+  
+  .rounded-pill {
+	border-radius: 50px;
+  }
+  
+  .badgetext {
+	float: right;
+  }
+  
+  .bg-default {
+	background: #e3e8f7;
+	color: $black;
+	box-shadow: none;
+  }
+
+  .badgetext {
+	&.badge {
+		padding-bottom: 0.8em;
+	}
+  }

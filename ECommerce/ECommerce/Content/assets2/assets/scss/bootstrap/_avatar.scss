@@ -1,0 +1,121 @@
+
+  
+  /*----- Avatars -----*/
+  
+  .country-selector .avatar {
+	width: 1.2rem;
+	height: 0.9rem;
+  }
+  
+  .avatar {
+	width: 2rem;
+	height: 2rem;
+	line-height: 2rem;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	color: $white;
+	font-weight: 500;
+	vertical-align: bottom;
+	font-size: .875rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+  
+  .brround {
+	border-radius: 50%;
+  }
+  
+  .bradius {
+	border-radius: 25%;
+  }
+  
+  .avatar i {
+	font-size: 125%;
+	vertical-align: sub;
+  }
+  
+  .avatar-status {
+	position: absolute;
+	right: -2px;
+	bottom: -2px;
+	width: .75rem;
+	height: .75rem;
+	border: 2px solid $white;
+	border-radius: 50%;
+  }
+  
+  .avatar-sm {
+	width: 1.6rem;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	font-size: .75rem;
+  }
+  
+  .avatar-md {
+	width: 2.5rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	font-size: 1rem;
+  }
+  
+  .avatar-lg {
+	width: 3.5rem;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	font-size: 1.25rem;
+  }
+  
+  .avatar-xl {
+	width: 5rem;
+	height: 5rem;
+	line-height: 5rem;
+	font-size: 1.75rem;
+  }
+  
+  .avatar-xxl {
+	width: 6rem;
+	height: 6rem;
+	line-height: 6rem;
+	font-size: 2rem;
+  }
+  
+  .avatar-list {
+	margin: 0 0 -.5rem;
+	padding: 0;
+	font-size: 0;
+  
+	.avatar {
+	  margin-bottom: .5rem;
+  
+	  &:not(:last-child) {
+		margin-right: .5rem;
+	  }
+	}
+  }
+  
+  .avatar-list-stacked .avatar {
+	margin-right: -.8em !important;
+	box-shadow: 0 0 0 2px $white;
+  }
+
+.avatar-group .avatar {
+    background: transparent !important;
+}
+
+.avatar-group .avatar-sm {
+    font-size: .875rem;
+    width: 32px;
+    height: 32px;
+}
+
+.avatar-group .avatar {
+    position: relative;
+    z-index: 2;
+}
+
+.avatar-group .avatar + .avatar {
+    margin-left: -0.8rem;
+}

@@ -1,0 +1,17 @@
+#sidebar li a.active {
+	background: $white;
+  
+	a[data-toggle="collapse"] {
+	  background: $white;
+	}
+  }
+
+  .sidebar {
+	&.sidebar-right {
+		.switch-settings {
+			.d-flex {
+				margin-bottom: 0.75rem !important;
+			}
+		}
+	}
+  }

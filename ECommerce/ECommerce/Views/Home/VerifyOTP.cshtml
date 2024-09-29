@@ -1,0 +1,116 @@
+﻿@model E_Commerce.Models.VerifyOTP
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@{
+    ViewBag.Title = "VerifyOTP";
+}
+@section Page_Level_Css{
+    <style>
+        .login_form {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://i.pinimg.com/originals/48/79/86/487986c17560a8ed1afdc55e480e5be2.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .card {
+            /*backdrop-filter: blur(6px) saturate(180%);*/
+            -webkit-backdrop-filter: blur(6px) saturate(180%);
+            background-color: rgba(17, 25, 40, 0.25);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.125);
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logcontent {
+            /*margin-top: 20px;*/
+            padding-top: 40px;
+            width: 400px;
+            /*background: #fff;*/
+        }
+
+        .sub-title {
+            color: #fff;
+        }
+
+        .form {
+            /*background: #fff;*/
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-top: 10px;
+        }
+
+        .form-control {
+            border: 1px solid hsl(var(--black) / 0.1);
+            border-radius: 20px;
+        }
+        .button {
+            background: #ee6c4d;
+            border-radius: 5px;
+            padding: 15px 25px;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px rgb(0,0,0,0.5);
+        }
+    </style>
+}
+
+
+<div class="login_form">
+    <div class="form card">
+        @*<h4 class="logo" style="margin-top:15px; color:#fff;">
+            Verify OTP
+        </h4>*@
+        <div class="col-12 logcontent">
+            <div class="container">
+                <div class="title-area text-center">
+                    <h4 class="sub-title">Verify OTP</h4>
+                    <p style="color:red;">@TempData["otpalert"]</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        @using (Html.BeginForm("VerifyOTP", "Home", FormMethod.Post))
+                        {
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    @Html.TextBoxFor(model => model.OTP, null, new { @class = "form-control", @PlaceHolder = "OTP" })
+                                    @Html.ValidationMessageFor(model => model.OTP, null, new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group form-btn col-12 mt-10 text-center">
+
+                                    <input type="submit" class="button" id="submit" value="Submit" />
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

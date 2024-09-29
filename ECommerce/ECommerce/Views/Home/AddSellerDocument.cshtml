@@ -1,0 +1,118 @@
+﻿@model E_Commerce.Models.ProductDocument
+@{
+    ViewBag.Title = "AddSellerDocument";
+}
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+
+<div class="side-app">
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+
+        <!-- PAGE-HEADER -->
+        @*<div class="page-header">
+                <div>
+                    <h1 class="page-title">Product Information</h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">E-Commerce</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Product Information</li>
+                    </ol>
+                </div>
+
+            </div>*@
+        <!-- PAGE-HEADER END -->
+        <!-- ROW-1 OPEN -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Add Product Information</div>
+                    </div>
+                    @using (Html.BeginForm("AddSellerDocument", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Bill Name :</label>
+                                <div class="col-md-9">
+
+                                    @Html.TextBoxFor(model => model.BName, null, new { @class = "form-control", @PlaceHolder = "Bill Name/Number", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.BName, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">GST Number :</label>
+                                <div class="col-md-9">
+
+                                    @Html.TextBoxFor(model => model.GSTNumber, null, new { @class = "form-control", @PlaceHolder = "GST Number", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.GSTNumber, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Total Quantity :</label>
+                                <div class="col-md-3">
+
+                                    @Html.TextBoxFor(model => model.TotalQuantity, null, new { @class = "form-control", @PlaceHolder = "Total Product Quantity", Type = "number", min = "0", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.TotalQuantity, null, new { @class = "text-danger" })
+
+                                </div>
+                                <label class="col-md-3 form-label">Total Price :</label>
+                                <div class="col-md-3">
+
+                                    @Html.TextBoxFor(model => model.TotalPrice, null, new { @class = "form-control", @PlaceHolder = "Total Price", Type = "number", min = "0", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.TotalPrice, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-md-3 form-label">Payment Type :</label>
+                                <div class="col-md-3">
+
+                                    @Html.DropDownListFor(model => model.ModeOfPayment, ViewBag.DropdownItems as List<SelectListItem>, "Mode of Payment", new { @class = "form-control dropform-control", @id = "dropdown" })
+                                    @Html.ValidationMessageFor(model => model.ModeOfPayment, null, new { @class = "text-danger" })
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="card shadow" style="margin: 20px;">
+                                            <div class="card-header">
+                                                <h3 class="mb-0 card-title">File Upload with limit size of 1M</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="File" name="File" class="dropify" data-max-file-size="1M">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <button class="btn btn-primary mb-4" id="AddInformation">Add Information</button>
+
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

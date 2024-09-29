@@ -1,0 +1,667 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Page_Level_Css{
+    <style>
+        .slider .home-slider .owl-dots {
+            text-align: center;
+        }
+
+        .slider .home-slider .owl-stage-outer {
+            height: 320px;
+        }
+
+        .slider .home-slider .imgback {
+            height: 320px;
+        }
+
+        .productimg {
+            height: 272px !important;
+            width: 307px !important;
+        }
+
+        .bflex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bbutton {
+            padding: 5px 10px !important;
+            font-size: 13px !important;
+            border-radius: 0;
+        }
+
+        .caption {
+            margin: 0 13px;
+        }
+
+        .items {
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;*/
+            padding-bottom: 20px;
+            border-radius: 10px;
+        }
+
+            .items:hover {
+                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            }
+
+        .owl-stage {
+            margin-bottom: 20px;
+        }
+
+        .tred-pro {
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            border-radius: 10px;
+        }
+
+        .productimg {
+            border-radius: 10px;
+        }
+
+        .caption .rating {
+            margin-top: 5px;
+        }
+
+        .caption .pro-price {
+            margin: 8px 0;
+        }
+
+        .Rflex {
+            display: flex;
+            justify-content: space-between;
+            /*align-items:center;*/
+        }
+
+        .BRhead {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 60px;
+        }
+
+        .BRbutton {
+            background-color: #525CE5;
+            color: #fff;
+            font-size: 20px;
+            margin: 0;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+}
+
+<div class="header-bottom-area">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="main-menu-area">
+                    <div class="main-navigation navbar-expand-xl">
+                        <div class="box-header menu-close">
+                            <button class="close-box" type="button"><i class="ion-close-round"></i></button>
+                        </div>
+                        <!-- menu start -->
+                        <div class="navbar-collapse" id="navbarContent">
+                            <div class="megamenu-content">
+                                <div class="mainwrap">
+                                    <ul class="main-menu">
+                                        <li class="menu-link parent">
+                                            <a href="/" class="link-title">
+                                                <span class="sp-link-title">Home</span>
+
+                                            </a>
+                                            <a href="/" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Home</span>
+
+                                            </a>
+
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="" class="link-title">
+                                                <span class="sp-link-title">Art & Craft</span>
+
+                                            </a>
+                                            <a href="#collapse-mega-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Art & Craft</span>
+
+                                            </a>
+                                            @*<ul class="dropdown-submenu mega-menu collapse" id="collapse-mega-menu">
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Fresh food</h2>
+                                                        <a href="#collapse-sub-mega-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Fresh food</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-menu">
+                                                            <li class="supmenu-li"><a href="product.html">Fruit & nut</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Snack food</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Organics nut gifts</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Non dairy</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Mayonnaise</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Milk almond</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Mixedfruits</h2>
+                                                        <a href="#collapse-fruits-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Mixedfruits</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-fruits-menu">
+                                                            <li class="supmenu-li"><a href="product.html">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Coffee creamers</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Ghee beverages</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Ranch salad</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Hemp milk</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Nuts & seeds</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Bananas & plantains</h2>
+                                                        <a href="#collapse-banana-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Bananas & plantains</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-banana-menu">
+                                                            <li class="supmenu-li"><a href="product.html">Fresh gala</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fresh berries</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fruit & nut</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fifts mixed fruits</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Oranges</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Apples berries</h2>
+                                                        <a href="#collapse-apple-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Apples berries</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-apple-menu">
+                                                            <li class="supmenu-li"><a href="product.html">Pears produce</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Bananas</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Natural grassbeab</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fresh green orange</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Fresh organic reachter</a></li>
+                                                            <li class="supmenu-li"><a href="product.html">Balckberry 100%organic</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>*@
+
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="grid-list.html" class="link-title">
+                                                <span class="sp-link-title">Drawing Essentials</span>
+
+                                            </a>
+                                            <a href="#collapse-banner-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Drawing Essentials</span>
+
+                                            </a>
+
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="javascript:void(0)" class="link-title">
+                                                <span class="sp-link-title">Writing Instruments</span>
+
+                                            </a>
+                                            <a href="#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Writing Instruments</span>
+
+                                            </a>
+
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="javascript:void(0)" class="link-title">
+                                                <span class="sp-link-title">Paper Products</span>
+
+                                            </a>
+                                            <a href="#blog-style" data-bs-toggle="collapse" class="link-title link-title-lg">
+
+                                            </a>
+
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="javascript:void(0)" class="link-title">
+                                                <span class="sp-link-title">Gifts</span>
+
+                                            </a>
+                                            <a href="#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Gifts</span>
+
+                                            </a>
+
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="javascript:void(0)" class="link-title">
+                                                <span class="sp-link-title">Invitation Cards</span>
+
+                                            </a>
+                                            <a href="#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Invitation Cards</span>
+
+                                            </a>
+
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="javascript:void(0)" class="link-title">
+                                                <span class="sp-link-title">Ballon & Crowns</span>
+
+                                            </a>
+                                            <a href="#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Ballon & Crowns</span>
+
+                                            </a>
+
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="slider">
+
+    <div class="home-slider owl-carousel owl-theme">
+        <div class="items">
+            <div class="img-back imgback" style="background-image: url(/Content/assets/Custom_Image/SliderImg1.jpg); ">
+                <div class="h-s-content slide-c-l">
+                    <span>Big sale</span>
+                    <h1>Get 30% OFF<br>on Groceries</h1>
+                    <a href="grid-list.html" class="btn btn-style1">Shop now</a>
+                </div>
+            </div>
+        </div>
+        <div class="items">
+            <div class="img-back imgback" style="background-image: url(/Content/assets/Custom_Image/StationarySliderImg.jpg); ">
+                <div class="h-s-content slide-c-c" style="bottom: 50%;color:white;">
+                    <span>Top Products!</span>
+                    <h1>Get 15% OFF on<br /> Stationary Items</h1>
+                    <a href="grid-list.html" class="btn btn-style1">Shop now</a>
+                </div>
+            </div>
+        </div>
+        <div class="items">
+            <div class="img-back imgback" style="background-image: url(/Content/assets/Custom_Image/laptop&tabimg.jpg);">
+                <div class="h-s-content slide-c-r">
+                    <span>Laptops & Tabs</span>
+                    <h1>Get Best Deals<br>On Laptops</h1>
+                    <a href="grid-list.html" class="btn btn-style1">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@*---------------------------------------------Products------------------------------------------*@
+<section class="h-t-products1 section-t-padding section-b-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section-title">
+                    <div class="Rflex">
+                        <div class="BRhead">
+                            Trending products
+                        </div>
+                        <div><button type="button" class="owl-next BRbutton"><i class="fa fa-angle-right"></i></button></div>
+                    </div>
+                </div>
+                <div class="trending-products owl-carousel owl-theme" style="padding-bottom:20px;">
+                    <div class="items">
+                        <div class="tred-pro">
+                            <div class="tr-pro-img">
+                                <a href="product.html">
+
+                                    <img class="img-fluid productimg" src="/Content/assets/Custom_Image/10293.jpg" alt="pro-img1">
+                                    @*<img class="img-fluid additional-image" src="image/pro/pro-img-01.jpg" alt="additional image">*@
+                                </a>
+                            </div>
+                            <div class="Pro-lable">
+                                <span class="p-text">New</span>
+                            </div>
+                            @*<div class="pro-icn">
+
+                                    <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                </div>*@
+                        </div>
+                        <div class="caption">
+                            <h3><a href="product.html">Colour Set</a></h3>
+                            <div class="rating">
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="pro-price">
+                                <span class="new-price">&#x20B9 350.00</span>
+                            </div>
+                            <div class="bflex">
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Buy now</a>
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="tred-pro">
+                            <div class="tr-pro-img">
+                                <a href="product.html">
+                                    <img class="img-fluid productimg" src="/Content/assets/Custom_Image/2009.i003.021.P.m005.c33.royal golden crown set.jpg" alt="pro-img1">
+                                    @*<img class="img-fluid additional-image" src="image/pro/pro-img-02.jpg" alt="additional image">*@
+                                </a>
+                            </div>
+                            <div class="Pro-lable">
+                                <span class="p-text">New</span>
+                            </div>
+                            @*<div class="pro-icn">
+
+                                    <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                </div>*@
+                        </div>
+                        <div class="caption">
+                            <h3><a href="product.html">Birthday Crown</a></h3>
+                            <div class="rating">
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                            </div>
+                            <div class="pro-price">
+                                <span class="new-price">&#x20B9 450.00</span>
+                            </div>
+                            <div class="bflex">
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Buy now</a>
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="tred-pro">
+                            <div class="tr-pro-img">
+                                <a href="product.html">
+                                    <img class="img-fluid productimg" src="/Content/assets/Custom_Image/20878227.jpg" alt="pro-img1">
+                                    @*<img class="img-fluid additional-image" src="image/pro/pro-img-03.jpg" alt="additional image">*@
+                                </a>
+                            </div>
+                            <div class="Pro-lable">
+                                <span class="p-discount">-20%</span>
+                            </div>
+                            @*<div class="pro-icn">
+                                    <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                </div>*@
+                        </div>
+                        <div class="caption">
+                            <h3><a href="product.html">Wishing Cards</a></h3>
+                            <div class="rating">
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="pro-price">
+                                <span class="new-price">&#x20B9 130.00</span>
+                                <span class="old-price"><del>&#x20B9 150.00</del></span>
+                            </div>
+
+                            <div class="bflex">
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Buy now</a>
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="tred-pro">
+                            <div class="tr-pro-img">
+                                <a href="product.html">
+                                    <img class="img-fluid productimg" src="/Content/assets/Custom_Image/21140.jpg" alt="pro-img1">
+                                    @*<img class="img-fluid additional-image" src="image/pro/pro-img-04.jpg" alt="additional image">*@
+                                </a>
+                            </div>
+                            <div class="Pro-lable">
+                                <span class="p-text">New</span>
+                            </div>
+                            @*<div class="pro-icn">
+
+                                    <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                </div>*@
+                        </div>
+                        <div class="caption">
+                            <h3><a href="product.html">Hauser Pen Set</a></h3>
+                            <div class="rating">
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                                <i class="fa fa-star e-star"></i>
+                            </div>
+                            <div class="pro-price">
+                                <span class="new-price">&#x20B9 117.00</span>
+                            </div>
+                            <div class="bflex">
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Buy now</a>
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="tred-pro">
+                            <div class="tr-pro-img">
+                                <a href="product.html">
+                                    <img class="img-fluid productimg" src="/Content/assets/Custom_Image/3d-render-gift-box-with-ribbon-present-package.jpg" alt="pro-img1">
+                                    @*<img class="img-fluid additional-image" src="image/pro/pro-img-05.jpg" alt="additional image">*@
+                                </a>
+                            </div>
+                            <div class="Pro-lable">
+                                <span class="p-discount">-12%</span>
+                            </div>
+                            @*<div class="pro-icn">
+                                    <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                </div>*@
+                        </div>
+                        <div class="caption">
+                            <h3><a href="product.html">Gift Wrapping</a></h3>
+                            <div class="rating">
+                                <i class="fa fa-star b-star"></i>
+                                <i class="fa fa-star b-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="pro-price">
+                                <span class="new-price">&#x20B9  133.00</span>
+                                <span class="old-price"><del>&#x20B9  145.00</del></span>
+                            </div>
+                            <div class="bflex">
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Buy now</a>
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="tred-pro">
+                            <div class="tr-pro-img">
+                                <a href="product.html">
+                                    <img class="img-fluid productimg" src="/Content/assets/Custom_Image/stack-old-coming-book-strips.jpg" alt="pro-img1">
+                                    @*<img class="img-fluid additional-image" src="image/pro/pro-img-06.jpg" alt="additional image">*@
+                                </a>
+                            </div>
+                            <div class="Pro-lable">
+                                <span class="p-discount">-21%</span>
+                            </div>
+                            @*<div class="pro-icn">
+
+                                    <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                </div>*@
+                        </div>
+                        <div class="caption">
+                            <h3><a href="product.html">Scrab Book</a></h3>
+                            <div class="rating">
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="pro-price">
+                                <span class="new-price">&#x20B9 139.00</span>
+                                <span class="old-price"><del>&#x20B9 160.00</del></span>
+                            </div>
+                            <div class="bflex">
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Buy now</a>
+                                <a href="grid-list.html" class="btn btn-style1 bbutton">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@*--------------------------------quick view------------------------------*@
+
+
+@*<section class="quick-view">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Product quickview</h5>
+                        <a href="javascript:void(0)" data-bs-dismiss="modal" aria-label="Close"><i class="ion-close-round"></i></a>
+                    </div>
+                    <div class="quick-veiw-area">
+                        <div class="quick-image">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="image-1">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/pro-page-image.jpg" class="imgshown" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-2">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/prro-page-image01.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-3">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/pro-page-image1-1.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-4">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/pro-page-image1.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-5">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/pro-page-image2.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-6">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/pro-page-image2-2.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-7">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/pro-page-image3.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-8">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="/Content/assets/image/pro-page-image/pro-page-image03.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                            </div>
+                            <ul class="nav nav-tabs quick-slider owl-carousel owl-theme">
+                                <li class="nav-item items">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#image-1"><img src="/Content/assets/image/pro-page-image/image1.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-2"><img src="/Content/assets/image/pro-page-image/image2.jpg" class="img-fluid" alt="iamge"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-3"><img src="/Content/assets/image/pro-page-image/image3.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-4"><img src="/Content/assets/image/pro-page-image/image4.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-5"><img src="/Content/assets/image/pro-page-image/image5.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-6"><img src="/Content/assets/image/pro-page-image/image6.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-7"><img src="/Content/assets/image/pro-page-image/image8.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-8"><img src="/Content/assets/image/pro-page-image/image7.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="quick-caption">
+                            <h4>Fresh organic reachter</h4>
+                            <div class="quick-price">
+                                <span class="new-price">$350.00 USD</span>
+                                <span class="old-price"><del>$399.99 USD</del></span>
+                            </div>
+                            <div class="quick-rating">
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="pro-description">
+                                <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and</p>
+                            </div>
+                            <div class="pro-size">
+                                <label>Size: </label>
+                                <select>
+                                    <option>1 ltr</option>
+                                    <option>3 ltr</option>
+                                    <option>5 ltr</option>
+                                </select>
+                            </div>
+                            <div class="plus-minus">
+                                <span>
+                                    <a href="javascript:void(0)" class="minus-btn text-black">-</a>
+                                    <input type="text" name="name" value="1">
+                                    <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                </span>
+                                <a href="cart.html" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="wishlist.html" class="quick-wishlist"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@

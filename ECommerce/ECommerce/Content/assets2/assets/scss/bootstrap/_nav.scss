@@ -1,0 +1,131 @@
+/*------ Navigation -------*/
+
+.nav {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+  }
+  
+  .nav-link {
+	&:hover, &:focus {
+	  text-decoration: none;
+	}
+  
+	&.disabled {
+	  color: #c2cada;
+	}
+  
+	&.disable {
+	  color: #cba4f7;
+	}
+  }
+  
+  .nav-pills {
+	.nav-link.active, .show > .nav-link {
+	  color: $white;
+	}
+  }
+  
+  .tab-content > {
+	.tab-pane {
+	  display: none;
+	}
+  
+	.active {
+	  display: block;
+	}
+  }
+  
+  .nav-item1 {
+	padding: 10px 15px;
+	min-width: 2rem;
+	transition: .3s color;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+  }
+  
+  .nav1 {
+	.nav-link {
+	  padding: 0;
+	}
+  
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	background: #f4f6fd;
+  }
+  
+  .nav-item1 {
+	&:hover:not(.disabled), &.active {
+	  color: $white;
+	}
+  
+	.nav-link {
+	  &.disabled {
+		opacity: 6;
+		cursor: default;
+		pointer-events: none;
+	  }
+  
+	  &.disable {
+		opacity: 3;
+	  }
+	}
+  }
+  
+  .nav-link {
+	&:hover .dropdown-menu.show {
+	  display: block;
+	}
+  
+	min-width: 2rem;
+	transition: .3s color;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	color: $primary;
+  }
+  
+  .nav-item {
+	min-width: 2rem;
+	transition: .3s color;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+  
+	&.show .dropdown-menu.dropdown-menu-arrow.show {
+	  top: -1px !important;
+	}
+  }
+  .nav-link-icon  {
+	  i {
+		  line-height: 2;
+	  }
+  }

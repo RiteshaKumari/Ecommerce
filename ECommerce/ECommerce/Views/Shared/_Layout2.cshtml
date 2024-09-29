@@ -1,0 +1,569 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title -->
+    <title>E-Commerce</title>
+    <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries." />
+    <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories" />
+    <meta name="author" content="spacingtech_webify">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="~/Content/assets/image/favicon" href="~/Content/assets/Custom_Image/logo.png">
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
+    <!-- simple-line icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/simple-line-icons.css">
+    <!-- font-awesome icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/font-awesome.min.css">
+    <!-- themify icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/themify-icons.css">
+    <!-- ion icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/ionicons.min.css">
+    <!-- owl slider -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/owl.theme.default.min.css">
+    <!-- swiper -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/swiper.min.css">
+    <!-- animation -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/animate.css">
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style10.css?1.1">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/responsive10.css">
+    <link href="~/Content/assets/CustomCss/StyleSheet1.css" rel="stylesheet" />
+    <link href="~/Content/assets/CustomCss/newstyle.css" rel="stylesheet?1.2" />
+    @RenderSection("Page_Level_Css", required: false)
+    <style>
+        .footer-10 ul.footer-ul li.footer-li {
+            width: 100%;
+            margin-left: 40px;
+        }
+
+        @@media(max-width:768px) {
+            .footers {
+                display: none;
+            }
+
+            .f-payment {
+                display: none;
+            }
+
+            .f-social {
+                display: none !important;
+            }
+
+            .f-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .footer-copyright ul.f-bottom li.f-c {
+                width: auto;
+            }
+        }
+
+        .header-main-area .header-main .header-element.logo {
+            width: 25%;
+        }
+
+        @@media(max-width:1405px) {
+            .btn-style1 {
+                padding: 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- header start -->
+    <header class="header-area">
+        <div class="header-main-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div class="header-main">
+                            <!-- logo start -->
+                            <div class="header-element logo">
+                                <a href="/BecomeSeller">
+                                    <img src="~/Content/assets/Custom_Image/logo.png" alt="logo-image" class="img-fluid" style="height: 51px; width: 251px;">
+                                </a>
+                            </div>
+                            <!-- logo end -->
+                            <!-- main menu start -->
+                            <div class="header-element megamenu-content">
+                                <div class="mainwrap">
+                                    <ul class="main-menu">
+                                        <li class="menu-link parent">
+                                            <a href="/BecomeSeller" class="link-title">
+                                                <span class="sp-link-title">Sell Product Online</span>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <a href="/BecomeSeller" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Sell Product Online</span>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-submenu sub-menu collapse" id="collapse-top-home">
+                                                <li class="submenu-li">
+                                                    <a href="#CreateAccount" class="submenu-link">Create Account</a>
+                                                </li>
+                                                <li class="submenu-li">
+                                                    <a href="#ListYourProduct" class="submenu-link">List Your Product</a>
+                                                </li>
+                                                <li class="submenu-li">
+                                                    <a href="#StorageAndShipping" class="submenu-link">Storage And Shipping</a>
+                                                </li>
+                                                <li class="submenu-li">
+                                                    <a href="#ReceivePayment" class="submenu-link">Receive Payment</a>
+                                                </li>
+                                                <li class="submenu-li">
+                                                    <a href="#GrowFasterWithUs" class="submenu-link">Grow Faster With Us</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="/PaymentCycle" class="link-title">
+                                                <span class="sp-link-title">Payment Cycle</span>
+
+                                            </a>
+                                            <a href="/PaymentCycle" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Payment Cycle</span>
+
+                                            </a>
+                                        </li>
+                                        <li class="menu-link parent">
+                                            <a href="/SupportTeam" class="link-title">
+                                                <span class="sp-link-title">Support Team</span>
+
+                                            </a>
+                                            <a href="/SupportTeam" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Support Team</span>
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- main menu end -->
+                            <!-- header icon start -->
+                            <div class="header-element right-block-box">
+                                <ul class="shop-element">
+                                    <li class="side-wrap nav-toggler">
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                                            <span class="line"></span>
+                                        </button>
+                                    </li>
+                                    <li class="side-wrap search-wrap">
+                                        <a href="#search-modal" class="search-popuup" data-bs-toggle="modal">
+                                            <span class="icon">
+                                                <i class="icon-magnifier"></i>
+                                            </span>
+                                            <span class="text">Search</span>
+                                        </a>
+                                    </li>
+                                    <li class="side-wrap account-wrap">
+                                        <a href="/Sellerlogin">
+                                            <span class="icon">
+                                                <i class="icon-user"></i>
+                                            </span>
+                                            <span class="text">Login</span>
+                                        </a>
+                                    </li>
+                                    <li class="side-wrap wishlist-wrap">
+                                        <a href="/SellerSignup" class="link-title">
+                                            <span class="sp-link-title btn btn-style1">Start Selling</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- header icon end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="main-menu-area">
+                            <div class="main-navigation navbar-expand-xl">
+                                <div class="box-header menu-close">
+                                    <button class="close-box" type="button"><i class="ion-close-round"></i></button>
+                                </div>
+                                <div class="navbar-collapse" id="navbarContent">
+                                    <div class="megamenu-content">
+                                        <div class="mainwrap">
+                                            <ul class="main-menu">
+                                                <li class="menu-link parent">
+                                                    <a href="/BecomeSeller" class="link-title">
+                                                        <span class="sp-link-title">Sell Product Online</span>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    <a href="#collapse-top-home" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                        <span class="sp-link-title">Sell Product Online</span>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="dropdown-submenu sub-menu collapse" id="collapse-top-home">
+                                                        <li class="submenu-li">
+                                                            <a href="#CreateAccount" class="submenu-link">Create Account</a>
+                                                        </li>
+                                                        <li class="submenu-li">
+                                                            <a href="#ListYourProduct" class="submenu-link">List Your Product</a>
+                                                        </li>
+                                                        <li class="submenu-li">
+                                                            <a href="#StorageAndShipping" class="submenu-link">Storage And Shipping</a>
+                                                        </li>
+                                                        <li class="submenu-li">
+                                                            <a href="#ReceivePayment" class="submenu-link">Receive Payment</a>
+                                                        </li>
+                                                        <li class="submenu-li">
+                                                            <a href="#GrowFasterWithUs" class="submenu-link">Grow Faster With Us</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+
+                                                <li class="menu-link">
+                                                    <a href="/PaymentCycle" class="link-title">
+                                                        <span class="sp-link-title">Payment Cycle</span>
+                                                    </a>
+                                                </li>
+                                                <li class="menu-link">
+                                                    <a href="/SupportTeam" class="link-title">
+                                                        <span class="sp-link-title">Support Team</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile menu end -->
+        <!-- search start -->
+        <div class="modal fade" id="search-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="search-content">
+                                        <div class="search-engine">
+                                            <input type="text" name="search" placeholder="Search products,brands or advice">
+                                            <a class="search-btn"><i class="ion-ios-search-strong"></i></a>
+                                        </div>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="ion-close-round"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- search end -->
+    </header>
+    <!-- header end -->
+
+    @RenderBody()
+
+    <!-- footer start -->
+    <section class="footer-10 section-tb-padding footers" style=" padding-top: 70px; padding-bottom: 70px;">
+        <h3 style="text-align: center; margin-bottom: 45px;">Popular categories to sell across India</h3>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <ul class="footer-ul">
+                        <li class="footer-li footer-url">
+
+                            <ul class="collapse menu-ul" id="title1">
+                                <li class="menu-li">
+                                    <a href="#">Sell Mobile Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Clothes Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Sarees Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Electronics Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Women Clothes Online</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <ul class="footer-ul">
+                        <li class="footer-li footer-url">
+
+                            <ul class="collapse menu-ul" id="title1">
+                                <li class="menu-li">
+                                    <a href="#">Sell Shoes Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Jewellery Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Tshirts Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Furniture Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Makeup Online</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <ul class="footer-ul">
+                        <li class="footer-li footer-url">
+
+                            <ul class="collapse menu-ul" id="title2">
+                                <li class="menu-li">
+                                    <a href="#">Sell Paintings Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Watch Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Books Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Home Products Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Toys Online</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <ul class="footer-ul">
+                        <li class="footer-li footer-url">
+
+                            <ul class="collapse menu-ul" id="title3">
+                                <li class="menu-li">
+                                    <a href="#">
+                                        Sell Appliances Online
+                                    </a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Shirts Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Indian Clothes Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Stationary Items Online</a>
+                                </li>
+                                <li class="menu-li">
+                                    <a href="#">Sell Gifts Items Online</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- footer end -->
+    <!-- footer copyright start -->
+    <section class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="f-bottom">
+                        <li class="f-c f-copyright">
+                            <p>Copyright <i class="fa fa-copyright"></i> 2024 All Right Reserved</p>
+                        </li>
+                        <li class="f-c f-social">
+                            <a href="https://www.whatsapp.com/" class="f-icn-link" style="display:none;"><i class="fa fa-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/" class="f-icn-link" style="display:none;"><i class="fa fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/" class="f-icn-link" style="display:none;"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/" class="f-icn-link" style="display:none;"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.pinterest.com/" class="f-icn-link" style="display:none;"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="https://www.youtube.com/" class="f-icn-link" style="display:none;"><i class="fa fa-youtube"></i></a>
+                        </li>
+                        <li class="f-c f-payment">
+                            <a href="checkout-1.html"><img src="~/Content/assets/image/payment.png" class="img-fluid" alt="payment image"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer copyright end -->
+    <!-- quick veiw start -->
+    <section class="quick-view">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Product quickview</h5>
+                        <a href="javascript:void(0)" data-bs-dismiss="modal" aria-label="Close"><i class="ion-close-round"></i></a>
+                    </div>
+                    <div class="quick-veiw-area">
+                        <div class="quick-image">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="image-1">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="~/Content/assets/image/pro-page-image/pro-page-image.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-2">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="~/Content/assets/image/pro-page-image/prro-page-image01.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-3">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="image/pro-page-image/pro-page-image1-1.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-4">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="~/Content/assets/image/pro-page-image/pro-page-image1.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-5">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="~/Content/assets/image/pro-page-image/pro-page-image2.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-6">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="image/pro-page-image/pro-page-image2-2.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-7">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="~/Content/assets/image/pro-page-image/pro-page-image3.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade show" id="image-8">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <img src="~/Content/assets/image/pro-page-image/pro-page-image03.jpg" class="img-fluid" alt="image">
+                                    </a>
+                                </div>
+                            </div>
+                            <ul class="nav nav-tabs quick-slider owl-carousel owl-theme">
+                                <li class="nav-item items">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#image-1"><img src="image/pro-page-image/image1.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-2"><img src="image/pro-page-image/image2.jpg" class="img-fluid" alt="iamge"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-3"><img src="image/pro-page-image/image3.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-4"><img src="image/pro-page-image/image4.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-5"><img src="image/pro-page-image/image5.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-6"><img src="image/pro-page-image/image6.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-7"><img src="image/pro-page-image/image8.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-8"><img src="image/pro-page-image/image7.jpg" class="img-fluid" alt="image"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="quick-caption">
+                            <h4>Fresh organic reachter</h4>
+                            <div class="quick-price">
+                                <span class="new-price">$350.00 USD</span>
+                                <span class="old-price"><del>$399.99 USD</del></span>
+                            </div>
+                            <div class="quick-rating">
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="pro-description">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and</p>
+                            </div>
+                            <div class="pro-size">
+                                <label>Size: </label>
+                                <select>
+                                    <option>1 ltr</option>
+                                    <option>3 ltr</option>
+                                    <option>5 ltr</option>
+                                </select>
+                            </div>
+                            <div class="plus-minus">
+                                <span>
+                                    <a href="javascript:void(0)" class="minus-btn text-black">-</a>
+                                    <input type="text" name="name" value="1">
+                                    <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                </span>
+                                <a href="cart.html" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="wishlist.html" class="quick-wishlist"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- copyright end -->
+    <!-- back to top start -->
+    <a href="javascript:void(0)" class="scroll" id="top">
+        <span><i class="fa fa-angle-double-up"></i></span>
+    </a>
+    <!-- back to top end -->
+    <div class="mm-fullscreen-bg"></div>
+    <!-- jquery -->
+    <script src="~/Content/assets/js/modernizr-2.8.3.min.js"></script>
+    <script src="~/Content/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Content/assets/js/jquery.isotope.min.js1"></script>
+    <!-- bootstrap -->
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <!-- popper -->
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <!-- fontawesome -->
+    <script src="~/Content/assets/js/fontawesome.min.js?1.1"></script>
+    <!-- owl carousal -->
+    <script src="~/Content/assets/js/owl.carousel.min.js"></script>
+    <!-- swiper -->
+    <script src="~/Content/assets/js/swiper.min.js"></script>
+    <!-- custom -->
+    <script src="~/Content/assets/js/custom.js"></script>
+    <!--ContryStateAPI-->
+    @*<script src="~/Scripts/CountryStateAPI.js"></script>*@
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+.file-rounded-attachments {
+    padding: 3px 10px !important;
+    border-radius: 50px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+}
+.file-radius-attachments {
+    padding: 3px 10px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+}
+.file-rounded-attachments-sm {
+    padding: 0px 10px !important;
+    border-radius: 50px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+}
+.file-rounded-attachments-lg {
+    padding: 4px 10px !important;
+    border-radius: 50px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+
+    i {
+        font-size: 22px !important;
+    }
+}
+
+.file-radius-attachments-sm {
+    padding: 0px 10px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+}
+.file-radius-attachments-lg {
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+
+    i {
+        font-size: 22px !important;
+    }
+}
+.file-image .icons {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    opacity: 0;
+    right: 22px;
+    top: 14px;
+    text-align: center;
+    position: absolute;
+    bottom: -3px;
+    z-index: 1;
+    transition: all 0.5s ease 0s;
+    text-align: right;
+}
+.file-image .icons .btn {
+    font-size: 15px;
+    text-align: center;
+    height: 38px;
+    width: 38px;
+    margin: 2px 7px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    color: $white;
+}
+.file-image .icons .btn:after,
+.file-image .icons .btn:before {
+    content: attr(data-tip);
+    color: $white;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding: 1px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: -30px;
+}
+
+.file-image:hover .icons {
+	opacity: 1;
+	bottom: 33px;
+}
+.file-name {
+	position: absolute;
+	bottom: 21px;
+	left: 0;
+	right: 0;
+	color: $white;
+	font-size: 16px;
+	text-align: center;
+	font-weight: 400;
+}
+.file-image-1 {
+	width: 100px;
+	height: 100px;
+	display: inline-table;
+	margin: 4px;
+	position: relative;
+	border: 1px solid #e9edf4;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.file-image-1 .product-image img {
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.file-image-1 .icons {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	opacity: 0;
+	right: 7px;
+	top: 6px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+	transition: all 0.5s ease 0s;
+	text-align: right;
+}
+.file-image-1 .file-name-1 {
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: -22px;
+	color: #524d4d;
+	font-size: 12px;
+	text-align: center;
+	font-weight: 500;
+}
+.file-image-1:hover .icons {
+	opacity: 1;
+	bottom: 33px;
+}
+.file-image-1 .icons .btn {
+	font-size: 12px;
+	text-align: center;
+	height: 25px;
+	width: 25px;
+	margin: 4px 1px;
+	padding: 0;
+	border-radius: 50%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+	color: $white;
+    min-width: inherit;
+}
+.file-image-1 .icons .btn:hover {
+	color: $white;
+}
+.file-image-md {
+	width: 150px;
+	height: 150px;
+}
+.file-image-lg {
+	width: 200px;
+	height: 200px;
+}
+.file-image-lg .icons .btn {
+	font-size: 15px;
+	height: 38px;
+	width: 38px;
+}
+.file-image-md .icons .btn {
+	font-size: 13px;
+	height: 34px;
+	width: 34px;
+}
+
+.file-dropdown {
+	z-index: 2;
+}
+
+.btn-group.file-attach button.btn-close {
+    right: 0;
+}
+.btn-group.file-attach .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-group.file-attach .btn-close {
+    padding: 9px;
+    border-radius: 0px 4px 4px 0px;
+    opacity: 1;
+    font-weight: 300;
+    background-image: none;
+}
+
+.btn-group.file-attach .btn-pill.btn-close {
+    padding-left: 2px;
+}
+
+.btn-group.file-attach .btn-close.btn-pill {
+    border-radius: 0px 50px 50px 0px;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-primary {
+    border: 1px solid $primary;
+    color: $primary;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-secondary {
+    border: 1px solid $secondary !important;
+    color: $secondary !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-success {
+    border: 1px solid $success !important;
+    color: $success !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-warning {
+    border: 1px solid $warning !important;
+    color: $warning !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-danger {
+    border: 1px solid $danger !important;
+    color: $danger !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-info {
+    border: 1px solid $info !important;
+    color: $info !important;
+}
+
+.btn-group.file-attach {
+    .btn-primary-light,
+    .btn-secondary-light,
+    .btn-success-light,
+    .btn-warning-light,
+    .btn-danger-light,
+    .btn-info-light {
+        border: 0 !important;
+    }
+}
+
+.btn-group.file-attach .btn+.btn.btn-primary-light, .btn-group.file-attach .btn+.btn-group {
+    margin-left: 0px;
+}
+
+.btn-group.file-attach .btn+.btn.btn-secondary-light, .btn-group.file-attach .btn+.btn-group {
+    margin-left: 0px;
+}
+
+.btn-group.file-attach .btn+.btn.btn-success-light, .btn-group.file-attach .btn+.btn-group {
+    margin-left: 0px;
+}
+
+.btn-group.file-attach .btn+.btn.btn-danger-light, .btn-group.file-attach .btn+.btn-group {
+    margin-left: 0px;
+}
+
+.btn-group.file-attach .btn+.btn.btn-info-light, .btn-group.file-attach .btn+.btn-group {
+    margin-left: 0px;
+}
+
+.btn-group.file-attach .btn+.btn.btn-warning-light, .btn-group.file-attach .btn+.btn-group {
+    margin-left: 0px;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-secondary:hover {
+    color: $white !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-warning:hover {
+    color: $white !important;
+}
+
+.btn-group.file-attach .btn-close.btn-lg {
+    padding: 10px;
+    background-image: none;
+    font-size: 31px;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-success:hover {
+    color: $white !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-info:hover {
+    color: $white !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-danger:hover {
+    color: $white !important;
+}
+
+.btn-group.file-attach .btn-close.btn-outline-primary:hover {
+    color: $white !important;
+}

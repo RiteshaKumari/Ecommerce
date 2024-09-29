@@ -1,0 +1,358 @@
+﻿@model E_Commerce.Models.AddProductImage
+
+@{
+    ViewBag.Title = "ProductImage";
+}
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+@{
+    int serialNumber = 1;
+}
+
+@section Page_Level_Css{
+    <style>
+        .colorcenter {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .dropform-control {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>") no-repeat right 10px center;
+            background-size: 25px;
+            margin-bottom: 20px;
+        }
+
+
+        #colorDisplay {
+            position: relative;
+            width: 106px;
+            height: 37px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            /*margin-top: 20px;*/
+        }
+        table {
+            margin: 11px 0;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 2px 8px;
+            /*border: 1px solid #000;*/
+            text-align: center;
+            
+        }
+
+        #controls {
+            margin-bottom: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: fit-content;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .color-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .color-box {
+            width: 25px;
+            height: 25px;
+            margin: 4px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+
+            .color-box:hover {
+                border: 1px solid #000;
+            }
+
+        .rowss {
+            display: flex;
+            justify-content: space-between;
+        }
+        .tdcolor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+        }
+    </style>
+}
+
+<div class="side-app">
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+
+        <!-- PAGE-HEADER -->
+        @*<div class="page-header">
+            <div>
+                <h1 class="page-title">Product Information</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">E-Commerce</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Product Information</li>
+                </ol>
+            </div>
+
+        </div>*@
+        <!-- PAGE-HEADER END -->
+        <!-- ROW-1 OPEN -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Add Product Information</div>
+                    </div>
+                    @using (Html.BeginForm("ProductImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="card shadow" style="margin: 20px;">
+                                            <div class="card-header">
+                                                <h3 class="mb-0 card-title">File Upload with limit size of 1M</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="File" name="File" class="dropify" data-max-file-size="1M">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6" style="align-content: center; padding: 44px; }">
+                                        <div class="row">
+
+                                            <label class="col-md-4 form-label">Select Product :</label>
+                                            <div class="col-md-8 rowss">
+                                                <div id="controls">
+                                                    @Html.TextBox("Color", null, new { @class = "form-control", @id = "colorInput", Placeholder = "Click to select color", required = "required" })
+                                                    @Html.ValidationMessage("Color", null, new { @class = "text-danger" })
+                                                </div>
+                                                <div id="colorDisplay">Selected color</div>
+
+                                                <!-- The Modal -->
+                                                <div id="colorModal" class="modal">
+                                                    <div class="modal-content">
+                                                        <span class="close">&times;</span>
+                                                        <div class="color-grid" id="colorGrid"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <button class="btn btn-primary" id="AddInformation">Add Image</button>
+
+
+                            </div>
+                        </div>
+                    }
+                    <div class="card-footer" style="margin: 10px;">
+                        <table>
+                            <thead>
+                                <tr class="header">
+                                    <th>S.No</th>
+                                    <th>Image</th>
+                                    <th>Color</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.SelectImage != null)
+                                {
+                                    foreach (var items in ViewBag.SelectImage)
+                                    {
+                                        <tr>
+                                            <td>@serialNumber</td>
+                                            <td><img src="@items.Image" alt="img" style=" width: 195px; height: 111px;"/></td>
+                                            <td class="tdcolor"><div style="background-color: @items.Color; height: 35px; width: 35px; border-radius:50%;"></div></td>
+                                            <td><button class="btn btn-primary" onclick="Confirmation('@items.ID')"style=" padding: 3px 24px; background-color: red !important; margin: 5px;">Delete</button></td>
+                                        </tr>
+
+                                        serialNumber++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <!--Row-->
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <button class="btn btn-primary" onclick="ConfirmFinish()">Finish</button>
+
+
+                            </div>
+                        </div>
+                        <!--End Row-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Ensure ViewBag.SelectColor is correctly formatted as JSON
+    const colors = @Html.Raw(Json.Encode(ViewBag.SelectColor));
+
+    function populateColorGrid() {
+        const colorGrid = document.getElementById('colorGrid');
+        colorGrid.innerHTML = ''; // Clear existing colors
+
+        // Check if colors variable is populated
+        if (!colors || !Array.isArray(colors)) {
+            console.error('No valid color data found');
+            return;
+        }
+
+        colors.forEach(colorObject => {
+            const colorValue = colorObject.Value;
+            const colorBox = document.createElement('div');
+            colorBox.className = 'color-box';
+
+            if (colorValue) {
+                colorBox.style.backgroundColor = colorValue;
+                colorBox.dataset.color = colorValue;
+            } else {
+                colorBox.style.backgroundColor = 'transparent'; // Or any placeholder color
+                colorBox.dataset.color = '';
+                colorBox.innerText = 'No Color'; // Optional: Text to indicate no color
+                colorBox.style.border = '1px solid #000'; // Optional: Visual indicator for no color
+            }
+
+            colorBox.onclick = function () {
+                document.getElementById('colorDisplay').style.backgroundColor = colorValue || 'transparent';
+                document.getElementById('colorInput').value = colorValue || '';
+                closeModal();
+            };
+
+            colorGrid.appendChild(colorBox);
+        });
+    }
+
+    function openModal() {
+        document.getElementById('colorModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('colorModal').style.display = 'none';
+    }
+
+    document.getElementById('colorInput').addEventListener('click', openModal);
+    document.getElementsByClassName('close')[0].addEventListener('click', closeModal);
+
+    window.addEventListener('click', function (event) {
+        if (event.target === document.getElementById('colorModal')) {
+            closeModal();
+        }
+    });
+
+    // Initialize the color grid
+    populateColorGrid();
+</script>
+
+<script>
+function ConfirmFinish() {
+    // Using Razor to inject the ViewBag values
+    var SellerID = '@ViewBag.sellerID';
+
+    // Construct the new URL using template literals
+    var newUrl = `/AddProduct/${SellerID}`;
+
+    // Display the Swal confirmation dialog
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Once you Finish Your Product Is added Online",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Finish!"
+    }).then((result) => {
+        // If the user confirms, redirect to the new URL
+        if (result.isConfirmed) {
+            window.location.href = newUrl;
+        }
+    });
+}
+
+</script>
+
+<script>
+    function Confirmation(ID) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '@Url.Action("DeleteProductImage", "Home")',
+                type: 'POST',
+                data: { ID: ID }, // Pass data as an object
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error deleting inventory:', error);
+                }
+            });
+        }
+    });
+}
+
+</script>

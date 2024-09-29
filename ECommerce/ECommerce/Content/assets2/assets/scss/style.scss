@@ -1,0 +1,157 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project        :   Yoha - html5 bootstrap admin template
+Version        :   V.2
+Create Date    :   19/08/22
+Copyright      :   Spruko Technologies Private Limited 
+Author         :   Spruko
+Author URL     :   https://themeforest.net/user/spruko
+Support		     :   support@spruko.com
+License        :   Licensed under ThemeForest License
+
+-------------------------------------------------------------------*/
+
+/* ------ Table Of Contents
+	* Bootstrap Framework
+	* Alignments
+	* Widths, Margins & Paddings
+	* Alignments & values
+	* Tables
+	* Forms
+	* Buttons
+	* Drop Downs
+	* Loader
+	* Custom control
+	* Navigation
+	* Card
+	* Email services
+	* Range slider
+	* Pricing tables
+	* Pricing Styles
+	* Tooptip &popover
+	* Typography
+	* Charts styles
+	* Media object
+	* Breadcrumb
+	* Accordion
+	* List Of Dropdwons
+	* Badges
+	* Alerts
+	* Progress
+	* Lists
+	* Modal
+	* Carousel
+	* Footer
+	* Background colors
+	* Btn styles
+	* Panel
+	* Thumbnails
+	* Default Card Values
+	* Avatars
+	* progress sizes
+	* Email
+	* Loaders
+	* Profile
+	* Icon input
+	* Tags
+	* Date Picker
+	* Back to Top
+	* Time line
+	* Icons List
+	* Gallery
+	* Feather icons
+	
+*/
+
+@import "custom/fonts/fonts";
+
+
+/* ###### bootstrap ####### */
+@import "variables";
+@import "bootstrap/bootstrap-styles";
+@import "bootstrap/accordion";
+@import "bootstrap/avatar";
+@import "bootstrap/alerts";
+@import "bootstrap/badge";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/buttons";
+@import "bootstrap/card";
+@import "bootstrap/dropdown";
+@import "bootstrap/forms";
+@import "bootstrap/grid";
+@import "bootstrap/input-group";
+@import "bootstrap/media";
+@import "bootstrap/modal";
+@import "bootstrap/nav";
+@import "bootstrap/pagination";
+@import "bootstrap/panels";
+@import "bootstrap/popover";
+@import "bootstrap/progress";
+@import "bootstrap/tables";
+@import "bootstrap/tooltip";
+
+
+/* ###### custom ####### */
+
+@import "custom/carousel";
+@import "custom/custom";
+@import "custom/custom-range";
+@import "custom/custom-styles";
+@import "custom/custom-switch";
+@import "custom/icons";
+@import "custom/image";
+@import "custom/list";
+@import "custom/navbar";
+@import "custom/pricing";
+@import "custom/rating";
+@import "custom/selectgroup";
+@import "custom/sidebar";
+@import "custom/tags";
+@import "custom/timeline";
+@import "custom/wizard";
+
+
+/* ###### layout ####### */
+
+@import "layout/components-col";
+@import "layout/footer";
+@import "layout/headers";
+@import "layout/horizontal-menu";
+@import "layout/rtl";
+@import "layout/sidemenu";
+@import "layout/dark-style";
+@import "layout/skin-modes";
+
+
+/* ###### lib ####### */
+
+@import "lib/chart";
+@import "lib/datepicker";
+@import "lib/jqmap";
+@import "lib/maps";
+@import "lib/rangeslider";
+@import "lib/select2";
+/* ###### template ####### */
+
+@import "template/colors";
+@import "template/calendar";
+@import "template/chat";
+@import "template/contacts";
+@import "template/error";
+@import "template/mail";
+@import "template/profile";
+@import "template/filemanager";
+
+
+
+/* ######  util ###### */
+
+@import "util/background";
+@import "util/border";
+@import "util/height";
+@import "util/margin";
+@import "util/padding";
+@import "util/position";
+@import "util/typography";
+@import "util/width";

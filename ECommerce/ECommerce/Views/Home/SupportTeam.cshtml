@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@{
+    ViewBag.Title = "SupportTeam";
+}
+@section Page_Level_Css{
+    <link href="~/Content/assets/CustomCss/newstyle.css" rel="stylesheet" />
+    <style>
+        .boxbr {
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            margin: 25px;
+            padding: 10px;
+        }
+
+        .disarr {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .section-tb-padding {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .home-about .home-about-area .about-text h1.title span.bold-text {
+            display: block;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    </style>
+}
+
+@*-------------------------------------customer Service-------------------------------*@
+
+<section class="home-about section-tb-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="home-about-area">
+                    <div class="about-image">
+                        <span>
+                            <img src="~/Content/assets/Custom_Image/SupportTeam.png" class="img-fluid" alt="image">
+                        </span>
+                    </div>
+                    <div class="about-text">
+                        <span class="sub-title">Our Support Team</span>
+                        <h1 class="title">
+                            <span class="bold-text">Always There To Support You </span>
+
+                        </h1>
+                        <p class="description">All Working Days & 24X7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="footer-one section-tb-padding">
+    <div class="container">
+        <div class="disarr">
+
+            <div class="footer-service section-b-padding">
+                <ul class="service-ul disarr">
+                    <li class="service-li boxbr">
+
+                        <img src="~/Content/assets/Custom_Image/Box.png" style="height: 75px;" />
+                        <span>&nbsp; Your Product</span>
+
+                    </li>
+                    <li class="service-li boxbr">
+                        <img src="~/Content/assets/Custom_Image/ReturnRefund.jpg" style="height: 75px;" />
+                        <span>&nbsp; Returns and &nbsp;Refunds Policy</span>
+                    </li>
+                    <li class="service-li boxbr">
+                        <img src="~/Content/assets/Custom_Image/Box.png" style="height: 75px;" />
+                        <span> &nbsp;Manage Your Product</span>
+                    </li>
+                    <li class="service-li boxbr">
+                        <img src="~/Content/assets/Custom_Image/account_setting.png" style="height: 75px;" />
+                        <span>&nbsp;Account Setting</span>
+                    </li>
+                    <li class="service-li boxbr">
+                        <img src="~/Content/assets/Custom_Image/Payments_setting.png" style="height: 75px;" />
+                        <span>&nbsp;Payment Setting</span>
+                    </li>
+                    <li class="service-li boxbr">
+                        <img src="~/Content/assets/Custom_Image/family_device.png" style="height: 75px;" />
+                        <span>&nbsp;Digital Services and Device Support</span>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+

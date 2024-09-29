@@ -1,0 +1,783 @@
+﻿
+@model E_Commerce.Models.AddSubInventory
+
+@{
+    ViewBag.Title = "ProductInfo";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+@{
+    int serialNumber = 1;
+}
+@section Page_Level_Css{
+    <style>
+
+
+        h1 {
+            font-weight: 400;
+            padding-top: 0;
+            margin-top: 0;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        #svg_form_time {
+            height: 15px;
+            max-width: 80%;
+            margin: 20px auto 20px;
+            display: block;
+        }
+
+            #svg_form_time circle,
+            #svg_form_time rect {
+                fill: white;
+            }
+
+        table {
+            margin: 11px 0;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 0px 38px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        #colorDisplay {
+            position: relative;
+            width: 106px;
+            height: 37px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            /*margin-top: 20px;*/
+        }
+
+        #controls {
+            margin-bottom: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .color-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .color-box {
+            width: 25px;
+            height: 25px;
+            margin: 4px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+
+            .color-box:hover {
+                border: 1px solid #000;
+            }
+
+        .rowss {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+
+}
+
+<div class="side-app">
+
+    <!-- CONTAINER -->
+    <div class="main-container container-fluid">
+
+        <!-- PAGE-HEADER -->
+        @*<div class="page-header">
+            <div>
+                <h1 class="page-title">Product Information</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">E-Commerce</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Product Information</li>
+                </ol>
+            </div>
+
+        </div>*@
+        <!-- PAGE-HEADER END -->
+        <!-- ROW-1 OPEN -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Add Product Information</div>
+                    </div>
+                    <form>
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <label class="col-md-2 form-label">Size :</label>
+                                <div class="col-md-4">
+
+                                    @Html.TextBox("Size", null, new { @class = "form-control", @id = "size" })
+                                    @Html.ValidationMessage("Size", null, new { @class = "text-danger" })
+
+                                </div>
+
+                                <label class="col-md-2 form-label">Color :</label>
+                                <div class="col-md-4 rowss">
+
+                                    <div id="controls">
+                                        @Html.TextBox("Color", null, new { @class = "form-control", @id = "colorInput", Placeholder = "Click to select color" }) 
+
+                                        @Html.ValidationMessage("Color", null, new { @class = "text-danger" })
+                                    </div>
+                                    <div id="colorDisplay">Selected color</div>
+
+                                    <!-- The Modal -->
+                                    <div id="colorModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <div class="color-grid" id="colorGrid"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-md-2 form-label">Capacity :</label>
+                                <div class="col-md-4">
+
+                                    @Html.TextBox("Capacity", null, new { @class = "form-control", @id = "capacity" })
+                                    @Html.ValidationMessage("Capacity", null, new { @class = "text-danger" })
+
+                                </div>
+                                <label class="col-md-2 form-label">Number of Pieces :</label>
+                                <div class="col-md-4">
+
+                                    @Html.TextBox("Number of Pieces", null, new { @class = "form-control", @id = "noofpcs", Type = "number", min = "0", required = "required" })
+                                    @Html.ValidationMessage("Number of Pieces", null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <label class="col-md-2 form-label">Price :</label>
+                                <div class="col-md-4">
+
+                                    @Html.TextBox("Price", null, new { @class = "form-control", @id = "price", Type = "number", min = "0", required = "required" })
+                                    @Html.ValidationMessage("Price", null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <!--Row-->
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    <button class="btn btn-primary" id="AddInformation">Add Information</button>
+
+
+                                </div>
+                            </div>
+                            <!--End Row-->
+
+                        </div>
+                    </form>
+                    <div class="card-footer">
+                        <table>
+                            <thead>
+                                <tr class="header">
+                                    <th>S.No</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
+                                    <th>Price</th>
+                                    <th>Capacity</th>
+                                    <th>Number of Pieces</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.SubInventory != null)
+                                {
+                                    foreach (var items in ViewBag.SubInventory)
+                                    {
+                                        <tr>
+                                            <td>@serialNumber</td>
+                                            <td>@items.size</td>
+                                            <td><div class="pcolor" style="background-color: @items.color; height: 25px; border-radius: 50%; width: 25px;"></div></td>
+                                            <td>@items.price</td>
+                                            <td>@items.capacity</td>
+                                            <td>@items.piece</td>
+                                            <td><button class="btn btn-primary" onclick="Confirmation('@items.PSIID')" style=" padding: 3px 24px; background-color: red !important; margin: 5px; }">Delete</button></td>
+                                        </tr>
+
+                                        serialNumber++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <!--Row-->
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <button class="btn btn-primary" onclick="ConfirmNext()">Next</button>
+
+
+                            </div>
+                        </div>
+                        <!--End Row-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ROW-1 CLOSED -->
+
+    </div>
+    <!-- CONTAINER CLOSED -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+      $(document).ready(function () {
+        let serialNumber = 1; // Initialize serial number
+
+        $('#AddInformation').click(function () {
+            // Get the values from the elements
+            var size = document.getElementById("size") ? document.getElementById("size").value : null;
+            var color = document.getElementById("colorInput") ? document.getElementById("colorInput").value : null;
+            var capacity = document.getElementById("capacity") ? document.getElementById("capacity").value : null;
+            var piece = document.getElementById("noofpcs") ? document.getElementById("noofpcs").value : null;
+            var price = document.getElementById("price") ? document.getElementById("price").value : null;
+
+            // Validation checks
+            if (!color || !piece || piece <= 0 || !price) {
+                alert("Color,Price and Number of Pieces must be filled and Number of Pieces is greater than 0.");
+                return; // Exit the click handler if validation fails
+            }
+
+            // Create the data object with the variables
+            var data = {
+                size: size,
+                color: color,
+                capacity: capacity,
+                piece: piece,
+                price: price,
+                InventoryID: '@ViewBag.Value1',
+                ProductID: '@ViewBag.Value2'
+            };
+
+            $.ajax({
+                url: '@Url.Action("AddSubInventory", "Home")',
+                type: 'POST',
+                data: data,
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error adding inventory:', error);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    const colors = [{
+        name: 'Red',
+        camel: 'red',
+        colors: [
+            { name: '50', hex: 'FFEBEE' },
+            { name: '100', hex: 'FFCDD2' },
+            { name: '200', hex: 'EF9A9A' },
+            { name: '300', hex: 'E57373' },
+            { name: '400', hex: 'EF5350' },
+            { name: '500', hex: 'F44336' },
+            { name: '600', hex: 'E53935' },
+            { name: '700', hex: 'D32F2F' },
+            { name: '800', hex: 'C62828' },
+            { name: '900', hex: 'B71C1C' },
+            { name: 'A100', hex: 'FF8A80' },
+            { name: 'A200', hex: 'FF5252' },
+            { name: 'A400', hex: 'FF1744' },
+            { name: 'A700', hex: 'D50000' }
+        ]
+    }, {
+        name: 'Pink',
+        camel: 'pink',
+        colors: [
+            { name: '50', hex: 'FCE4EC' },
+            { name: '100', hex: 'F8BBD0' },
+            { name: '200', hex: 'F48FB1' },
+            { name: '300', hex: 'F06292' },
+            { name: '400', hex: 'EC407A' },
+            { name: '500', hex: 'E91E63' },
+            { name: '600', hex: 'D81B60' },
+            { name: '700', hex: 'C2185B' },
+            { name: '800', hex: 'AD1457' },
+            { name: '900', hex: '880E4F' },
+            { name: 'A100', hex: 'FF80AB' },
+            { name: 'A200', hex: 'FF4081' },
+            { name: 'A400', hex: 'F50057' },
+            { name: 'A700', hex: 'C51162' }
+        ]
+    }, {
+        name: 'Purple',
+        camel: 'purple',
+        colors: [
+            { name: '50', hex: 'F3E5F5' },
+            { name: '100', hex: 'E1BEE7' },
+            { name: '200', hex: 'CE93D8' },
+            { name: '300', hex: 'BA68C8' },
+            { name: '400', hex: 'AB47BC' },
+            { name: '500', hex: '9C27B0' },
+            { name: '600', hex: '8E24AA' },
+            { name: '700', hex: '7B1FA2' },
+            { name: '800', hex: '6A1B9A' },
+            { name: '900', hex: '4A148C' },
+            { name: 'A100', hex: 'EA80FC' },
+            { name: 'A200', hex: 'E040FB' },
+            { name: 'A400', hex: 'D500F9' },
+            { name: 'A700', hex: 'AA00FF' }
+        ]
+    }, {
+        name: 'Deep Purple',
+        camel: 'deepPurple',
+        colors: [
+            { name: '50', hex: 'EDE7F6' },
+            { name: '100', hex: 'D1C4E9' },
+            { name: '200', hex: 'B39DDB' },
+            { name: '300', hex: '9575CD' },
+            { name: '400', hex: '7E57C2' },
+            { name: '500', hex: '673AB7' },
+            { name: '600', hex: '5E35B1' },
+            { name: '700', hex: '512DA8' },
+            { name: '800', hex: '4527A0' },
+            { name: '900', hex: '311B92' },
+            { name: 'A100', hex: 'B388FF' },
+            { name: 'A200', hex: '7C4DFF' },
+            { name: 'A400', hex: '651FFF' },
+            { name: 'A700', hex: '6200EA' }
+        ]
+    }, {
+        name: 'Indigo',
+        camel: 'indigo',
+        colors: [
+            { name: '50', hex: 'E8EAF6' },
+            { name: '100', hex: 'C5CAE9' },
+            { name: '200', hex: '9FA8DA' },
+            { name: '300', hex: '7986CB' },
+            { name: '400', hex: '5C6BC0' },
+            { name: '500', hex: '3F51B5' },
+            { name: '600', hex: '3949AB' },
+            { name: '700', hex: '303F9F' },
+            { name: '800', hex: '283593' },
+            { name: '900', hex: '1A237E' },
+            { name: 'A100', hex: '8C9EFF' },
+            { name: 'A200', hex: '536DFE' },
+            { name: 'A400', hex: '3D5AFE' },
+            { name: 'A700', hex: '304FFE' }
+        ]
+    }, {
+        name: 'Blue',
+        camel: 'blue',
+        colors: [
+            { name: '50', hex: 'E3F2FD' },
+            { name: '100', hex: 'BBDEFB' },
+            { name: '200', hex: '90CAF9' },
+            { name: '300', hex: '64B5F6' },
+            { name: '400', hex: '42A5F5' },
+            { name: '500', hex: '2196F3' },
+            { name: '600', hex: '1E88E5' },
+            { name: '700', hex: '1976D2' },
+            { name: '800', hex: '1565C0' },
+            { name: '900', hex: '0D47A1' },
+            { name: 'A100', hex: '82B1FF' },
+            { name: 'A200', hex: '448AFF' },
+            { name: 'A400', hex: '2979FF' },
+            { name: 'A700', hex: '2962FF' }
+        ]
+    }, {
+        name: 'Light Blue',
+        camel: 'lightBlue',
+        colors: [
+            { name: '50', hex: 'E1F5FE' },
+            { name: '100', hex: 'B3E5FC' },
+            { name: '200', hex: '81D4FA' },
+            { name: '300', hex: '4FC3F7' },
+            { name: '400', hex: '29B6F6' },
+            { name: '500', hex: '03A9F4' },
+            { name: '600', hex: '039BE5' },
+            { name: '700', hex: '0288D1' },
+            { name: '800', hex: '0277BD' },
+            { name: '900', hex: '01579B' },
+            { name: 'A100', hex: '80D8FF' },
+            { name: 'A200', hex: '40C4FF' },
+            { name: 'A400', hex: '00B0FF' },
+            { name: 'A700', hex: '0091EA' }
+        ]
+    }, {
+        name: 'Cyan',
+        camel: 'cyan',
+        colors: [
+            { name: '50', hex: 'E0F7FA' },
+            { name: '100', hex: 'B2EBF2' },
+            { name: '200', hex: '80DEEA' },
+            { name: '300', hex: '4DD0E1' },
+            { name: '400', hex: '26C6DA' },
+            { name: '500', hex: '00BCD4' },
+            { name: '600', hex: '00ACC1' },
+            { name: '700', hex: '0097A7' },
+            { name: '800', hex: '00838F' },
+            { name: '900', hex: '006064' },
+            { name: 'A100', hex: '84FFFF' },
+            { name: 'A200', hex: '18FFFF' },
+            { name: 'A400', hex: '00E5FF' },
+            { name: 'A700', hex: '00B8D4' }
+        ]
+    }, {
+        name: 'Teal',
+        camel: 'teal',
+        colors: [
+            { name: '50', hex: 'E0F2F1' },
+            { name: '100', hex: 'B2DFDB' },
+            { name: '200', hex: '80CBC4' },
+            { name: '300', hex: '4DB6AC' },
+            { name: '400', hex: '26A69A' },
+            { name: '500', hex: '009688' },
+            { name: '600', hex: '00897B' },
+            { name: '700', hex: '00796B' },
+            { name: '800', hex: '00695C' },
+            { name: '900', hex: '004D40' },
+            { name: 'A100', hex: 'A7FFEB' },
+            { name: 'A200', hex: '64FFDA' },
+            { name: 'A400', hex: '1DE9B6' },
+            { name: 'A700', hex: '00BFA5' }
+        ]
+    }, {
+        name: 'Green',
+        camel: 'green',
+        colors: [
+            { name: '50', hex: 'E8F5E9' },
+            { name: '100', hex: 'C8E6C9' },
+            { name: '200', hex: 'A5D6A7' },
+            { name: '300', hex: '81C784' },
+            { name: '400', hex: '66BB6A' },
+            { name: '500', hex: '4CAF50' },
+            { name: '600', hex: '43A047' },
+            { name: '700', hex: '388E3C' },
+            { name: '800', hex: '2E7D32' },
+            { name: '900', hex: '1B5E20' },
+            { name: 'A100', hex: 'B9F6CA' },
+            { name: 'A200', hex: '69F0AE' },
+            { name: 'A400', hex: '00E676' },
+            { name: 'A700', hex: '00C853' }
+        ]
+    }, {
+        name: 'Light Green',
+        camel: 'lightGreen',
+        colors: [
+            { name: '50', hex: 'F1F8E9' },
+            { name: '100', hex: 'DCEDC8' },
+            { name: '200', hex: 'C5E1A5' },
+            { name: '300', hex: 'AED581' },
+            { name: '400', hex: '9CCC65' },
+            { name: '500', hex: '8BC34A' },
+            { name: '600', hex: '7CB342' },
+            { name: '700', hex: '689F38' },
+            { name: '800', hex: '558B2F' },
+            { name: '900', hex: '33691E' },
+            { name: 'A100', hex: 'CCFF90' },
+            { name: 'A200', hex: 'B2FF59' },
+            { name: 'A400', hex: '76FF03' },
+            { name: 'A700', hex: '64DD17' }
+        ]
+    }, {
+        name: 'Lime',
+        camel: 'lime',
+        colors: [
+            { name: '50', hex: 'F9FBE7' },
+            { name: '100', hex: 'F0F4C3' },
+            { name: '200', hex: 'E6EE9C' },
+            { name: '300', hex: 'DCE775' },
+            { name: '400', hex: 'D4E157' },
+            { name: '500', hex: 'CDDC39' },
+            { name: '600', hex: 'C0CA33' },
+            { name: '700', hex: 'AFB42B' },
+            { name: '800', hex: '9E9D24' },
+            { name: '900', hex: '827717' },
+            { name: 'A100', hex: 'F4FF81' },
+            { name: 'A200', hex: 'EEFF41' },
+            { name: 'A400', hex: 'C6FF00' },
+            { name: 'A700', hex: 'AEEA00' }
+        ]
+    }, {
+        name: 'Yellow',
+        camel: 'yellow',
+        colors: [
+            { name: '50', hex: 'FFFDE7' },
+            { name: '100', hex: 'FFF9C4' },
+            { name: '200', hex: 'FFF59D' },
+            { name: '300', hex: 'FFF176' },
+            { name: '400', hex: 'FFEE58' },
+            { name: '500', hex: 'FFEB3B' },
+            { name: '600', hex: 'FDD835' },
+            { name: '700', hex: 'FBC02D' },
+            { name: '800', hex: 'F9A825' },
+            { name: '900', hex: 'F57F17' },
+            { name: 'A100', hex: 'FFFF8D' },
+            { name: 'A200', hex: 'FFFF00' },
+            { name: 'A400', hex: 'FFEA00' },
+            { name: 'A700', hex: 'FFD600' }
+        ]
+    }, {
+        name: 'Amber',
+        camel: 'amber',
+        colors: [
+            { name: '50', hex: 'FFF8E1' },
+            { name: '100', hex: 'FFECB3' },
+            { name: '200', hex: 'FFE082' },
+            { name: '300', hex: 'FFD54F' },
+            { name: '400', hex: 'FFCA28' },
+            { name: '500', hex: 'FFC107' },
+            { name: '600', hex: 'FFB300' },
+            { name: '700', hex: 'FFA000' },
+            { name: '800', hex: 'FF8F00' },
+            { name: '900', hex: 'FF6F00' },
+            { name: 'A100', hex: 'FFE57F' },
+            { name: 'A200', hex: 'FFD740' },
+            { name: 'A400', hex: 'FFC400' },
+            { name: 'A700', hex: 'FFAB00' }
+        ]
+    }, {
+        name: 'Orange',
+        camel: 'orange',
+        colors: [
+            { name: '50', hex: 'FFF3E0' },
+            { name: '100', hex: 'FFE0B2' },
+            { name: '200', hex: 'FFCC80' },
+            { name: '300', hex: 'FFB74D' },
+            { name: '400', hex: 'FFA726' },
+            { name: '500', hex: 'FF9800' },
+            { name: '600', hex: 'FB8C00' },
+            { name: '700', hex: 'F57C00' },
+            { name: '800', hex: 'EF6C00' },
+            { name: '900', hex: 'E65100' },
+            { name: 'A100', hex: 'FFD180' },
+            { name: 'A200', hex: 'FFAB40' },
+            { name: 'A400', hex: 'FF9100' },
+            { name: 'A700', hex: 'FF6D00' }
+        ]
+    }, {
+        name: 'Deep Orange',
+        camel: 'deepOrange',
+        colors: [
+            { name: '50', hex: 'FBE9E7' },
+            { name: '100', hex: 'FFCCBC' },
+            { name: '200', hex: 'FFAB91' },
+            { name: '300', hex: 'FF8A65' },
+            { name: '400', hex: 'FF7043' },
+            { name: '500', hex: 'FF5722' },
+            { name: '600', hex: 'F4511E' },
+            { name: '700', hex: 'E64A19' },
+            { name: '800', hex: 'D84315' },
+            { name: '900', hex: 'BF360C' },
+            { name: 'A100', hex: 'FF9E80' },
+            { name: 'A200', hex: 'FF6E40' },
+            { name: 'A400', hex: 'FF3D00' },
+            { name: 'A700', hex: 'DD2C00' }
+        ]
+    }, {
+        name: 'Brown',
+        camel: 'brown',
+        colors: [
+            { name: '50', hex: 'EFEBE9' },
+            { name: '100', hex: 'D7CCC8' },
+            { name: '200', hex: 'BCAAA4' },
+            { name: '300', hex: 'A1887F' },
+            { name: '400', hex: '8D6E63' },
+            { name: '500', hex: '795548' },
+            { name: '600', hex: '6D4C41' },
+            { name: '700', hex: '5D4037' },
+            { name: '800', hex: '4E342E' },
+            { name: '900', hex: '3E2723' }
+        ]
+    }, {
+        name: 'Grey',
+        camel: 'grey',
+        colors: [
+            { name: '50', hex: 'FAFAFA' },
+            { name: '100', hex: 'F5F5F5' },
+            { name: '200', hex: 'EEEEEE' },
+            { name: '300', hex: 'E0E0E0' },
+            { name: '400', hex: 'BDBDBD' },
+            { name: '500', hex: '9E9E9E' },
+            { name: '600', hex: '757575' },
+            { name: '700', hex: '616161' },
+            { name: '800', hex: '424242' },
+            { name: '900', hex: '212121' }
+        ]
+    }, {
+        name: 'Blue Grey',
+        camel: 'blueGrey',
+        colors: [
+            { name: '50', hex: 'ECEFF1' },
+            { name: '100', hex: 'CFD8DC' },
+            { name: '200', hex: 'B0BEC5' },
+            { name: '300', hex: '90A4AE' },
+            { name: '400', hex: '78909C' },
+            { name: '500', hex: '607D8B' },
+            { name: '600', hex: '546E7A' },
+            { name: '700', hex: '455A64' },
+            { name: '800', hex: '37474F' },
+            { name: '900', hex: '263238' }
+        ]
+    }, {
+        name: 'Misc',
+        camel: '',
+        colors: [
+            { name: 'white', hex: 'FFFFFF', x: 19, y: 0 },
+            { name: 'black', hex: '000000', x: 19, y: 1 }
+        ]
+    }];
+    // Add more colors as needed
+
+
+    // Populate the color grid in the modal
+    function populateColorGrid() {
+        const colorGrid = document.getElementById('colorGrid');
+        colorGrid.innerHTML = ''; // Clear existing colors
+        colors.forEach(colorCategory => {
+            colorCategory.colors.forEach(color => {
+                const colorBox = document.createElement('div');
+                colorBox.className = 'color-box';
+                colorBox.style.backgroundColor = `#${color.hex}`;
+                colorBox.dataset.color = color.hex;
+                colorBox.onclick = function () {
+                    document.getElementById('colorDisplay').style.backgroundColor = `#${color.hex}`;
+                    document.getElementById('colorInput').value = `#${color.hex}`;
+                    closeModal();
+                };
+                colorGrid.appendChild(colorBox);
+            });
+        });
+    }
+
+    // Open the modal
+    function openModal() {
+        document.getElementById('colorModal').style.display = 'block';
+    }
+
+    // Close the modal
+    function closeModal() {
+        document.getElementById('colorModal').style.display = 'none';
+    }
+
+    // Event listeners
+    document.getElementById('colorInput').addEventListener('click', openModal);
+    document.getElementsByClassName('close')[0].addEventListener('click', closeModal);
+    window.addEventListener('click', function (event) {
+        if (event.target == document.getElementById('colorModal')) {
+            closeModal();
+        }
+    });
+
+    // Initialize the color grid
+    populateColorGrid();
+</script>
+
+
+<script>
+function ConfirmNext() {
+    // Using Razor to inject the ViewBag values
+    var ProductID = '@ViewBag.Value4';
+    var InventoryID = '@ViewBag.Value3';
+
+    // Construct the new URL using Razor's Url.Action helper
+    var newUrl = '@Url.Action("ProductImage", "Home", new { productId = "__ProductID__", inventoryId = "__InventoryID__" })';
+    newUrl = newUrl.replace('__ProductID__', ProductID).replace('__InventoryID__', InventoryID);
+
+    // Display the Swal confirmation dialog
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to get Back to this page Again",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Next!"
+    }).then((result) => {
+        // If the user confirms, redirect to the new URL
+        if (result.isConfirmed) {
+            window.location.href = newUrl;
+        }
+    });
+}
+
+</script>
+
+<script>
+  function Confirmation(PSIID) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '@Url.Action("DeleteSubInventory", "Home")',
+                type: 'POST',
+                data: { PSIID: PSIID }, // Pass data as an object
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error deleting inventory:', error);
+                }
+            });
+        }
+    });
+}
+
+
+</script>
