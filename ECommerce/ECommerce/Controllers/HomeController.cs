@@ -24,13 +24,10 @@ using ECommerce.Models;
 using System.Text.RegularExpressions;
 using System.Drawing.Drawing2D;
 
-
-
 namespace E_Commerce.Controllers
 {
     public class HomeController : Controller
     {
-
         private Utility ul = new Utility();
 
         //----------------------------------JSONS-----------------------------------------------
@@ -866,7 +863,6 @@ namespace E_Commerce.Controllers
                 var data = ul.func_ExecuteNonQuery("EditCustomerDetailName", param1);
                 if (data > 0)
                 {
-
                     return Json(new { success = true, message = "Name updated successfully!" });
                 }
                 else
